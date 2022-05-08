@@ -14,4 +14,80 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cCentroSalud.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cDonante.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cFecha.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cINCUCAI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cLista.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cOrgano.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cPaciente.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cReceptor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cVehiculo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cCentroSalud.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cDonante.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cFecha.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cINCUCAI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cLista.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cOrgano.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cPaciente.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cReceptor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eVehiculo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ePrioridad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eOrgano.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eTipoSangre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cVehiculo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gbl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
