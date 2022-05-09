@@ -16,7 +16,14 @@ cLista<T>::cLista(sh size, bool _checkEliminar) {
 
 template <typename T>
 cLista<T>::~cLista() {
-	// no tengo algo que eliminar
+	if (this->checkEliminar) {
+		for (ush i = 0; i < cantActual; i++)
+			if (this->lista[i])
+				delete this->lista[i];
+	} else
+		throw exception("Error: No se puede destruir la lista si no se le da el permiso para eliminarlo");
+	delete[] this->lista;
+	
 }
 
 template <typename T>
@@ -61,6 +68,17 @@ void cLista<T>::ordenar() {
 		for (ush j = i; j < this->cantActual - 1; j++)
 			if (!this->lista[i])
 				swap(this->lista[j], this->lista[j + 1]);
+}
+
+template <typename T>
+string cLista<T>::to_string() const {
+	stringstream stc;
+	stc << "Checkeo de eliminar (true / si) (false / no): " << this->checkEliminar << endl;
+	stc << "Cantidad total de elementos: " << this->cantActual << endl;
+	stc << "Cantidad actual de elementos: " << this->cantTotal << endl;
+	for (ush i = 0; i < this->cantActual; i++) {
+		stc << "Elemento [" << i << "]" << endl << lista[i]->to_string() << endl;
+	}
 }
 
 template <typename T>

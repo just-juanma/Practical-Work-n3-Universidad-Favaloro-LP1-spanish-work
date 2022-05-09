@@ -84,6 +84,8 @@ class cLista
             throw exception("Se esta intentando acceder a un elemento imposible de acceder");
         }
         
+        string to_string() const;
+
         #pragma endregion
 
     protected: 
