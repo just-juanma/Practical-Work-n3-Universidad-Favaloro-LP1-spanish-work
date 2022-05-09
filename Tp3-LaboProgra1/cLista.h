@@ -25,7 +25,7 @@ class cLista
 
         #pragma endregion
         
-        #pragma region metodos
+        #pragma region Metodos
 
         /// <summary>
         /// Aagrega un elemento a la lista
@@ -58,25 +58,37 @@ class cLista
         /// </summary>
         /// <param name="elemento">: Elemento a agregar</param>
         /// <returns>Lista nueva con el elemento agregado</returns>
-        cLista* operator+(T& elemento);
+        cLista* operator+(T& elemento) {
+            if (agregar(&elemento))
+                return this;
+        }
 
         /// <summary>
         /// Sobrecarga del operador - para quitar elementos a la lista
         /// </summary>
         /// <param name="elemento">: Elemento a quitar</param>
         /// <returns>Lista nueva con el elemento quitado</returns>
-        cLista* operator-(T& elemento);
+        cLista* operator-(T& elemento) {
+            if (quitar(&elemento))
+                return this;
+        }
         
         /// <summary>
         /// Accede a la i-nesima posicion de la lista y la devuelve
         /// </summary>
         /// <param name="i">: i-esima posicion a la que se busca acceder</param>
         /// <returns></returns>
-        cLista* operator[](sh i);
+        cLista* operator[](sh i) {
+            if (i >= 0 && i < cantActual)
+                return this->lista[i];
+            throw exception("Se esta intentando acceder a un elemento imposible de acceder");
+        }
         
         #pragma endregion
 
     protected: 
+
+        #pragma region Funciones_Auxiliares
 
         template <typename cPaciente>
         bool isValidPaciente(cPaciente* posiblePaciente) const {
@@ -88,7 +100,9 @@ class cLista
 
         void ordenar();
 
-        #pragma region atributos
+        #pragma endregion
+
+        #pragma region Atributos
 
         T** lista;
         ush cantActual;
@@ -101,6 +115,7 @@ class cLista
 
 #endif // _CLISTA_H
 
+        #pragma region Ostream
         template <typename T>
         /// <summary>
         /// Sobrecarga el operador << para impresion de las listas
@@ -109,3 +124,4 @@ class cLista
         /// <param name="_vuelo">: Impresion del vuelo indicado</param>
         /// <returns>Nuevo flujo de salida</returns>
         ostream& operator << (ostream& out, T* elemento);
+        #pragma endregion
