@@ -1,34 +1,40 @@
-///**
-// * Project Untitled
-// */
-//
-//
-//#ifndef _CINCUCAI_H
-//#define _CINCUCAI_H
-//
-//class cINCUCAI {
-//public: 
-//    
-//void cINCUCAI();
-//    
-///**
-// * @param cPaciente
-// */
-//void recibirPaciente(void cPaciente);
-//    
-///**
-// * @param cLista
-// */
-//cLista buscar(void cLista);
-//    
-//void pedirVehiculo();
-//protected: 
-//    
-//void cINCUCAI();
-//private: 
-//    bool match;
-//    
-//void ordenarPrioridad();
-//};
-//
-//#endif //_CINCUCAI_H
+#ifndef _CINCUCAI_H
+#define _CINCUCAI_H
+#include "gbl.h"
+
+class cINCUCAI {
+
+    public:
+
+        #pragma region Constructor_Destructor
+    
+        cINCUCAI(bool _match = false);
+
+        ~cINCUCAI();
+
+        #pragma endregion
+
+        #pragma region Metodos
+
+        //void recibirPaciente(void cPaciente);
+
+        //cLista buscar(void cLista);
+    
+        // void pedirVehiculo();
+
+
+    private: 
+
+        // void ordenarPrioridad();
+
+        #pragma endregion
+
+        #pragma region Atributos
+
+        bool match;
+
+        #pragma endregion
+
+};
+
+#endif //_CINCUCAI_H

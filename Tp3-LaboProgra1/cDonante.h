@@ -19,6 +19,9 @@ class cDonante: public cPaciente
         /// <param name="_telefono">: Telefono del donante</param>
         cDonante(string _nombre = "", string _sexo = "", string _telefono = "");
 
+        /// <summary>
+        /// Destructor por defecto
+        /// </summary>
         ~cDonante();
 
         #pragma endregion

@@ -41,6 +41,7 @@ class cPaciente
         #pragma endregion
 
     protected: 
+
         #pragma region Atributos
         
         const string nombre;

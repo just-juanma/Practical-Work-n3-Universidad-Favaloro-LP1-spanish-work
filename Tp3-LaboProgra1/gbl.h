@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <time.h>
 
 #include "eOrgano.h"
 #include "ePrioridad.h"

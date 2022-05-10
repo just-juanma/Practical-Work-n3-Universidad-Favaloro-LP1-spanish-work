@@ -1,19 +1,55 @@
 #ifndef _CRECEPTOR_H
 #define _CRECEPTOR_H
+#include "gbl.h"
+#include "cPaciente.h"
 
-class cReceptor {
-public: 
+class cReceptor : public cPaciente 
+{
+    public: 
+
+        #pragma region Constructor_Destructor
+        
+        /// <summary>
+        /// Constructor parametrizado por defecto
+        /// </summary>
+        /// <param name="_nombre": Nombre del receptor></param>
+        /// <param name="_sexo">: Sexo del receptor</param>
+        /// <param name="_telefono">: Telefono del receptor</param>
+        /// <param name="_patologia">: Patologia del receptor</param>
+        cReceptor(string _nombre = "", string _sexo = "", string _telefono = "", string _patologia = "");
+
+        /// <summary>
+        /// Destructor por defecto
+        /// </summary>
+        ~cReceptor();
     
-/**
- * @param string
- * @param string
- */
-void cReceptor(void string, void string);
-protected: 
+        #pragma endregion
+
+        #pragma region Metodos
+
+        /// <summary>
+        /// Concatena a un solo string los atributos pertinentes
+        /// </summary>
+        /// <returns>String concatenado</returns>
+        string to_string();
+
+        /// <summary>
+        /// Imprime to_string()
+        /// </summary>
+        void imprimir() {
+            cout << to_string() << endl;
+        }
+
+        #pragma endregion
+
+    private: 
+
+        #pragma region Atributos
     
-void cReceptor();
-private: 
-    string patologia;
+        string patologia;
+
+        #pragma endregion
+
 };
 
-#endif //_CRECEPTOR_H
+#endif // _CRECEPTOR_H
