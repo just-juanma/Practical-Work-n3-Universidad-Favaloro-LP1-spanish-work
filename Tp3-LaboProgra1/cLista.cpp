@@ -27,27 +27,21 @@ cLista<T>::~cLista() {
 }
 
 template <typename T>
-void cLista<T>::agregar(T* elemento) {
-	if (this->cantActual > this->cantTotal)
-		throw exception("La cantidad actual de la lista es mayor a la cantidad total");
-	else if (!elemento)
-		throw exception("El elemento que se intenta agregar no existe");
-	else if (lista[this->cantActual])
-		throw exception("La posicion del elemento que se intenta ocupar ya esta ocupada");
-	this->listaPasajero[this->cantActual++] = elemento;
-}
-
-template <typename cPaciente>
-void cLista<cPaciente>::agregar(cPaciente* elemento) {
-	if (this->cantActual > this->cantTotal)
-		throw exception("La cantidad actual de la lista es mayor a la cantidad total");
-	else if (!isValidPaciente(elemento))
-		throw exception("El paciente que se intenta agregar a la lista ya existe");
-	else if (!elemento)
-		throw exception("El paciente que se intenta agregar no existe");
-	else if (lista[this->cantActual])
-		throw exception("La posicion del paciente que se intenta ocupar ya esta ocupada");
-	this->listaPasajero[this->cantActual++] = elemento;
+bool cLista<T>::agregar(T* elemento) {
+	try {
+		if (this->cantActual > this->cantTotal)
+			throw exception("La cantidad actual de la lista es mayor a la cantidad total");
+		else if (!elemento)
+			throw exception("El elemento que se intenta agregar no existe");
+		else if (lista[this->cantActual])
+			throw exception("La posicion del elemento que se intenta ocupar ya esta ocupada");
+		this->listaPasajero[this->cantActual++] = elemento;
+		return true;
+	}
+	catch (exception& e) {
+		cout << "Error: " << e.what() << endl;
+		return false;
+	}
 }
 
 template <typename T>
@@ -59,7 +53,7 @@ T* cLista<T>::quitar(T* elemento) {
 			ordenar();
 			return aux;
 		}
-	throw exception("El elemento que se intenta quitar no existe");
+	return NULL;
 }
 
 template <typename T>
@@ -71,7 +65,7 @@ void cLista<T>::ordenar() {
 }
 
 template <typename T>
-string cLista<T>::to_string() const {
+string cLista<T>::to_string() {
 	stringstream stc;
 	stc << "Checkeo de eliminar (true / si) (false / no): " << this->checkEliminar << endl;
 	stc << "Cantidad total de elementos: " << this->cantActual << endl;
@@ -81,8 +75,8 @@ string cLista<T>::to_string() const {
 	}
 }
 
-template <typename T>
-ostream& operator << (ostream& out, T* elemento) {
-	out << elemento->to_string();
-	return out;
-}
+//template <typename T>
+//ostream& operator << (ostream& out, T* elemento) {
+//	out << elemento->to_string();
+//	return out;
+//}

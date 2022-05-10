@@ -2,6 +2,7 @@
 #define _CCENTROSALUD_H
 #include "gbl.h"
 #include "cLista.h"
+#include "cVehiculo.h"
 
 class cCentroSalud 
 {
@@ -10,7 +11,7 @@ class cCentroSalud
         #pragma region Constructor_Destructor
 
         /// <summary>
-        /// Constructor por defecto parametrizado
+        /// Constructor parametrizado por defecto
         /// </summary>
         /// <param name="_nombre">: Nombre de contacto</param>
         /// <param name="_direccion">: Direccion de contacto</param>
@@ -33,14 +34,34 @@ class cCentroSalud
         /// </summary>
         /// <param name="_vehiculo">Vehiculo a agregar</param>
         /// <returns>True en caso de poder asignarlo, false en caso contrario</returns>
-        void setListaVehiculo(cLista<eVehiculo>* _listaVehiculo) {
-            if (!_listaVehiculo)
-                throw exception("No se puede pasar como parametro una lista de vehiculos vacia");
-            else if (listaVehiculo) 
-                throw exception("La lista de vehiculos ya fue inicializada anteriormente");
-            listaVehiculo = _listaVehiculo;
+        bool setListaVehiculo(cLista<cVehiculo>* _listaVehiculo) {
+            try {
+                if (!_listaVehiculo)
+                    throw exception("No se puede pasar como parametro una lista de vehiculos vacia");
+                else if (listaVehiculo) 
+                    throw exception("La lista de vehiculos ya fue inicializada anteriormente");
+                listaVehiculo = _listaVehiculo;
+                return true;
+            }
+            catch (exception& e) {
+                cout << "Error: " << e.what() << endl;
+                return false;
+            }
         }
         
+        /// <summary>
+        /// Concatena a un solo string los atributos pertinentes
+        /// </summary>
+        /// <returns>String concatenado</returns>
+        string to_string();
+
+        /// <summary>
+        /// Imprime to_string()
+        /// </summary>
+        void imprimir() {
+            cout << to_string() << endl;
+        }
+
         #pragma endregion
 
     private: 
@@ -53,7 +74,7 @@ class cCentroSalud
         const string provincia;
         const string telefono;
         
-        cLista<eVehiculo>* listaVehiculo;
+        cLista<cVehiculo>* listaVehiculo;
 
         #pragma endregion
 

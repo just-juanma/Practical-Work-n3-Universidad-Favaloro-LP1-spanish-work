@@ -1,6 +1,7 @@
 #ifndef _CPACIENTE_H
 #define _CPACIENTE_H
 #include "gbl.h"
+#include "cCentroSalud.h"
 
 class cPaciente 
 {
@@ -9,7 +10,7 @@ class cPaciente
         #pragma region Constructor_Destructor
         
         /// <summary>
-        /// Constructor por defecto parametrizado
+        /// Constructor parametrizado por defecto
         /// </summary>
         /// <param name="nombre">: Nombre del paciente</param>
         /// <param name="sexo">: Sexo del paciente</param>
@@ -23,13 +24,22 @@ class cPaciente
         ~cPaciente();
     
         #pragma endregion
+         
+        #pragma region Metodos
 
-        virtual string getTelefono() const = 0;
-            
+        /// <summary>
+        /// Metodo abstracto: summary en correspondientes clases hijas
+        /// </summary>
+        /// <param name="_centro"></param>
+        /// <returns></returns>
+        virtual bool asociarCentro(cCentroSalud _centro) = 0; 
         
+        virtual string to_string() = 0;
 
-        //virtual bool asociarCentro(cCentro _centro) = 0; falta el centro
-          
+        virtual void imprimir() = 0;
+        
+        #pragma endregion
+
     protected: 
         #pragma region Atributos
         

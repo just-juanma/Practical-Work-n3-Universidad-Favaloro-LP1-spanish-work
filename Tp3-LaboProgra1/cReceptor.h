@@ -1,8 +1,3 @@
-/**
- * Project Untitled
- */
-
-
 #ifndef _CRECEPTOR_H
 #define _CRECEPTOR_H
 

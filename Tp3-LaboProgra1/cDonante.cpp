@@ -1,35 +1,19 @@
-/**
- * Project Untitled
- */
-
-
 #include "cDonante.h"
 
-/**
- * cDonante implementation
- */
+// cDonante implementacion
 
-
-void cDonante::cDonante() {
-
+cDonante::cDonante(string _nombre = "", string _sexo = "", string _telefono = "") : 
+			       cPaciente(_nombre, _sexo, _telefono, false) {
+	this->listaOrgano = NULL;
 }
 
-/**
- * @param cOrgano
- * @return cDonante
- */
-cDonante cDonante::operator+(void cOrgano) {
-    return null;
-}
+cDonante::~cDonante() { }
 
-/**
- * @param cOrgano
- * @return cDonante
- */
-cDonante cDonante::operator-(void cOrgano) {
-    return null;
-}
-
-void cDonante::cDonante() {
-
+string cDonante::to_string() {
+	stringstream stc;
+	stc << "Perfil del Donador:" << endl;
+	stc << "Nombre: " << this->nombre << endl;
+	stc << "Sexo: " << this->sexo << endl;
+	stc << "Telefono: " << this->telefono << endl;
+	stc << "Listado de organos:" << endl << this->listaOrgano->to_string() << endl;
 }

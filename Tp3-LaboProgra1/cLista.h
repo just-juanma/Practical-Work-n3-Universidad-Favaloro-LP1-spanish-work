@@ -32,16 +32,8 @@ class cLista
         /// </summary>
         /// <param name="elemento">: Elemento a agregar</param>
         /// <returns>True en caso de poder agregarlo, false en caso contrario</returns>
-        void agregar(T* elemento);
-
-        /// <summary>
-        /// Aagrega un elemento a la lista
-        /// </summary>
-        /// <param name="elemento">: Elemento a agregar</param>
-        /// <returns>True en caso de poder agregarlo, false en caso contrario</returns>
-        template <typename cPaciente>
-        void agregar(cPaciente* elemento);
-        
+        bool agregar(T* elemento);
+    
         /// <summary>
         /// Quita un elemento de la lista
         /// </summary>
@@ -84,21 +76,17 @@ class cLista
             throw exception("Se esta intentando acceder a un elemento imposible de acceder");
         }
         
-        string to_string() const;
+        /// <summary>
+        /// Concatena a un solo string los atributos pertinentes
+        /// </summary>
+        /// <returns>String concatenado</returns>
+        string to_string();
 
         #pragma endregion
 
     protected: 
 
         #pragma region Funciones_Auxiliares
-
-        template <typename cPaciente>
-        bool isValidPaciente(cPaciente* posiblePaciente) const {
-            for (ush i = 0; i < cantActual; i++)
-                if (posiblePaciente->getTelefono == lista[i]->getTelefono)
-                    return false;
-            return true;
-        }
 
         void ordenar();
 
@@ -118,12 +106,14 @@ class cLista
 #endif // _CLISTA_H
 
         #pragma region Ostream
-        template <typename T>
+
+        //template <typename T>
         /// <summary>
         /// Sobrecarga el operador << para impresion de las listas
         /// </summary>
         /// <param name="out">: Flujo de salida</param>
         /// <param name="_vuelo">: Impresion del vuelo indicado</param>
         /// <returns>Nuevo flujo de salida</returns>
-        ostream& operator << (ostream& out, T* elemento);
+        //ostream& operator << (ostream& out, T* elemento);
+
         #pragma endregion
