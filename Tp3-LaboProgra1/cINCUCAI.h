@@ -1,6 +1,9 @@
 #ifndef _CINCUCAI_H
 #define _CINCUCAI_H
 #include "gbl.h"
+#include "cLista.h"
+#include "cReceptor.h"
+#include "cDonante.h"
 
 class cINCUCAI {
 
@@ -22,6 +25,7 @@ class cINCUCAI {
     
         // void pedirVehiculo();
 
+        void Protocolo_de_Transporte_y_Transplantes(cDonante* donante, cReceptor* receptor, cVehiculo* vehiculo);
 
     private: 
 
@@ -32,7 +36,8 @@ class cINCUCAI {
         #pragma region Atributos
 
         bool match;
-
+        cLista<cDonante>* listaDonantes;
+        cLista<cReceptor>* listaReceptores;
         #pragma endregion
 
 };

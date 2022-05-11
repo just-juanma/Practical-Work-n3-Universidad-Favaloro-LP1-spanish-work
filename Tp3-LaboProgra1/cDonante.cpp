@@ -17,3 +17,7 @@ string cDonante::to_string() {
 	stc << "Telefono: " << this->telefono << endl;
 	stc << "Listado de organos:" << endl << this->listaOrgano->to_string() << endl;
 }
+
+bool cDonante::asignarVehiculo(cVehiculo* vehiculo) {
+	//continuar con la asginacion de vehiculo
+}
