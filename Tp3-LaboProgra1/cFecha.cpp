@@ -3,8 +3,8 @@
 
 // cFecha implementacion
 
-cFecha::cFecha(time_t _horaAblacion) {
-	this->horaAblacion = &_horaAblacion;
+cFecha::cFecha() {
+	this->horaAblacion = NULL;
 	this->horaTransplante = NULL;
 }
 

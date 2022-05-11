@@ -8,10 +8,9 @@ class cFecha {
         #pragma region Constructor_Destructor
         
         /// <summary>
-        /// Constructor parametrizado
+        /// Constructor por defecto
         /// </summary>
-        /// <param name="_local">: Hora actual</param>
-        cFecha(time_t _horaAblacion);
+        cFecha();
         
         /// <summary>
         /// Destructor por defecto
@@ -29,7 +28,21 @@ class cFecha {
                     this->horaTransplante = &_horaTransplante;
                     return true;
                 }
-                else throw exception("No se pudo setear la hora de hablacion");
+                else throw exception("No se pudo setear la hora de transplante");
+            }
+            catch (exception& e) {
+                cout << "Error: " << e.what() << endl;
+                return false;
+            }
+        }
+
+        bool setHoraAblacion(time_t _horaAblacion) {
+            try {
+                if (!horaAblacion) {
+                    this->horaAblacion = &_horaAblacion;
+                    return true;
+                }
+                else throw exception("No se pudo setear la hora de ablacion");
             }
             catch (exception& e) {
                 cout << "Error: " << e.what() << endl;
