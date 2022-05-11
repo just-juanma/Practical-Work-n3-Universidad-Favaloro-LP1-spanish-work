@@ -16,4 +16,5 @@ string cReceptor::to_string() {
 	stc << "Sexo: " << this->sexo << endl;
 	stc << "Telefono: " << this->telefono << endl;
 	stc << "Patologia: " << this->patologia << endl;
+	return stc.str();
 }

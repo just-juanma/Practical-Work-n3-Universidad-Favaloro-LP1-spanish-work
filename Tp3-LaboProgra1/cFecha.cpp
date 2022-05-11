@@ -1,33 +1,11 @@
-///**
-// * Project Untitled
-// */
-//
-//
-//#include "cFecha.h"
-//
-///**
-// * cFecha implementation
-// */
-//
-//
-///**
-// * @param time_t
-// */
-//void cFecha::cFecha(void time_t) {
-//
-//}
-//
-//void cFecha::cFecha() {
-//
-//}
-//
-///**
-// * @param short
-// * @param short
-// * @param short
-// * @param short
-// * @return bool
-// */
-//bool cFecha::isValid(void short, void short, void short, void short) {
-//    return false;
-//}
+#include "gbl.h"
+#include "cFecha.h"
+
+// cFecha implementacion
+
+cFecha::cFecha(time_t _horaAblacion) {
+	this->horaAblacion = &_horaAblacion;
+	this->horaTransplante = NULL;
+}
+
+cFecha::~cFecha() { }
