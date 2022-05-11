@@ -32,7 +32,7 @@ class cPaciente
         /// </summary>
         /// <param name="_centro"></param>
         /// <returns></returns>
-        virtual bool asociarCentro(cCentroSalud _centro) = 0; 
+        bool asociarCentro(cCentroSalud* _centro) { this->CentroDeSalud = _centro; }
         
         virtual string to_string() = 0;
 
@@ -40,7 +40,10 @@ class cPaciente
         
         #pragma endregion
 
+
     protected: 
+        #pragma region metodos
+        cCentroSalud* getCentro() { return this->CentroDeSalud };
 
         #pragma region Atributos
         
@@ -50,6 +53,8 @@ class cPaciente
         bool RoD;
     
         #pragma endregion
+    private:   
+        cCentroSalud* CentroDeSalud;
 };
 
 #endif // _CPACIENTE_H

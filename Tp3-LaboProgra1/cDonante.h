@@ -61,6 +61,8 @@ class cDonante: public cPaciente
             cout << to_string() << endl;
         }
 
+        bool asignarVehiculo(cVehiculo* vehiculo);
+
         #pragma endregion   
 
     private:

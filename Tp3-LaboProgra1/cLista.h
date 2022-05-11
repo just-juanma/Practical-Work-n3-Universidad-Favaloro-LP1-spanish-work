@@ -75,7 +75,16 @@ class cLista
                 return this->lista[i];
             throw exception("Se esta intentando acceder a un elemento imposible de acceder");
         }
-        
+
+        int buscar(T* elemento) {
+            for (int i = 0; i < this->cantActual; i++) {
+                if (T & elemento == this->lista[i]) {
+                    i;
+                }
+            }
+
+        }
+
         /// <summary>
         /// Concatena a un solo string los atributos pertinentes
         /// </summary>
