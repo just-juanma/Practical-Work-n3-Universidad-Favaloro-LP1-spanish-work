@@ -7,7 +7,6 @@
 class cCentroSalud 
 {
     public: 
-
         #pragma region Constructor_Destructor
 
         /// <summary>
@@ -61,18 +60,21 @@ class cCentroSalud
         void imprimir() {
             cout << to_string() << endl;
         }
+        eVehiculo gettipovehiculo(cCentroSalud* _centrodelreceptor);
 
         #pragma endregion
 
-    private: 
-
-        #pragma region atributos
-
+        //los necesito publicos
         const string nombre;
         const string direccion;
         const string partido;
         const string provincia;
         const string telefono;
+
+    private: 
+
+        #pragma region atributos
+
         
         cLista<cVehiculo>* listaVehiculo;
 

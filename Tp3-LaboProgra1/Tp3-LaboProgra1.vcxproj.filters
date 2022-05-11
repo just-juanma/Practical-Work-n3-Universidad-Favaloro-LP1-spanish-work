@@ -45,6 +45,15 @@
     <ClCompile Include="cVehiculo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cAvion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cAmbulancia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cHelicoptero.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cCentroSalud.h">
@@ -87,6 +96,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="gbl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cAvion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cAmbulancia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cHelicoptero.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

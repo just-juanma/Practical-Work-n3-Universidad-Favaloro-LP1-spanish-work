@@ -15,9 +15,16 @@ string cDonante::to_string() {
 	stc << "Nombre: " << this->nombre << endl;
 	stc << "Sexo: " << this->sexo << endl;
 	stc << "Telefono: " << this->telefono << endl;
-	//stc << "Listado de organos:" << endl << this->listaOrgano->to_string() << endl;
+	stc << "Listado de organos:" << endl << this->listaOrgano->to_string() << endl;
+	return stc.str();
 }
 
-bool cDonante::asignarVehiculo(cVehiculo* vehiculo) {
-	//continuar con la asginacion de vehiculo
-}
+/*
+void cDonante::iniciarAblacion(eOrgano _receptor)
+{
+	this->
+}*/
+//
+//bool cDonante::asignarVehiculo(cVehiculo* vehiculo) {
+//	this->getCentro()->
+//}

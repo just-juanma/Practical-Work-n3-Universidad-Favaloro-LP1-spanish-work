@@ -139,9 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cAmbulancia.cpp" />
+    <ClCompile Include="cAvion.cpp" />
     <ClCompile Include="cCentroSalud.cpp" />
     <ClCompile Include="cDonante.cpp" />
     <ClCompile Include="cFecha.cpp" />
+    <ClCompile Include="cHelicoptero.cpp" />
     <ClCompile Include="cINCUCAI.cpp" />
     <ClCompile Include="cLista.cpp" />
     <ClCompile Include="cOrgano.cpp" />
@@ -151,9 +154,12 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cAmbulancia.h" />
+    <ClInclude Include="cAvion.h" />
     <ClInclude Include="cCentroSalud.h" />
     <ClInclude Include="cDonante.h" />
     <ClInclude Include="cFecha.h" />
+    <ClInclude Include="cHelicoptero.h" />
     <ClInclude Include="cINCUCAI.h" />
     <ClInclude Include="cLista.h" />
     <ClInclude Include="cOrgano.h" />

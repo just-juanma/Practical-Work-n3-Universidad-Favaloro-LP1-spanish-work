@@ -24,3 +24,13 @@ string cCentroSalud::to_string() {
     //stc << "Listado de vehiculos:" << endl << this->listaVehiculo->to_string() << endl;
     return stc.str();
 }
+
+eVehiculo cCentroSalud::gettipovehiculo(cCentroSalud* _centrodelreceptor) {
+    if (this->provincia != _centrodelreceptor->provincia) {
+        return avion;
+    }else if (_centrodelreceptor->partido != _centrodelreceptor->partido) {
+        return helicoptero;
+    }else{
+        return ambulancia;
+    }
+}

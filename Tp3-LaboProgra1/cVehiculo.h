@@ -6,7 +6,7 @@ class cVehiculo {
 	public: 
 		#pragma region Constructor_Destructor
 
-		cVehiculo(eVehiculo _vehiculo = sinVehiculo);
+		cVehiculo();
 
 		~cVehiculo();
 
@@ -18,7 +18,7 @@ class cVehiculo {
         /// Concatena a un solo string los atributos pertinentes
         /// </summary>
         /// <returns>String concatenado</returns>
-        string to_string();
+       
 
         /// <summary>
         /// Imprime to_string()
@@ -27,10 +27,12 @@ class cVehiculo {
             cout << to_string() << endl;
         }
 
+    protected:
+        virtual string to_string() = 0;
+
 		#pragma endregion
 
-	private:
-		eVehiculo vehiculo;
+
 };
 
 #endif // _CVEHICULO_H

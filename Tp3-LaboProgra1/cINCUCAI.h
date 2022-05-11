@@ -4,6 +4,9 @@
 #include "cLista.h"
 #include "cReceptor.h"
 #include "cDonante.h"
+#include "cAvion.h"
+#include "cHelicoptero.h"
+#include "cAmbulancia.h"
 
 class cINCUCAI {
 
@@ -25,8 +28,7 @@ class cINCUCAI {
     
         // void pedirVehiculo();
 
-        void Protocolo_de_Transporte_y_Transplantes(cDonante* donante, cReceptor* receptor, cVehiculo* vehiculo);
-
+        void Protocolo_de_Transporte_y_Transplantes(cDonante* donante, cReceptor* receptor);
     private: 
 
         // void ordenarPrioridad();
