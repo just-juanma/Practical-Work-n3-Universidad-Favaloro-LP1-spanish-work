@@ -5,6 +5,8 @@
 cReceptor::cReceptor(string _nombre, string _sexo, string _telefono, string _patologia) :
 	cPaciente(_nombre, _sexo, _telefono, false) {
 	this->patologia = _patologia;
+	this->organoNecesario = NULL;
+	this->fechaListaEnEspera = NULL;
 }
 
 cReceptor::~cReceptor() { }

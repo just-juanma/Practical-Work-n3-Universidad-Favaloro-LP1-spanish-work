@@ -13,8 +13,11 @@ class cINCUCAI {
     public:
 
         #pragma region Constructor_Destructor
-    
-        cINCUCAI(bool _match = false);
+
+        /// <summary>
+        /// Constructor por defecto
+        /// </summary>
+        cINCUCAI();
 
         ~cINCUCAI();
 

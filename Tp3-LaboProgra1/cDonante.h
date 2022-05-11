@@ -4,6 +4,7 @@
 #include "cLista.h"
 #include "cOrgano.h"
 #include "cPaciente.h"
+#include "cFecha.h"
 
 class cDonante: public cPaciente
 {
@@ -61,15 +62,27 @@ class cDonante: public cPaciente
             cout << to_string() << endl;
         }
 
+        void setFechaMuerte(cFecha* _muerte) {
+            this->muerte = _muerte;
+        }
+
+
         bool asignarVehiculo(cVehiculo* vehiculo);
 
-        void iniciarAblacion(eOrgano _receptor);
+        cOrgano* iniciarAblacion(cOrgano* receptor, cFecha* fecha);
+
         #pragma endregion   
+
     private:
 
         #pragma region Atributos
 
         cLista<cOrgano>* listaOrgano;
+
+        cFecha* muerte;
+
+        cFecha* ablacion;
+
 
         #pragma endregion
 

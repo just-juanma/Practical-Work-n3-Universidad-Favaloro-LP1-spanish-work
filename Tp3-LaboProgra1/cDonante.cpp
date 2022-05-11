@@ -2,9 +2,11 @@
 
 // cDonante implementacion
 
-cDonante::cDonante(string _nombre, string _sexo, string _telefono) : 
+cDonante::cDonante(string _nombre, string _sexo, string _telefono) :
 			       cPaciente(_nombre, _sexo, _telefono, false) {
+	this->muerte = NULL;
 	this->listaOrgano = NULL;
+	this->ablacion = NULL;
 }
 
 cDonante::~cDonante() { }
@@ -19,12 +21,9 @@ string cDonante::to_string() {
 	return stc.str();
 }
 
-/*
-void cDonante::iniciarAblacion(eOrgano _receptor)
+
+cOrgano* cDonante::iniciarAblacion(cOrgano* receptor, cFecha* fecha)
 {
-	this->
-}*/
-//
-//bool cDonante::asignarVehiculo(cVehiculo* vehiculo) {
-//	this->getCentro()->
-//}
+
+
+}

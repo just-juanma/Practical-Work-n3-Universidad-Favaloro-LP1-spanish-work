@@ -6,6 +6,7 @@ cCentroSalud::cCentroSalud(string _nombre, string _direccion, string _partido, s
                            nombre(_nombre), direccion(_direccion), partido(_partido), provincia(_provincia), telefono(_telefono)
 {
     this->listaVehiculo = NULL;
+    this->listaDonante = NULL;
 }
 
 cCentroSalud::~cCentroSalud() {
@@ -33,4 +34,11 @@ eVehiculo cCentroSalud::gettipovehiculo(cCentroSalud* _centrodelreceptor) {
     }else{
         return ambulancia;
     }
+}
+
+cOrgano* cCentroSalud::iniciarAblacion(cOrgano* receptor, cFecha* fecha) {
+    time_t local;
+    fecha->setHoraAblacion(time(&local));
+
+   // return this->listaDonante->lista[
 }

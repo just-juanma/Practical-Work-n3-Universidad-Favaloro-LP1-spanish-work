@@ -6,7 +6,7 @@ template <typename T>
 
 class cLista 
 {
-
+    friend class cCentroSalud;
     public: 
     
         #pragma region Constructor_Destructor

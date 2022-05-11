@@ -2,8 +2,10 @@
 
 // cINCUCAI implementacion
 
-cINCUCAI::cINCUCAI(bool _match) {
-	this->match = _match;
+cINCUCAI::cINCUCAI() {
+	this->match = false;
+	this->listaDonantes = NULL;
+	this->listaReceptores = NULL;
 }
 
 cINCUCAI::~cINCUCAI() {

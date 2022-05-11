@@ -3,6 +3,7 @@
 #include "gbl.h"
 #include "cLista.h"
 #include "cVehiculo.h"
+#include "cDonante.h"
 
 class cCentroSalud 
 {
@@ -60,6 +61,9 @@ class cCentroSalud
         void imprimir() {
             cout << to_string() << endl;
         }
+
+        cOrgano* iniciarAblacion(cOrgano* receptor, cFecha* fecha);
+
         eVehiculo gettipovehiculo(cCentroSalud* _centrodelreceptor);
 
         #pragma endregion
@@ -75,8 +79,8 @@ class cCentroSalud
 
         #pragma region atributos
 
-        
         cLista<cVehiculo>* listaVehiculo;
+        cLista<cDonante>* listaDonante;
 
         #pragma endregion
 

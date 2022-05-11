@@ -27,7 +27,13 @@ class cReceptor : public cPaciente
 
         #pragma region Metodos
 
-        eOrgano getOrganoNecesitado() { return this->organoNecesario; }
+        void setOrganoNecesitado(cOrgano* organo) {
+            this->organoNecesario = organo;
+        }
+
+        cOrgano* getOrganoNecesitado()const { 
+            return this->organoNecesario;
+        }
 
         /// <summary>
         /// Concatena a un solo string los atributos pertinentes
@@ -49,7 +55,9 @@ class cReceptor : public cPaciente
         #pragma region Atributos
     
         string patologia;
-        eOrgano organoNecesario;
+        cOrgano* organoNecesario;
+        cFecha* fechaListaEnEspera;
+
         #pragma endregion
 
 };

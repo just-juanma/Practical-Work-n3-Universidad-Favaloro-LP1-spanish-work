@@ -10,7 +10,7 @@ class cFecha {
         /// <summary>
         /// Constructor por defecto
         /// </summary>
-        cFecha();
+        cFecha(string _fecha = "");
         
         /// <summary>
         /// Destructor por defecto
@@ -81,6 +81,8 @@ class cFecha {
         
         time_t* horaAblacion;
         time_t* horaTransplante;
+        time_t* horaEspera;
+        string* otraFecha;
 
         #pragma endregion
 

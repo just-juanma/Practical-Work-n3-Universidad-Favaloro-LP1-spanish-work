@@ -1,24 +1,52 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "gbl.h"
 #include "cFecha.h"
+#include "cPaciente.h"
+#include "cAmbulancia.h"
+#include "cAvion.h"
+#include "cCentroSalud.h"
+#include "cDonante.h"
+#include "cHelicoptero.h"
+#include "cINCUCAI.h"
+#include "cLista.h"
+#include "cOrgano.h"
+#include "cReceptor.h"
+#include "cVehiculo.h"
 
 
 int main() {
 	try {
+		cPaciente* paciente1;
+		cDonante* donante1 = new cDonante("Pepe", "Masculino", "1154789562");
 
-		// declaro las variables time_t
-		time_t hora1;
-		time_t hora2;
+		paciente1 = donante1;
 
-		// seteo hora de ablacion
-		cFecha* fecha = new cFecha(time(&hora1));
 
-		// seteo hora de operacion
-		fecha->setHoraTransplante(time(&hora2));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		
-		// obtengo horas transcurridas
-		cout << "Las horas tanscurridas desde " << ctime(&hora1) << " hasta " << ctime(&hora2) << " es de " << fecha->getDiffHour();
-
 
 	}
 	catch (exception& e) {

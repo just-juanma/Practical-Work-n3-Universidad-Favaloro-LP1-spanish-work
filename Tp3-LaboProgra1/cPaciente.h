@@ -38,23 +38,25 @@ class cPaciente
 
         virtual void imprimir() = 0;
         
+        cCentroSalud* getCentro() { return this->CentroDeSalud; }
+        
         #pragma endregion
 
 
-        cCentroSalud* getCentro() { return this->CentroDeSalud; }
+
     protected: 
-        #pragma region metodos
 
         #pragma region Atributos
         
         const string nombre;
         const string sexo;
         const string telefono;
+        cFecha* nacimiento;
+        eTipoSangre tipoSange;
         bool RoD;
-    
-        #pragma endregion
-    private:   
         cCentroSalud* CentroDeSalud;
+    
+        #pragma endregion       
 };
 
 #endif // _CPACIENTE_H
