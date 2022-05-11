@@ -41,9 +41,9 @@ class cPaciente
         #pragma endregion
 
 
+        cCentroSalud* getCentro() { return this->CentroDeSalud; }
     protected: 
         #pragma region metodos
-        cCentroSalud* getCentro() { return this->CentroDeSalud };
 
         #pragma region Atributos
         

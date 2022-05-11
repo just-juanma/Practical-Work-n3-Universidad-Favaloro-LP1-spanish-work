@@ -63,8 +63,8 @@ class cDonante: public cPaciente
 
         bool asignarVehiculo(cVehiculo* vehiculo);
 
+        void iniciarAblacion(eOrgano _receptor);
         #pragma endregion   
-
     private:
 
         #pragma region Atributos
