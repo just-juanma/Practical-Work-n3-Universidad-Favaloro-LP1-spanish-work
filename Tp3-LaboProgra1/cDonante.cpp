@@ -2,7 +2,7 @@
 
 // cDonante implementacion
 
-cDonante::cDonante(string _nombre = "", string _sexo = "", string _telefono = "") : 
+cDonante::cDonante(string _nombre, string _sexo, string _telefono) : 
 			       cPaciente(_nombre, _sexo, _telefono, false) {
 	this->listaOrgano = NULL;
 }
