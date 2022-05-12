@@ -3,14 +3,8 @@
 // cVehiculo implementacion
 
 
-cVehiculo::cVehiculo(string _vehiculo) {
-	this->vehiculo = _vehiculo;
-}
+cVehiculo::cVehiculo(string _nombre) : nombre(_nombre) { }
 
-cVehiculo::~cVehiculo() { 
-
-	// no tengo algo que eliminar
-
-}
+cVehiculo::~cVehiculo() { }
 
 

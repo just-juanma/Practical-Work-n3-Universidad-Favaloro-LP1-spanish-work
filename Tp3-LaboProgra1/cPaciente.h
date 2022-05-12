@@ -2,6 +2,7 @@
 #define _CPACIENTE_H
 #include "gbl.h"
 #include "cCentroSalud.h"
+#include "cFecha.h"
 
 class cPaciente 
 {
@@ -27,22 +28,22 @@ class cPaciente
          
         #pragma region Metodos
 
-        /// <summary>
-        /// Metodo abstracto: summary en correspondientes clases hijas
-        /// </summary>
-        /// <param name="_centro"></param>
-        /// <returns></returns>
-        bool asociarCentro(cCentroSalud* _centro) { this->CentroDeSalud = _centro; }
+       // bool asociarCentro(cCentroSalud* _centro) { this->CentroDeSalud = _centro; }
         
+        /// <summary>
+        /// Metodo abstracto: Concatena a un solo string los atributos pertinentes en las clases hijas
+        /// </summary>
+        /// <returns>: String concatenado</returns>
         virtual string to_string() = 0;
 
+        /// <summary>
+        /// Metodo abstracto: Imprime to_string() definido en las clases hijas
+        /// </summary>
         virtual void imprimir() = 0;
         
-        cCentroSalud* getCentro() { return this->CentroDeSalud; }
+      //  cCentroSalud* getCentro() { return this->CentroDeSalud; }
         
         #pragma endregion
-
-
 
     protected: 
 

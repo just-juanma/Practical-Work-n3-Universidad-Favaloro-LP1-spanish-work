@@ -36,9 +36,9 @@ eVehiculo cCentroSalud::gettipovehiculo(cCentroSalud* _centrodelreceptor) {
     }
 }
 
-cOrgano* cCentroSalud::iniciarAblacion(cOrgano* receptor, cFecha* fecha) {
-    time_t local;
-    fecha->setHoraAblacion(time(&local));
-
-   // return this->listaDonante->lista[
-}
+//cOrgano* cCentroSalud::iniciarAblacion(cOrgano* receptor, cFecha* fecha) {
+//    time_t local;
+//    fecha->setHoraAblacion(time(&local));
+//
+//   // return this->listaDonante->lista[
+//}

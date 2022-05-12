@@ -3,11 +3,19 @@
 #include "gbl.h"
 
 class cVehiculo {
+
 	public: 
 		#pragma region Constructor_Destructor
 
-		cVehiculo();
+		/// <summary>
+		/// Constructor por defecto parametrizado
+		/// </summary>
+		/// <param name="_nombre">: Nombre del vehiculo</param>
+		cVehiculo(string _nombre = "");
 
+		/// <summary>
+		/// Destructor por defecto
+		/// </summary>
 		~cVehiculo();
 
 		#pragma endregion
@@ -17,22 +25,23 @@ class cVehiculo {
         /// <summary>
         /// Concatena a un solo string los atributos pertinentes
         /// </summary>
-        /// <returns>String concatenado</returns>
+        /// <returns>: String concatenado</returns>
+        virtual string to_string() = 0;
        
-
         /// <summary>
         /// Imprime to_string()
         /// </summary>
-        void imprimir() {
-            cout << to_string() << endl;
-        }
-
-    protected:
-        virtual string to_string() = 0;
+        virtual void imprimir() = 0;
 
 		#pragma endregion
 
+    protected:
 
+        #pragma region Atributos
+
+        const string nombre;
+
+        #pragma endregion
 };
 
 #endif // _CVEHICULO_H

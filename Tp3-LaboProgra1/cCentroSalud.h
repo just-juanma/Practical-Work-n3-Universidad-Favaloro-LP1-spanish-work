@@ -4,6 +4,7 @@
 #include "cLista.h"
 #include "cVehiculo.h"
 #include "cDonante.h"
+#include "cFecha.h"
 
 class cCentroSalud 
 {
@@ -27,7 +28,7 @@ class cCentroSalud
 
         #pragma endregion
 
-        #pragma region metodos
+        #pragma region Metodos
 
         /// <summary>
         /// Recibe la lista de vehiculos y la asigna
@@ -64,21 +65,19 @@ class cCentroSalud
 
         cOrgano* iniciarAblacion(cOrgano* receptor, cFecha* fecha);
 
-        eVehiculo gettipovehiculo(cCentroSalud* _centrodelreceptor);
+       // eVehiculo gettipovehiculo(cCentroSalud* _centrodelreceptor);
 
         #pragma endregion
 
-        //los necesito publicos
+    private: 
+
+        #pragma region Atributos
+
         const string nombre;
         const string direccion;
         const string partido;
         const string provincia;
         const string telefono;
-
-    private: 
-
-        #pragma region atributos
-
         cLista<cVehiculo>* listaVehiculo;
         cLista<cDonante>* listaDonante;
 
