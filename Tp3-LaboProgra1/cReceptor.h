@@ -16,7 +16,9 @@ class cReceptor : public cPaciente
         /// <param name="_sexo">: Sexo del receptor</param>
         /// <param name="_telefono">: Telefono del receptor</param>
         /// <param name="_patologia">: Patologia del receptor</param>
-        cReceptor(string _nombre = "", string _sexo = "", string _telefono = "", string _patologia = "");
+        cReceptor(string _nombre = "", string _sexo = "", string _telefono = "", string _patologia = "",
+                  cFecha* _nacimiento = NULL, cFecha* _fechaListaEnEspera = NULL, eTipoSangre _tipo = sinTipo, 
+                  ePrioridad _prioridad = sinPrioridad, bool _EoI = false);
 
         /// <summary>
         /// Destructor por defecto
@@ -57,6 +59,8 @@ class cReceptor : public cPaciente
         string patologia;
         cOrgano* organoNecesario;
         cFecha* fechaListaEnEspera;
+        ePrioridad prioridad;
+        bool EoI;
 
         #pragma endregion
 

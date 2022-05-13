@@ -6,7 +6,7 @@ cCentroSalud::cCentroSalud(string _nombre, string _direccion, string _partido, s
                            nombre(_nombre), direccion(_direccion), partido(_partido), provincia(_provincia), telefono(_telefono)
 {
     this->listaVehiculo = NULL;
-    this->listaDonante = NULL;
+    this->ablacion = NULL;
 }
 
 cCentroSalud::~cCentroSalud() {
@@ -22,23 +22,10 @@ string cCentroSalud::to_string() {
     stc << "Partido: " << this->partido << endl;
     stc << "Provincia: " << this->provincia << endl;
     stc << "Telefono: " << this->telefono << endl;
-    //stc << "Listado de vehiculos:" << endl << this->listaVehiculo->to_string() << endl;
+    if(listaVehiculo)
+        stc << "Listado de vehiculos:" << endl << this->listaVehiculo->to_string() << endl;
+    if (ablacion)
+        stc << "Fecha de ablacion: " << this->ablacion->getFecha();
     return stc.str();
 }
 
-eVehiculo cCentroSalud::gettipovehiculo(cCentroSalud* _centrodelreceptor) {
-    if (this->provincia != _centrodelreceptor->provincia) {
-        return avion;
-    }else if (_centrodelreceptor->partido != _centrodelreceptor->partido) {
-        return helicoptero;
-    }else{
-        return ambulancia;
-    }
-}
-
-//cOrgano* cCentroSalud::iniciarAblacion(cOrgano* receptor, cFecha* fecha) {
-//    time_t local;
-//    fecha->setHoraAblacion(time(&local));
-//
-//   // return this->listaDonante->lista[
-//}

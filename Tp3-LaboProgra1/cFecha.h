@@ -10,7 +10,7 @@ class cFecha {
         /// <summary>
         /// Constructor por defecto
         /// </summary>
-        cFecha(time_t _fecha = 0);
+        cFecha(string _fecha = "");
         
         /// <summary>
         /// Destructor por defecto
@@ -21,8 +21,12 @@ class cFecha {
 
         #pragma region Metodos
 
-        void setFecha(time_t _fecha) {
-            fecha = &_fecha;
+        void setFechaActual(time_t _fecha) {
+            *fecha = ctime(&_fecha);
+        }
+
+        string getFecha() const {
+            return *fecha;
         }
 
         #pragma endregion
@@ -31,7 +35,7 @@ class cFecha {
     
         #pragma region Atributos
         
-        time_t* fecha
+        string* fecha;
 
         #pragma endregion
 

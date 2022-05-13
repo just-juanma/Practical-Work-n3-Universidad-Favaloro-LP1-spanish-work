@@ -18,7 +18,8 @@ class cDonante: public cPaciente
         /// <param name="_nombre">: Nombre del donante</param>
         /// <param name="_sexo">: Sexo del donante</param>
         /// <param name="_telefono">: Telefono del donante</param>
-        cDonante(string _nombre = "", string _sexo = "", string _telefono = "");
+        cDonante(string _nombre = "", string _sexo = "", string _telefono = "",
+                 cFecha* _nacimiento = NULL, eTipoSangre _tipo = sinTipo);
 
         /// <summary>
         /// Destructor por defecto
@@ -66,10 +67,24 @@ class cDonante: public cPaciente
             this->muerte = _muerte;
         }
 
+        bool asosciarCentro(cCentroSalud* _centro) {
+            this->centroSalud = _centro;
+            return true;
+        }
 
-        bool asignarVehiculo(cVehiculo* vehiculo);
+        bool deasociarCentro() {
+            this->centroSalud = NULL;
+            return true;
+        }
 
-        cOrgano* iniciarAblacion(cOrgano* receptor, cFecha* fecha);
+        cCentroSalud* getCentro()  { 
+            return this->centroSalud;
+        }
+
+
+       /* bool asignarVehiculo(cVehiculo* vehiculo);
+
+        cOrgano* iniciarAblacion(cOrgano* receptor, cFecha* fecha);*/
 
         #pragma endregion   
 
@@ -78,11 +93,8 @@ class cDonante: public cPaciente
         #pragma region Atributos
 
         cLista<cOrgano>* listaOrgano;
-
         cFecha* muerte;
-
         cFecha* ablacion;
-
 
         #pragma endregion
 

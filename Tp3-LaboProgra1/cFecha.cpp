@@ -3,8 +3,8 @@
 
 // cFecha implementacion
 
-cFecha::cFecha(time_t _fecha) {
-	this->fecha = &_fecha;
+cFecha::cFecha(string _fecha) {
+	*this->fecha = _fecha;
 }
 
 cFecha::~cFecha() { }

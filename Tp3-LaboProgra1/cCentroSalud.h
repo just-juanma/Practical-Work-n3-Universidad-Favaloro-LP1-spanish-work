@@ -63,9 +63,7 @@ class cCentroSalud
             cout << to_string() << endl;
         }
 
-        cOrgano* iniciarAblacion(cOrgano* receptor, cFecha* fecha);
-
-       // eVehiculo gettipovehiculo(cCentroSalud* _centrodelreceptor);
+        //cOrgano* iniciarAblacion(cOrgano* receptor, cFecha* fecha); No puedo iniciar la ablacion si no tengo match
 
         #pragma endregion
 
@@ -79,7 +77,7 @@ class cCentroSalud
         const string provincia;
         const string telefono;
         cLista<cVehiculo>* listaVehiculo;
-        cLista<cDonante>* listaDonante;
+        cFecha* ablacion;
 
         #pragma endregion
 

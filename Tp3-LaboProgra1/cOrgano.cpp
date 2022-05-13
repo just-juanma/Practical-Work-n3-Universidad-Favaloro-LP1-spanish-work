@@ -46,5 +46,7 @@ string cOrgano::to_string() {
 		stc << "Cornea" << endl;
 		break;
 	}
+	if (ablacion)
+		stc << "Fecha de ablacion: " << ablacion->getFecha() << endl;
 	return stc.str();
 }
