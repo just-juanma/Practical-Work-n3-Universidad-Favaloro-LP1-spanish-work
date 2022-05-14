@@ -63,7 +63,7 @@ class cPaciente
         const string telefono;
         cFecha* nacimiento;
         cCentroSalud* centroSalud;
-        eTipoSangre tipoSange;
+        eTipoSangre tipoSangre;
         bool RoD;
     
         #pragma endregion       

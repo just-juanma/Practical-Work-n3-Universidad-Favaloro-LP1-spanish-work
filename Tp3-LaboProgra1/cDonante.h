@@ -8,6 +8,8 @@
 
 class cDonante: public cPaciente
 {
+    friend class cINCUCAI;
+
     public:
 
         #pragma region Constructor_Destructor

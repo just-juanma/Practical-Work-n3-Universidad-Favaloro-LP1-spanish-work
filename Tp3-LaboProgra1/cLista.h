@@ -8,6 +8,7 @@ class cLista
 {
     friend class cCentroSalud;
     friend class cVehiculo;
+    friend class cINCUCAI;
     public: 
     
         #pragma region Constructor_Destructor
