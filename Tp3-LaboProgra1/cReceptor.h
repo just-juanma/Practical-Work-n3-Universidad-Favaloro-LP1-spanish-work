@@ -2,6 +2,8 @@
 #define _CRECEPTOR_H
 #include "gbl.h"
 #include "cPaciente.h"
+#include "cOrgano.h"
+#include "cVehiculo.h"
 
 class cReceptor : public cPaciente 
 {

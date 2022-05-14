@@ -9,11 +9,7 @@ cINCUCAI::cINCUCAI() {
 	this->listaCentros = NULL;
 }
 
-cINCUCAI::~cINCUCAI() {
-
-	// no tengo algo que eliminar
-
-}
+cINCUCAI::~cINCUCAI() { }
 
 cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 	//cAvion* avion = dynamic_cast<cAvion*>(listaVehiculo[0].lista[i]);
@@ -85,7 +81,7 @@ cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 
 
 //
-//void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cDonante* _donante, cReceptor* _receptor) {
+//void cINCUCAI::Protocolo_de_Transporte_y_Transplante(cDonante* _donante, cReceptor* _receptor) {
 //	
 //	int pos = this->listaReceptores->buscar(_receptor);
 //	cVehiculo* vehic= _donante->getCentro()->gettipovehiculo(_receptor->getCentro());

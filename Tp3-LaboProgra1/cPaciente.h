@@ -8,6 +8,7 @@ class cPaciente
 {
 
     public: 
+
         #pragma region Constructor_Destructor
         
         /// <summary>

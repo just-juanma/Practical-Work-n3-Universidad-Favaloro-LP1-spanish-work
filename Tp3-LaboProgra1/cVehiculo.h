@@ -1,6 +1,8 @@
 #ifndef _CVEHICULO_H
 #define _CVEHICULO_H
 #include "gbl.h"
+#include "cOrgano.h"
+
 
 // clase abstracta
 
@@ -25,26 +27,34 @@ class cVehiculo {
 
 		#pragma region Metodos
 
-		/// <summary>
-		/// Metodo abstracto: Obtiene el estado del vehiculo 
-		/// (Libre u Ocupado) de las clases hijas
-		/// </summary>
-		/// <returns>Estado del vehiculo</returns>
-		virtual bool getLuO() = 0;
+        /// <summary>
+        /// Obtiene si el vehiculo esta libre u ocupado
+        /// </summary>
+        /// <returns>Estado del vehiculo</returns>
+        bool getLuO() const {
+            return this->LuO;
+        }
 
-		/// <summary>
-		/// Metodo abstracto: Obtiene el organo del vehiculo
-		/// de la clase hija
-		/// </summary>
-		/// <returns></returns>
-		virtual cOrgano* getOrgano() = 0;
+        /// <summary>
+        /// Obtiene el organo que transporta el vehiculo
+        /// </summary>
+        /// <returns>Organo que transporta el vehiculo</returns>
+        cOrgano* getOrgano() const {
+            if (organoEnTransporte)
+                return this->organoEnTransporte;
+            throw exception("El organo que se intenta obtener no existe");
+        }
 
-		/// <summary>
-		/// Metodo abstracto: Setea el organo del vehiculo
-		/// de la clase hija
-		/// </summary>
-		/// <param name="organo"></param>
-		virtual void setOrgano(cOrgano* organo) = 0;
+        /// <summary>
+        /// Setea el organo que transporta el vehiculo
+        /// </summary>
+        void setOrgano(cOrgano* _organo) {
+            if (!organoEnTransporte)
+                this->organoEnTransporte = _organo;
+            else
+                throw exception("No se pudo asignar el organo");
+
+        }
 
         /// <summary>
         /// Metodo abstacto: Concatena a un solo string los atributos pertinentes
