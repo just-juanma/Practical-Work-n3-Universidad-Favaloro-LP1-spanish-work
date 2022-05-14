@@ -6,11 +6,7 @@ cOrgano::cOrgano(eOrgano _organo) {
 	this->organo = _organo;
 }
 
-cOrgano::~cOrgano() {
-
-	// no tengo algo que eliminar
-
-}
+cOrgano::~cOrgano() { }
 
 string cOrgano::to_string() {
 	stringstream stc;

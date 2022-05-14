@@ -11,8 +11,4 @@ cPaciente::cPaciente(string _nombre, string _sexo, string _telefono, cFecha* _na
 
 }
 
-cPaciente::~cPaciente() {
-
-    // no tengo algo que eliminar
-
-}
+cPaciente::~cPaciente() { }

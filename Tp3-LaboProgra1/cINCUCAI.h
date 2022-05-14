@@ -32,6 +32,7 @@ class cINCUCAI {
         // void pedirVehiculo();
 
         void Protocolo_de_Transporte_y_Transplantes(cDonante* donante, cReceptor* receptor);
+
     private: 
 
         // void ordenarPrioridad();
@@ -43,6 +44,8 @@ class cINCUCAI {
         bool match;
         cLista<cDonante>* listaDonantes;
         cLista<cReceptor>* listaReceptores;
+        cLista<cCentroSalud>* listaCentros;
+
         #pragma endregion
 
 };

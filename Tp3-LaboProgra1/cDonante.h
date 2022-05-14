@@ -36,10 +36,47 @@ class cDonante: public cPaciente
         /// <param name="lista">: Lista a setear</param>
         /// <returns>True en caso de seteaerla, false en caso contrario</returns>
         void setLista(cLista<cOrgano>* lista) {
-            if (!lista && listaOrgano)
+            if (lista && !listaOrgano)
                  this->listaOrgano = lista;
-            throw exception("No se pudo asignar la lista de organos al donante");
+            else
+                throw exception("No se pudo asignar la lista de organos al donante");
         }
+
+        /// <summary>
+        /// Setea la fecha de muerte del donante
+        /// </summary>
+        /// <param name="_muerte">: Fecha de muerte del donante</param>
+        void setFechaMuerte(cFecha* _muerte) {
+            if (_muerte && !muerte) 
+                this->muerte = _muerte;  
+            else
+                throw exception("No se pudo asignar la fecha de muerte al donante");
+        }
+
+        /// <summary>
+        /// Asocia el centro al donante
+        /// </summary>
+        /// <param name="_centro">: Centro a asociar</param>
+        void asosciarCentro(cCentroSalud* _centro) {
+            if (_centro && !centroSalud) 
+                this->centroSalud = _centro;   
+            throw exception("No se pudo asignar el centro al donante");
+        }
+
+        /// <summary>
+        /// Obtiene el centro del donante
+        /// </summary>
+        /// <returns>Centro del donante</returns>
+        cCentroSalud* getCentro() const  { 
+            if(centroSalud)
+                return this->centroSalud;
+            throw exception("No se pudo obtener el centro del donante");
+        }
+
+        // adri, si necesitas esto: descomentalo e implementalo
+        /* bool asignarVehiculo(cVehiculo* vehiculo);
+
+         cOrgano* iniciarAblacion(cOrgano* receptor, cFecha* fecha);*/
 
         /// <summary>
         /// Concatena a un solo string los atributos pertinentes
@@ -53,36 +90,6 @@ class cDonante: public cPaciente
         void imprimir() { 
             cout << to_string() << endl;
         }
-
-        void setFechaMuerte(cFecha* _muerte) {
-            if (!_muerte && muerte) 
-                this->muerte = _muerte;  
-            throw exception("No se pudo asignar la fecha de muerte al donante");
-        }
-
-        void asosciarCentro(cCentroSalud* _centro) {
-            if (!_centro && centroSalud) 
-                this->centroSalud = _centro;   
-            throw exception("No se pudo asignar el centro al donante");
-        }
-
-        void deasociarCentro() {
-            if (!centroSalud) {
-                this->centroSalud = NULL;
-            }
-            throw exception("No se pudo desasignar el centro al donante");
-        }
-
-        cCentroSalud* getCentro() const  { 
-            if(centroSalud)
-                return this->centroSalud;
-            throw exception("No se pudo obtener el centro del donante");
-        }
-
-        // adri, si necesitas esto: descomentalo e implementalo
-        /* bool asignarVehiculo(cVehiculo* vehiculo);
-
-         cOrgano* iniciarAblacion(cOrgano* receptor, cFecha* fecha);*/
 
         #pragma endregion   
 

@@ -9,6 +9,7 @@
 class cCentroSalud 
 {
     public: 
+
         #pragma region Constructor_Destructor
 
         /// <summary>
@@ -35,19 +36,12 @@ class cCentroSalud
         /// </summary>
         /// <param name="_vehiculo">Vehiculo a agregar</param>
         /// <returns>True en caso de poder asignarlo, false en caso contrario</returns>
-        bool setListaVehiculo(cLista<cVehiculo>* _listaVehiculo) {
-            try {
-                if (!_listaVehiculo)
-                    throw exception("No se puede pasar como parametro una lista de vehiculos vacia");
-                else if (listaVehiculo) 
-                    throw exception("La lista de vehiculos ya fue inicializada anteriormente");
-                listaVehiculo = _listaVehiculo;
-                return true;
-            }
-            catch (exception& e) {
-                cout << "Error: " << e.what() << endl;
-                return false;
-            }
+        void setListaVehiculo(cLista<cVehiculo>* _listaVehiculo) {
+            if (!_listaVehiculo)
+                throw exception("No se puede pasar como parametro una lista de vehiculos vacia");
+            else if (listaVehiculo)
+                throw exception("La lista de vehiculos ya fue inicializada anteriormente");
+            listaVehiculo = _listaVehiculo;
         }
         
 
@@ -63,7 +57,7 @@ class cCentroSalud
                 if (centroReceptor->partido == this->partido) {
                     for (ush i = 0; i < listaVehiculo->cantActual; i++) {
                         // verifico que este libre para usar y que exista el puntero
-                        if (listaVehiculo[0].lista[i]->getLoO() == true && listaVehiculo[0].lista[i]) {
+                        if (listaVehiculo[0].lista[i]->getLuO() == true && listaVehiculo[0].lista[i]) {
                             // trato de conseguir la ambulancia
                             cAmbulancia* ambulancia = dynamic_cast<cAmbulancia*>(listaVehiculo[0].lista[i]);
                             // si consigo el casteo, retorno la ambulancia
@@ -77,7 +71,7 @@ class cCentroSalud
                     //busco al primer helicopetro que encuentre
                     for (ush i = 0; i < listaVehiculo->cantActual; i++) {
                         // verifico que este libre para usar y que exista el puntero
-                        if (listaVehiculo[0].lista[i]->getLoO() == true && listaVehiculo[0].lista[i]) {
+                        if (listaVehiculo[0].lista[i]->getLuO() == true && listaVehiculo[0].lista[i]) {
                             // trato de conseguir el helicoptero
                             cHelicoptero* helicoptero = dynamic_cast<cHelicoptero*>(listaVehiculo[0].lista[i]);
                             // si consigo el casteo, retorno el helicoptero
@@ -93,7 +87,7 @@ class cCentroSalud
                 //busco al primer avion que encuentre
                 for (ush i = 0; i < listaVehiculo->cantActual; i++) {
                     // verifico que este libre para usar y que exista el puntero
-                    if (listaVehiculo[0].lista[i]->getLoO() == true && listaVehiculo[0].lista[i]) {
+                    if (listaVehiculo[0].lista[i]->getLuO() == true && listaVehiculo[0].lista[i]) {
                         // trato de conseguir el avion
                         cAvion* avion = dynamic_cast<cAvion*>(listaVehiculo[0].lista[i]);
                         // si consigo el casteo, retorno el avion

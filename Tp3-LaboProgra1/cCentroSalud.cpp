@@ -9,11 +9,7 @@ cCentroSalud::cCentroSalud(string _nombre, string _direccion, string _partido, s
     this->ablacion = NULL;
 }
 
-cCentroSalud::~cCentroSalud() {
-
-    // no tengo algo que elminar
-
-}
+cCentroSalud::~cCentroSalud() { }
 
 string cCentroSalud::to_string() {
     stringstream stc;

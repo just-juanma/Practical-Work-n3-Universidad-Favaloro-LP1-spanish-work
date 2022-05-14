@@ -6,6 +6,7 @@ cINCUCAI::cINCUCAI() {
 	this->match = false;
 	this->listaDonantes = NULL;
 	this->listaReceptores = NULL;
+	this->listaCentros = NULL;
 }
 
 cINCUCAI::~cINCUCAI() {
@@ -18,7 +19,7 @@ cINCUCAI::~cINCUCAI() {
 //void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cDonante* _donante, cReceptor* _receptor) {
 //	
 //	int pos = this->listaReceptores->buscar(_receptor);
-//	eVehiculo vehic= _donante->getCentro()->gettipovehiculo(_receptor->getCentro());
+//	cVehiculo* vehic= _donante->getCentro()->gettipovehiculo(_receptor->getCentro());
 //	cVehiculo* _vehiculo;
 //	if (vehic == avion) {
 //		cAvion* _avion = new cAvion;
