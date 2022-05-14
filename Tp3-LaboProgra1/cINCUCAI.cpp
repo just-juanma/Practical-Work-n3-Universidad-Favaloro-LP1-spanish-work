@@ -13,6 +13,7 @@ cINCUCAI::~cINCUCAI() {
 	// no tengo algo que eliminar
 
 }
+
 //
 //void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cDonante* _donante, cReceptor* _receptor) {
 //	

@@ -33,6 +33,12 @@ class cVehiculo {
         /// </summary>
         virtual void imprimir() = 0;
 
+		virtual bool getLoO() = 0;
+
+		virtual cOrgano* getOrgano() = 0;
+
+		virtual void setOrgano(cOrgano* organo) = 0;
+
 		#pragma endregion
 
     protected:
@@ -40,7 +46,8 @@ class cVehiculo {
         #pragma region Atributos
 
         const string nombre;
-
+		bool LoO;
+		cOrgano* organoEnTransporte;
         #pragma endregion
 };
 

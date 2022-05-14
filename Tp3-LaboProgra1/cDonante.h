@@ -35,19 +35,10 @@ class cDonante: public cPaciente
         /// </summary>
         /// <param name="lista">: Lista a setear</param>
         /// <returns>True en caso de seteaerla, false en caso contrario</returns>
-        bool setLista(cLista<cOrgano>* lista) {
-            try {
-                if (!lista)
-                    throw exception("No se puede pasar como parametro una lista de organos vacia");
-                else if (listaOrgano)
-                    throw exception("La lista de organos ya fue inicializada anteriormente");
-                this->listaOrgano = lista;
-                return true;
-            }
-            catch (exception& e) {
-                cout << "Error: " << e.what() << endl;
-                return false;
-            }
+        void setLista(cLista<cOrgano>* lista) {
+            if (!lista && listaOrgano)
+                 this->listaOrgano = lista;
+            throw exception("No se pudo asignar la lista de organos al donante");
         }
 
         /// <summary>
@@ -64,27 +55,34 @@ class cDonante: public cPaciente
         }
 
         void setFechaMuerte(cFecha* _muerte) {
-            this->muerte = _muerte;
+            if (!_muerte && muerte) 
+                this->muerte = _muerte;  
+            throw exception("No se pudo asignar la fecha de muerte al donante");
         }
 
-        bool asosciarCentro(cCentroSalud* _centro) {
-            this->centroSalud = _centro;
-            return true;
+        void asosciarCentro(cCentroSalud* _centro) {
+            if (!_centro && centroSalud) 
+                this->centroSalud = _centro;   
+            throw exception("No se pudo asignar el centro al donante");
         }
 
-        bool deasociarCentro() {
-            this->centroSalud = NULL;
-            return true;
+        void deasociarCentro() {
+            if (!centroSalud) {
+                this->centroSalud = NULL;
+            }
+            throw exception("No se pudo desasignar el centro al donante");
         }
 
-        cCentroSalud* getCentro()  { 
-            return this->centroSalud;
+        cCentroSalud* getCentro() const  { 
+            if(centroSalud)
+                return this->centroSalud;
+            throw exception("No se pudo obtener el centro del donante");
         }
 
+        // adri, si necesitas esto: descomentalo e implementalo
+        /* bool asignarVehiculo(cVehiculo* vehiculo);
 
-       /* bool asignarVehiculo(cVehiculo* vehiculo);
-
-        cOrgano* iniciarAblacion(cOrgano* receptor, cFecha* fecha);*/
+         cOrgano* iniciarAblacion(cOrgano* receptor, cFecha* fecha);*/
 
         #pragma endregion   
 

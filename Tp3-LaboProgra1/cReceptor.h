@@ -17,8 +17,7 @@ class cReceptor : public cPaciente
         /// <param name="_telefono">: Telefono del receptor</param>
         /// <param name="_patologia">: Patologia del receptor</param>
         cReceptor(string _nombre = "", string _sexo = "", string _telefono = "", string _patologia = "",
-                  cFecha* _nacimiento = NULL, cFecha* _fechaListaEnEspera = NULL, eTipoSangre _tipo = sinTipo, 
-                  ePrioridad _prioridad = sinPrioridad, bool _EoI = false);
+                  cFecha* _nacimiento = NULL, cFecha* _fechaListaEnEspera = NULL, bool _EoI = false);
 
         /// <summary>
         /// Destructor por defecto
@@ -48,6 +47,20 @@ class cReceptor : public cPaciente
         /// </summary>
         void imprimir() {
             cout << to_string() << endl;
+        }
+
+        cCentroSalud* getCentro() {
+            return this->centroSalud;
+        }
+
+        void iniciarTransplante(cVehiculo* vehiculo) {
+            if (vehiculo->getOrgano() == organoNecesario) {
+                vehiculo->imprimir();
+            }
+        }
+
+        void setPrioridad(ePrioridad _prioridad) {
+            prioridad = _prioridad;
         }
 
         #pragma endregion
