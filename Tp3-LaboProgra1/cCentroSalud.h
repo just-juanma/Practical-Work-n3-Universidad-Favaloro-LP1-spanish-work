@@ -5,6 +5,9 @@
 #include "cVehiculo.h"
 #include "cDonante.h"
 #include "cFecha.h"
+#include "cAmbulancia.h"
+#include "cHelicoptero.h"
+#include "cAvion.h"
 
 class cCentroSalud 
 {
@@ -57,9 +60,9 @@ class cCentroSalud
                 if (centroReceptor->partido == this->partido) {
                     for (ush i = 0; i < listaVehiculo->cantActual; i++) {
                         // verifico que este libre para usar y que exista el puntero
-                        if (listaVehiculo[0].lista[i]->getLuO() == true && listaVehiculo[0].lista[i]) {
+                        if (listaVehiculo->lista[i]->getLuO() == true && listaVehiculo->lista[i]) {
                             // trato de conseguir la ambulancia
-                            cAmbulancia* ambulancia = dynamic_cast<cAmbulancia*>(listaVehiculo[0].lista[i]);
+                            cAmbulancia* ambulancia = dynamic_cast<cAmbulancia*>(listaVehiculo->lista[i]);
                             // si consigo el casteo, retorno la ambulancia
                             if (ambulancia)
                                 return ambulancia;
@@ -71,7 +74,7 @@ class cCentroSalud
                     //busco al primer helicopetro que encuentre
                     for (ush i = 0; i < listaVehiculo->cantActual; i++) {
                         // verifico que este libre para usar y que exista el puntero
-                        if (listaVehiculo[0].lista[i]->getLuO() == true && listaVehiculo[0].lista[i]) {
+                        if (listaVehiculo->lista[i]->getLuO() == true && listaVehiculo[0].lista[i]) {
                             // trato de conseguir el helicoptero
                             cHelicoptero* helicoptero = dynamic_cast<cHelicoptero*>(listaVehiculo[0].lista[i]);
                             // si consigo el casteo, retorno el helicoptero
@@ -87,9 +90,9 @@ class cCentroSalud
                 //busco al primer avion que encuentre
                 for (ush i = 0; i < listaVehiculo->cantActual; i++) {
                     // verifico que este libre para usar y que exista el puntero
-                    if (listaVehiculo[0].lista[i]->getLuO() == true && listaVehiculo[0].lista[i]) {
+                    if (listaVehiculo->lista[i]->getLuO() == true && listaVehiculo->lista[i]) {
                         // trato de conseguir el avion
-                        cAvion* avion = dynamic_cast<cAvion*>(listaVehiculo[0].lista[i]);
+                        cAvion* avion = dynamic_cast<cAvion*>(listaVehiculo->lista[i]);
                         // si consigo el casteo, retorno el avion
                         if (avion)
                             return avion;

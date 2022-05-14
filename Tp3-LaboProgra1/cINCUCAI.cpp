@@ -9,14 +9,10 @@ cINCUCAI::cINCUCAI() {
 	this->listaCentros = NULL;
 }
 
-cINCUCAI::~cINCUCAI() {
-
-	// no tengo algo que eliminar
-
-}
+cINCUCAI::~cINCUCAI() { }
 
 //
-//void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cDonante* _donante, cReceptor* _receptor) {
+//void cINCUCAI::Protocolo_de_Transporte_y_Transplante(cDonante* _donante, cReceptor* _receptor) {
 //	
 //	int pos = this->listaReceptores->buscar(_receptor);
 //	cVehiculo* vehic= _donante->getCentro()->gettipovehiculo(_receptor->getCentro());

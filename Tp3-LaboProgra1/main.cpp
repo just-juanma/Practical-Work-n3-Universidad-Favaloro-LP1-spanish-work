@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include "gbl.h"
 #include "cFecha.h"
 #include "cPaciente.h"
@@ -15,42 +14,5 @@
 
 
 int main() {
-	try {
-		cPaciente* paciente1;
-		cDonante* donante1 = new cDonante("Pepe", "Masculino", "1154789562");
-
-		paciente1 = donante1;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-
-	}
-	catch (exception& e) {
-		cout << "Error:" << e.what() << endl << "Finalizando programa";
-		return 0;
-	}
+	return 0;
 }

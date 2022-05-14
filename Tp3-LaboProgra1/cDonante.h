@@ -4,7 +4,7 @@
 #include "cLista.h"
 #include "cOrgano.h"
 #include "cPaciente.h"
-#include "cFecha.h"
+
 
 class cDonante: public cPaciente
 {

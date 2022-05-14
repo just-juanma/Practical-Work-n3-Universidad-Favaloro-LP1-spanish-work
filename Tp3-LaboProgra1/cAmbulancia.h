@@ -20,7 +20,7 @@ class cAmbulancia : public cVehiculo {
         #pragma endregion
 
         #pragma region Metodos
-        
+
         /// <summary>
         /// Concatena a un solo string los atributos pertinentes
         /// </summary>
