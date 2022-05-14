@@ -8,7 +8,7 @@ cAvion::~cAvion() { }
 
 string cAvion::to_string() {
         stringstream stc;
-        stc << "IUIUIU:" << endl;
-        stc << "llego al destino:" << endl;
+        stc << "zhooooooom" << endl;
+        stc << "El avion llego al destino" << endl;
         return stc.str();
 }

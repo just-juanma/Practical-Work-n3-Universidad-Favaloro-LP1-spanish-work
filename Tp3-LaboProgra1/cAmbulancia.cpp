@@ -8,7 +8,7 @@ cAmbulancia::~cAmbulancia() { }
 
 string cAmbulancia::to_string() {
 	stringstream stc;
-	stc << "IUIUIU:" << endl;
-	stc << "La ambulancia llego al destino:" << endl;
+	stc << "iuiuiuiuiu" << endl;
+	stc << "La ambulancia llego al destino" << endl;
 	return stc.str();
 }
