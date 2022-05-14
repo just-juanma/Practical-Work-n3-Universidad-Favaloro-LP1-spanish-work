@@ -65,6 +65,14 @@ class cReceptor : public cPaciente
                 throw exception("No se pudo iniciar el transplante del receptor");
         }
 
+        eTipoSangre getTipoSangre()const {
+                return this->tipoSangre;
+        }
+
+        ePrioridad getPrioridad()const {
+            return this->prioridad;
+        }
+
         /// <summary>
         /// Setea la prioridad del receptor
         /// </summary>

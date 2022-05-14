@@ -6,7 +6,7 @@ cPaciente::cPaciente(string _nombre, string _sexo, string _telefono, cFecha* _na
                      nombre(_nombre), sexo(_sexo), telefono(_telefono) {
     this->RoD = _RoD;
     this->nacimiento = _nacimiento;
-    this->tipoSange = _tipo;
+    this->tipoSangre = _tipo;
     this->centroSalud = NULL;
 
 }

@@ -5,6 +5,6 @@
 /// <summary>
 /// Enum sobre los posibles prioridades que puede tener el receptor
 /// </summary>
-enum ePrioridad { sinPrioridad, minima, media, maxima };
+enum ePrioridad { maxima, media, minima, sinPrioridad };
 
 #endif //_EPRIORIDAD_H

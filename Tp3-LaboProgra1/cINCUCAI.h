@@ -23,7 +23,7 @@ class cINCUCAI {
 
         #pragma region Metodos
 
-        //void recibirPaciente(void cPaciente);
+        cPaciente* ingresarPaciente(cPaciente* paciente);
 
         //cLista buscar(void cLista);
     
