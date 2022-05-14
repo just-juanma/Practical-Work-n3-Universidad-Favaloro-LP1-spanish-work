@@ -34,7 +34,7 @@ cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 					listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] && 
 					listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre) {
 					agregados++;
-					listaPrioridad->lista[agregados]= listaReceptores->lista[j];
+					*listaPrioridad + *listaReceptores->lista[j];
 				}
 			}
 
@@ -49,7 +49,7 @@ cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 					listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] &&
 					listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre) {
 					agregados++;
-					listaPrioridad->lista[agregados] = listaReceptores->lista[j];
+					*listaPrioridad + *listaReceptores->lista[j];
 				}
 			}
 
@@ -64,7 +64,7 @@ cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 					listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] &&
 					listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre) {
 					agregados++;
-					listaPrioridad->lista[agregados] = listaReceptores->lista[j];
+					*listaPrioridad + *listaReceptores->lista[j];
 				}
 			}
 
