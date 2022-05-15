@@ -92,6 +92,7 @@ class cDonante: public cPaciente
         void imprimir() { 
             cout << to_string() << endl;
         }
+
         /// <summary>
         /// Se le asigna un vehiculo al donante para que el organo que sea extraido, pueda ser transoportado
         /// </summary>
@@ -104,6 +105,7 @@ class cDonante: public cPaciente
         /// </summary>
         /// <param name="_receptor"></param>
         cOrgano* iniciarAblacion(cOrgano *_receptor);
+
         #pragma endregion   
 
     private:

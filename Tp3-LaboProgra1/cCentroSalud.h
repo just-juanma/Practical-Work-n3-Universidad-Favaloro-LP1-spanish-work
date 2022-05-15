@@ -53,8 +53,6 @@ class cCentroSalud
         /// <returns>El vehiculo necesario para el translado, NULL en caso contrario</returns>
         cVehiculo* getTipoVehiculo(cCentroSalud* centroReceptor);
 
-        cOrgano* 
-
         /// <summary>
         /// Concatena a un solo string los atributos pertinentes
         /// </summary>

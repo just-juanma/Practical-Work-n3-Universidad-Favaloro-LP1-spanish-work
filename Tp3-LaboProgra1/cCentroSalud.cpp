@@ -11,7 +11,6 @@ cCentroSalud::cCentroSalud(string _nombre, string _direccion, string _partido, s
 
 cCentroSalud::~cCentroSalud() { }
 
-
 cVehiculo* cCentroSalud::getTipoVehiculo(cCentroSalud* centroReceptor) {
     // si es la misma provincia
     if (centroReceptor->provincia == this->provincia) {

@@ -27,4 +27,4 @@ string cDonante::to_string() {
 	return stc.str();
 }
 
-cOrgano* cDonante::iniciarAblacion(cOrgano* _receptor);//{}
+//cOrgano* cDonante::iniciarAblacion(cOrgano* _receptor) { }

@@ -79,11 +79,13 @@ class cLista
         }
 
         int buscar(T* elemento) {
-            for (int i = 0; i < this->cantActual; i++) {
-                if (T && elemento == this->lista[i]) {
+            ush i = 0;
+            for (i = 0; i < this->cantActual; i++) {
+                if (elemento && elemento == this->lista[i]) {
                     i;
                 }
             }
+            return i;
 
         }
 
