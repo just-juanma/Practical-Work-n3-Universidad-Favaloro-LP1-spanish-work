@@ -80,9 +80,6 @@
     <ClInclude Include="cReceptor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="eVehiculo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ePrioridad.h">
       <Filter>Header Files</Filter>
     </ClInclude>

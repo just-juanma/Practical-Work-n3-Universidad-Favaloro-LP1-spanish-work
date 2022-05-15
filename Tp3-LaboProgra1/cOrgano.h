@@ -1,6 +1,7 @@
 #ifndef _CORGANO_H
 #define _CORGANO_H
 #include "cLista.h"
+#include "cFecha.h"
 
 class cOrgano {
     public: 
@@ -31,14 +32,18 @@ class cOrgano {
             cout << to_string() << endl;
         }
 
+        void setAblacion(cFecha* _ablacion) {
+            this->ablacion = _ablacion;
+        }
+
         #pragma endregion
 
     private: 
+
        #pragma region Atributos
         
         eOrgano organo;
-        cFecha* fecha1;
-        cFecha* fecha2;
+
         #pragma endregion
 };
 

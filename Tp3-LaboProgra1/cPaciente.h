@@ -2,11 +2,13 @@
 #define _CPACIENTE_H
 #include "gbl.h"
 #include "cCentroSalud.h"
+#include "cFecha.h"
 
 class cPaciente 
 {
 
     public: 
+
         #pragma region Constructor_Destructor
         
         /// <summary>
@@ -16,7 +18,8 @@ class cPaciente
         /// <param name="sexo">: Sexo del paciente</param>
         /// <param name="telefono">: Telefono del paciente</param>
         /// <param name="RoD">: Receptor (true), Donante (false)</param>
-        cPaciente(string _nombre = "", string _sexo = "", string _telefono = "", bool _RoD = false);
+        cPaciente(string _nombre = "", string _sexo = "", string _telefono = "", 
+                  cFecha* _nacimiento = NULL, eTipoSangre _tipo = sinTipo, bool _RoD = false);
 
         /// <summary>
         /// Destructor por defecto
@@ -27,34 +30,44 @@ class cPaciente
          
         #pragma region Metodos
 
-        /// <summary>
-        /// Metodo abstracto: summary en correspondientes clases hijas
-        /// </summary>
-        /// <param name="_centro"></param>
-        /// <returns></returns>
-        bool asociarCentro(cCentroSalud* _centro) { this->CentroDeSalud = _centro; }
+       /// <summary>
+       /// Metodo abstracto: recibe un centro, y lo asigna en las clases hijas
+       /// </summary>
+       /// <param name="_centro"></param>
+       /// <returns></returns>
+        virtual bool asociarCentro(cCentroSalud* _centro) = 0;
+
+        virtual bool desasociarCentro() = 0;
         
+        virtual cCentroSalud* getCentro() const = 0;
+
+        /// <summary>
+        /// Metodo abstracto: Concatena a un solo string los atributos pertinentes en las clases hijas
+        /// </summary>
+        /// <returns>: String concatenado</returns>
         virtual string to_string() = 0;
 
+        /// <summary>
+        /// Metodo abstracto: Imprime to_string() definido en las clases hijas
+        /// </summary>
         virtual void imprimir() = 0;
+        
         
         #pragma endregion
 
-
-        cCentroSalud* getCentro() { return this->CentroDeSalud; }
     protected: 
-        #pragma region metodos
 
         #pragma region Atributos
         
         const string nombre;
         const string sexo;
         const string telefono;
+        cFecha* nacimiento;
+        cCentroSalud* centroSalud;
+        eTipoSangre tipoSangre;
         bool RoD;
     
-        #pragma endregion
-    private:   
-        cCentroSalud* CentroDeSalud;
+        #pragma endregion       
 };
 
 #endif // _CPACIENTE_H

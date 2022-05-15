@@ -3,14 +3,13 @@
 // cVehiculo implementacion
 
 
-cVehiculo::cVehiculo(string _vehiculo) {
-	this->vehiculo = _vehiculo;
-}
-
-cVehiculo::~cVehiculo() { 
-
-	// no tengo algo que eliminar
-
+cVehiculo::cVehiculo(string _nombre) : nombre(_nombre) { 
+	this->LuO = false;
 }
 
 
+cVehiculo::~cVehiculo() { }
+
+void cVehiculo::imprimir() {
+	cout << to_string() << endl;
+}

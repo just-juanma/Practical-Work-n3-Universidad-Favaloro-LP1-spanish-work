@@ -3,6 +3,8 @@
 #include "gbl.h"
 #include "cPaciente.h"
 #include "cOrgano.h"
+#include "cVehiculo.h"
+
 class cReceptor : public cPaciente 
 {
     public: 
@@ -16,7 +18,8 @@ class cReceptor : public cPaciente
         /// <param name="_sexo">: Sexo del receptor</param>
         /// <param name="_telefono">: Telefono del receptor</param>
         /// <param name="_patologia">: Patologia del receptor</param>
-        cReceptor(string _nombre = "", string _sexo = "", string _telefono = "", string _patologia = "",cOrgano* = NULL);
+        cReceptor(string _nombre = "", string _sexo = "", string _telefono = "", string _patologia = "",
+                  cFecha* _nacimiento = NULL, cFecha* _fechaListaEnEspera = NULL, eTipoSangre _tipo = sinTipo, bool _EoI = false);
 
         /// <summary>
         /// Destructor por defecto
@@ -28,7 +31,69 @@ class cReceptor : public cPaciente
         #pragma region Metodos
         bool inicarTranspoante(cOrgano* _organotransportado);
 
-        cOrgano* getOrganoNecesitado() { return this->organoNecesario; }
+        /// <summary>
+        /// Setea el organo que necesita el receptor
+        /// </summary>
+        /// <param name="organo">: Organo a settear</param>
+        void setOrganoNecesitado(cOrgano* organo) {
+            if (!this->organoNecesario && organo) 
+                this->organoNecesario = organo;
+            else
+                throw exception("No se puede asignar el organo necesitado al receptor");
+            
+        }
+
+        /// <summary>
+        /// Obtiene el organo necesitado
+        /// </summary>
+        /// <returns>Organo necesitado</returns>
+        cOrgano* getOrganoNecesitado()const { 
+            if(this->organoNecesario)
+                return this->organoNecesario;
+            throw exception("No fue asignado ningun organo previamente al receptor");
+        }
+
+        /// <summary>
+        /// Verifica que el organo que transporta el vehiculo sea el mismo que 
+        /// necesita el receptor, y si es asi, arranca el vehiculo 
+        /// (a gran velocidad segun nos cuentan los diarios mas importantes)
+        /// </summary>
+        /// <param name="vehiculo">: Vehiculo asignado para el translado</param>
+        void iniciarTransplante(cVehiculo* vehiculo) {
+            if (vehiculo->getOrgano() == this->organoNecesario)
+                vehiculo->imprimir();
+            else
+                throw exception("No se pudo iniciar el transplante del receptor");
+        }
+
+        eTipoSangre getTipoSangre()const {
+                return this->tipoSangre;
+        }
+
+        ePrioridad getPrioridad()const {
+            return this->prioridad;
+        }
+
+        /// <summary>
+        /// Setea la prioridad del receptor
+        /// </summary>
+        /// <param name="_prioridad">: prioridad nueva del receptor</param>
+        void setPrioridad(ePrioridad _prioridad) {
+            if (_prioridad)
+                this->prioridad = _prioridad;
+            else
+                throw exception("No se pudo asignar la prioridad al receptor");
+        }
+
+        /// <summary>
+        /// Obtiene el centro asociado
+        /// </summary>
+        /// <returns>Centro del receptor</returns>
+        cCentroSalud* getCentro()const {
+            if(this->organoNecesario)
+                return this->centroSalud;
+            throw exception("No se pudo obtener el centro del receptor");
+        }
 
         /// <summary>
         /// Concatena a un solo string los atributos pertinentes
@@ -51,6 +116,10 @@ class cReceptor : public cPaciente
     
         string patologia;
         cOrgano* organoNecesario;
+        cFecha* fechaListaEnEspera;
+        ePrioridad prioridad;
+        bool EoI;
+
         #pragma endregion
 
 };

@@ -3,9 +3,8 @@
 
 // cFecha implementacion
 
-cFecha::cFecha() {
-	this->horaAblacion = NULL;
-	this->horaTransplante = NULL;
+cFecha::cFecha(string _fecha) {
+	*this->fecha = _fecha;
 }
 
 cFecha::~cFecha() { }

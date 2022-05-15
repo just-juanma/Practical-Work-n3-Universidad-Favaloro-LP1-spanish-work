@@ -4,17 +4,18 @@
 #include "cLista.h"
 #include "cReceptor.h"
 #include "cDonante.h"
-#include "cAvion.h"
-#include "cHelicoptero.h"
-#include "cAmbulancia.h"
+#include "cCentroSalud.h"
 
 class cINCUCAI {
 
     public:
 
         #pragma region Constructor_Destructor
-    
-        cINCUCAI(bool _match = false);
+
+        /// <summary>
+        /// Constructor por defecto
+        /// </summary>
+        cINCUCAI();
 
         ~cINCUCAI();
 
@@ -22,13 +23,14 @@ class cINCUCAI {
 
         #pragma region Metodos
 
-        //void recibirPaciente(void cPaciente);
+        cPaciente* ingresarPaciente(cPaciente* paciente);
 
         //cLista buscar(void cLista);
     
         // void pedirVehiculo();
 
         void Protocolo_de_Transporte_y_Transplantes(cDonante* donante, cReceptor* receptor);
+
     private: 
 
         // void ordenarPrioridad();
@@ -40,6 +42,8 @@ class cINCUCAI {
         bool match;
         cLista<cDonante>* listaDonantes;
         cLista<cReceptor>* listaReceptores;
+        cLista<cCentroSalud>* listaCentros;
+
         #pragma endregion
 
 };

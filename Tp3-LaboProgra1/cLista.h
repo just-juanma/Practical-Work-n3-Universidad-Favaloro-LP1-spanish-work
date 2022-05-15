@@ -6,7 +6,9 @@ template <typename T>
 
 class cLista 
 {
-
+    friend class cCentroSalud;
+    friend class cVehiculo;
+    friend class cINCUCAI;
     public: 
     
         #pragma region Constructor_Destructor
@@ -78,7 +80,7 @@ class cLista
 
         int buscar(T* elemento) {
             for (int i = 0; i < this->cantActual; i++) {
-                if (T & elemento == this->lista[i]) {
+                if (T && elemento == this->lista[i]) {
                     i;
                 }
             }

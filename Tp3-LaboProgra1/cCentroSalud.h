@@ -3,10 +3,16 @@
 #include "gbl.h"
 #include "cLista.h"
 #include "cVehiculo.h"
+#include "cDonante.h"
+#include "cFecha.h"
+#include "cAmbulancia.h"
+#include "cHelicoptero.h"
+#include "cAvion.h"
 
 class cCentroSalud 
 {
     public: 
+
         #pragma region Constructor_Destructor
 
         /// <summary>
@@ -26,28 +32,30 @@ class cCentroSalud
 
         #pragma endregion
 
-        #pragma region metodos
+        #pragma region Metodos
 
         /// <summary>
         /// Recibe la lista de vehiculos y la asigna
         /// </summary>
         /// <param name="_vehiculo">Vehiculo a agregar</param>
         /// <returns>True en caso de poder asignarlo, false en caso contrario</returns>
-        bool setListaVehiculo(cLista<cVehiculo>* _listaVehiculo) {
-            try {
-                if (!_listaVehiculo)
-                    throw exception("No se puede pasar como parametro una lista de vehiculos vacia");
-                else if (listaVehiculo) 
-                    throw exception("La lista de vehiculos ya fue inicializada anteriormente");
-                listaVehiculo = _listaVehiculo;
-                return true;
-            }
-            catch (exception& e) {
-                cout << "Error: " << e.what() << endl;
-                return false;
-            }
+        void setListaVehiculo(cLista<cVehiculo>* _listaVehiculo) {
+            if (!_listaVehiculo)
+                throw exception("No se puede pasar como parametro una lista de vehiculos vacia");
+            else if (listaVehiculo)
+                throw exception("La lista de vehiculos ya fue inicializada anteriormente");
+            listaVehiculo = _listaVehiculo;
         }
         
+        /// <summary>
+        /// Recibe el centro del receptor y lo compara 
+        /// </summary>
+        /// <param name="centroReceptor">: Centro de salud del receptor</param>
+        /// <returns>El vehiculo necesario para el translado, NULL en caso contrario</returns>
+        cVehiculo* getTipoVehiculo(cCentroSalud* centroReceptor);
+
+        cOrgano* 
+
         /// <summary>
         /// Concatena a un solo string los atributos pertinentes
         /// </summary>
@@ -60,24 +68,24 @@ class cCentroSalud
         void imprimir() {
             cout << to_string() << endl;
         }
-        eVehiculo gettipovehiculo(cCentroSalud* _centrodelreceptor);
+
+        //cOrgano* iniciarAblacion(cOrgano* receptor, cFecha* fecha); No puedo iniciar la ablacion si no tengo match
 
         #pragma endregion
 
-        //los necesito publicos
+    private: 
+
+        #pragma region Atributos
+
         const string nombre;
         const string direccion;
         const string partido;
         const string provincia;
         const string telefono;
-
-    private: 
-
-        #pragma region atributos
-
-        
         cLista<cVehiculo>* listaVehiculo;
-
+        cFecha* ablacion;
+        ush cantActual;
+        ush cantTotal;
         #pragma endregion
 
 };

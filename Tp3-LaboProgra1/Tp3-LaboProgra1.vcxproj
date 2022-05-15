@@ -169,7 +169,6 @@
     <ClInclude Include="eOrgano.h" />
     <ClInclude Include="ePrioridad.h" />
     <ClInclude Include="eTipoSangre.h" />
-    <ClInclude Include="eVehiculo.h" />
     <ClInclude Include="gbl.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

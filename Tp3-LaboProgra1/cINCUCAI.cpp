@@ -2,37 +2,54 @@
 
 // cINCUCAI implementacion
 
-cINCUCAI::cINCUCAI(bool _match) {
-	this->match = _match;
+cINCUCAI::cINCUCAI() {
+	this->match = false;
+	this->listaDonantes = NULL;
+	this->listaReceptores = NULL;
+	this->listaCentros = NULL;
 }
 
-cINCUCAI::~cINCUCAI() {
+cINCUCAI::~cINCUCAI() { }
 
-	// no tengo algo que eliminar
-
-}
-
-void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cDonante* _donante, cReceptor* _receptor) {
-	
-	int pos = this->listaReceptores->buscar(_receptor);
-	eVehiculo vehic= _donante->getCentro()->gettipovehiculo(_receptor->getCentro());
-	cVehiculo* _vehiculo;
-	if (vehic == avion) {
-		cAvion* _avion = new cAvion;
-		_vehiculo = _avion;
-	}
-	else if (vehic == helicoptero) {
-		cHelicoptero* _Helicoptero = new cHelicoptero;
-		_vehiculo = _Helicoptero;
+cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
+	//cAvion* avion = dynamic_cast<cAvion*>(listaVehiculo[0].lista[i]);
+	cDonante* sujeto = dynamic_cast<cDonante*>(paciente);
+	if (sujeto == NULL)
+	{
+		cReceptor* sujeto = dynamic_cast<cReceptor*>(paciente);
+		*listaReceptores + *sujeto;
 	}
 	else {
-		cAmbulancia* _Ambulancia = new cAmbulancia;
-		_vehiculo = _Ambulancia;
+		cLista<cReceptor>* listaPrioridad = new cLista<cReceptor>[listaReceptores->cantActual];
+		for (ush i = 0; i < sujeto->listaOrgano->cantActual; i++)
+		{
+			ush agregados = 0;
+			for (ush j = 0; j < this->listaReceptores->cantActual; j++)
+			{
+				if (listaReceptores->lista[j]->getPrioridad() == maxima &&
+					listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] &&
+					listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre) {
+					agregados++;
+					*listaPrioridad + *listaReceptores->lista[j];
+				}
+			}
+
+			if (agregados != 0) {
+				this->match = true;
+				return listaPrioridad->lista[0];
+			}
+		}
 	}
-	if (_donante->asignarVehiculo(_vehiculo) == true) {
-		cOrgano* organotransportado=_donante->iniciarAblacion(_receptor->getOrganoNecesitado()); //Se le pasa quien va ser receptor para asi saber que organo pasarle
-		_donante->inciarTransporte(); //imprime en pantalla el iuiu iuiu - Taca taca - fiuuuuum
-		if (_receptor->inicarTranspoante(organotransportado) == true) { //ademas se ve si el transplante fue exitoso
+}
+
+void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cDonante *_donante, cReceptor *_receptor){
+	int pos = this->listaReceptores->buscar(_receptor);
+	cVehiculo* _vehiculo = _receptor->getCentro()->getTipoVehiculo(_receptor->getCentro());
+	if (_vehiculo) {
+		//Inicar ablaacion lo hace juanma
+		_donante->iniciarAblacion(_receptor->getOrganoNecesitado()); //Se le pasa el organo necesitado, puede ser el centro o 
+		_vehiculo->inciarTransporte(); //imprime en pantalla el iuiu iuiu - Taca taca - fiuuuuum
+		if (_receptor->inicarTranspoante(_donante) == true) { //ademas se ve si el transplante fue exitoso
 			this->listaReceptores->quitar(_receptor);
 		}
 		else {
@@ -41,3 +58,9 @@ void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cDonante* _donante, cRecep
 		}
 	}
 }
+	
+
+
+
+
+

@@ -10,7 +10,6 @@
 #include "eOrgano.h"
 #include "ePrioridad.h"
 #include "eTipoSangre.h"
-#include "eVehiculo.h"
 
 typedef short int sh;
 typedef unsigned short int ush;
