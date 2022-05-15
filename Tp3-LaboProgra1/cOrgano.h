@@ -43,7 +43,6 @@ class cOrgano {
        #pragma region Atributos
         
         eOrgano organo;
-        cFecha* ablacion;
 
         #pragma endregion
 };

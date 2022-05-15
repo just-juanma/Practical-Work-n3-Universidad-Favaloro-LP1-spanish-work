@@ -46,61 +46,14 @@ class cCentroSalud
             listaVehiculo = _listaVehiculo;
         }
         
-
         /// <summary>
         /// Recibe el centro del receptor y lo compara 
         /// </summary>
         /// <param name="centroReceptor">: Centro de salud del receptor</param>
         /// <returns>El vehiculo necesario para el translado, NULL en caso contrario</returns>
-        cVehiculo* getTipoVehiculo(cCentroSalud* centroReceptor) {
-            // si es la misma provincia
-            if (centroReceptor->provincia == this->provincia) {
-                // si es el mismo partido
-                if (centroReceptor->partido == this->partido) {
-                    for (ush i = 0; i < listaVehiculo->cantActual; i++) {
-                        // verifico que este libre para usar y que exista el puntero
-                        if (listaVehiculo->lista[i]->getLuO() == true && listaVehiculo->lista[i]) {
-                            // trato de conseguir la ambulancia
-                            cAmbulancia* ambulancia = dynamic_cast<cAmbulancia*>(listaVehiculo->lista[i]);
-                            // si consigo el casteo, retorno la ambulancia
-                            if (ambulancia)
-                                return ambulancia;
-                        }
-                    }
-                }
-                // si es otro partido
-                else {
-                    //busco al primer helicopetro que encuentre
-                    for (ush i = 0; i < listaVehiculo->cantActual; i++) {
-                        // verifico que este libre para usar y que exista el puntero
-                        if (listaVehiculo->lista[i]->getLuO() == true && listaVehiculo[0].lista[i]) {
-                            // trato de conseguir el helicoptero
-                            cHelicoptero* helicoptero = dynamic_cast<cHelicoptero*>(listaVehiculo[0].lista[i]);
-                            // si consigo el casteo, retorno el helicoptero
-                            if (helicoptero)
-                                return helicoptero;
-                        }
-                    }
-                }
+        cVehiculo* getTipoVehiculo(cCentroSalud* centroReceptor);
 
-            }
-            // si es otra provincia
-            else {
-                //busco al primer avion que encuentre
-                for (ush i = 0; i < listaVehiculo->cantActual; i++) {
-                    // verifico que este libre para usar y que exista el puntero
-                    if (listaVehiculo->lista[i]->getLuO() == true && listaVehiculo->lista[i]) {
-                        // trato de conseguir el avion
-                        cAvion* avion = dynamic_cast<cAvion*>(listaVehiculo->lista[i]);
-                        // si consigo el casteo, retorno el avion
-                        if (avion)
-                            return avion;
-                   }
-                }
-            }
-            // si no encontro el vehiculo necesario, no hay vehiculos
-            return NULL;
-        }
+        cOrgano* 
 
         /// <summary>
         /// Concatena a un solo string los atributos pertinentes
@@ -130,7 +83,8 @@ class cCentroSalud
         const string telefono;
         cLista<cVehiculo>* listaVehiculo;
         cFecha* ablacion;
-
+        ush cantActual;
+        ush cantTotal;
         #pragma endregion
 
 };

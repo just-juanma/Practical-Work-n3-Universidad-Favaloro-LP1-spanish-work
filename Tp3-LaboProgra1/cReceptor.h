@@ -29,6 +29,7 @@ class cReceptor : public cPaciente
         #pragma endregion
 
         #pragma region Metodos
+        bool inicarTranspoante(cOrgano* _organotransportado);
 
         /// <summary>
         /// Setea el organo que necesita el receptor
@@ -105,6 +106,18 @@ class cReceptor : public cPaciente
         /// </summary>
         void imprimir() {
             cout << to_string() << endl;
+        }
+        /// <summary>
+        /// Cambia el estado del paciente
+        /// </summary>
+        /// <param name="_estado"></param>
+        void SwitchEstabilidad() {
+            if (this->EoI == true) {
+                this->EoI = false;
+            }
+            else {
+                this->EoI = true;
+            }
         }
 
         #pragma endregion

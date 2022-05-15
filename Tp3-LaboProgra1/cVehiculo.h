@@ -35,6 +35,10 @@ class cVehiculo {
             return this->LuO;
         }
 
+        void setLuO(bool estado) {
+            this->LuO = estado;
+        }
+
         /// <summary>
         /// Obtiene el organo que transporta el vehiculo
         /// </summary>
@@ -66,8 +70,9 @@ class cVehiculo {
         /// <summary>
         /// Metodo abstracto: Imprime to_string() de la clase hija
         /// </summary>
-        virtual void imprimir() = 0;
+        void imprimir();
 
+        void inciarTransporte();
 		#pragma endregion
 
     protected:
