@@ -13,3 +13,7 @@ cVehiculo::~cVehiculo() { }
 void cVehiculo::imprimir() {
 	cout << to_string() << endl;
 }
+
+void cVehiculo::inciarTransporte() {
+	this->imprimir();
+}

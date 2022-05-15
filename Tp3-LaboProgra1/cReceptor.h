@@ -107,6 +107,18 @@ class cReceptor : public cPaciente
         void imprimir() {
             cout << to_string() << endl;
         }
+        /// <summary>
+        /// Cambia el estado del paciente
+        /// </summary>
+        /// <param name="_estado"></param>
+        void SwitchEstabilidad() {
+            if (this->EoI == true) {
+                this->EoI = false;
+            }
+            else {
+                this->EoI = true;
+            }
+        }
 
         #pragma endregion
 

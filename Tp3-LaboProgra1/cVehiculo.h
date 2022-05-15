@@ -72,7 +72,7 @@ class cVehiculo {
         /// </summary>
         void imprimir();
 
-        void 
+        void inciarTransporte();
 		#pragma endregion
 
     protected:
