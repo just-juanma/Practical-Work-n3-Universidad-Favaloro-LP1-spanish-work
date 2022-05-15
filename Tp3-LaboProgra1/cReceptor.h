@@ -2,7 +2,7 @@
 #define _CRECEPTOR_H
 #include "gbl.h"
 #include "cPaciente.h"
-
+#include "cOrgano.h"
 class cReceptor : public cPaciente 
 {
     public: 
@@ -16,7 +16,7 @@ class cReceptor : public cPaciente
         /// <param name="_sexo">: Sexo del receptor</param>
         /// <param name="_telefono">: Telefono del receptor</param>
         /// <param name="_patologia">: Patologia del receptor</param>
-        cReceptor(string _nombre = "", string _sexo = "", string _telefono = "", string _patologia = "");
+        cReceptor(string _nombre = "", string _sexo = "", string _telefono = "", string _patologia = "",cOrgano* = NULL);
 
         /// <summary>
         /// Destructor por defecto
@@ -26,8 +26,9 @@ class cReceptor : public cPaciente
         #pragma endregion
 
         #pragma region Metodos
+        bool inicarTranspoante(cOrgano* _organotransportado);
 
-        eOrgano getOrganoNecesitado() { return this->organoNecesario; }
+        cOrgano* getOrganoNecesitado() { return this->organoNecesario; }
 
         /// <summary>
         /// Concatena a un solo string los atributos pertinentes
@@ -49,7 +50,7 @@ class cReceptor : public cPaciente
         #pragma region Atributos
     
         string patologia;
-        eOrgano organoNecesario;
+        cOrgano* organoNecesario;
         #pragma endregion
 
 };

@@ -37,7 +37,8 @@ class cOrgano {
        #pragma region Atributos
         
         eOrgano organo;
-
+        cFecha* fecha1;
+        cFecha* fecha2;
         #pragma endregion
 };
 

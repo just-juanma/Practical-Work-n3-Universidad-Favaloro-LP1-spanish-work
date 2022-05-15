@@ -4,7 +4,7 @@
 #include "cLista.h"
 #include "cOrgano.h"
 #include "cPaciente.h"
-
+#include "cFecha.h"
 class cDonante: public cPaciente
 {
     public:
@@ -63,7 +63,7 @@ class cDonante: public cPaciente
 
         bool asignarVehiculo(cVehiculo* vehiculo);
 
-        void iniciarAblacion(eOrgano _receptor);
+        cOrgano* iniciarAblacion(cOrgano* _receptor);
         #pragma endregion   
     private:
 

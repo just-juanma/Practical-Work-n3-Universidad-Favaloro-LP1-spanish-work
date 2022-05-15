@@ -30,9 +30,9 @@ void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cDonante* _donante, cRecep
 		_vehiculo = _Ambulancia;
 	}
 	if (_donante->asignarVehiculo(_vehiculo) == true) {
-		_donante->iniciarAblacion(_receptor->getOrganoNecesitado()); //Se le pasa quien va ser receptor para asi saber que organo pasarle
+		cOrgano* organotransportado=_donante->iniciarAblacion(_receptor->getOrganoNecesitado()); //Se le pasa quien va ser receptor para asi saber que organo pasarle
 		_donante->inciarTransporte(); //imprime en pantalla el iuiu iuiu - Taca taca - fiuuuuum
-		if (_receptor->inicarTranspoante(_donante) == true) { //ademas se ve si el transplante fue exitoso
+		if (_receptor->inicarTranspoante(organotransportado) == true) { //ademas se ve si el transplante fue exitoso
 			this->listaReceptores->quitar(_receptor);
 		}
 		else {
