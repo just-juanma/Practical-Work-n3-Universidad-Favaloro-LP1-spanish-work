@@ -22,7 +22,7 @@ string cDonante::to_string() {
 		stc << "Fecha de muerte: " << this->muerte->getFecha();
 	if (ablacion)
 		stc << "Fecha de ablacion: " << this->ablacion->getFecha();
-	if(listaOrgano)
-		stc << "Listado de organos:" << endl << this->listaOrgano->to_string() << endl;
+	//if(listaOrgano)
+	//	stc << "Listado de organos:" << endl << this->listaOrgano->to_string() << endl;
 	return stc.str();
 }

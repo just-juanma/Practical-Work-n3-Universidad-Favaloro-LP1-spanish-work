@@ -18,10 +18,10 @@ string cCentroSalud::to_string() {
     stc << "Partido: " << this->partido << endl;
     stc << "Provincia: " << this->provincia << endl;
     stc << "Telefono: " << this->telefono << endl;
-    if(listaVehiculo)
+    /*if(listaVehiculo)
         stc << "Listado de vehiculos:" << endl << this->listaVehiculo->to_string() << endl;
     if (ablacion)
-        stc << "Fecha de ablacion: " << this->ablacion->getFecha();
+        stc << "Fecha de ablacion: " << this->ablacion->getFecha();*/
     return stc.str();
 }
 

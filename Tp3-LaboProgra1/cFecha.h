@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 #ifndef _CFECHA_H
 #define _CFECHA_H
 #include "gbl.h"

@@ -11,69 +11,69 @@ cINCUCAI::cINCUCAI() {
 
 cINCUCAI::~cINCUCAI() { }
 
-cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
-	//cAvion* avion = dynamic_cast<cAvion*>(listaVehiculo[0].lista[i]);
-	cDonante* sujeto = dynamic_cast<cDonante*>(paciente);
-	if (sujeto == NULL)
-	{
-		cReceptor* sujeto = dynamic_cast<cReceptor*>(paciente);
-		*listaReceptores + *sujeto;
-	}
-	else {
-		cLista<cReceptor>* listaPrioridad = new cLista<cReceptor>[listaReceptores->cantActual];
-		for (ush i = 0; i < sujeto->listaOrgano->cantActual; i++)
-		{
-			ush agregados = 0;
-			for (ush j = 0; j < this->listaReceptores->cantActual; j++)
-			{
-				if (listaReceptores->lista[j]->getPrioridad() == maxima &&
-					listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] && 
-					listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre) {
-					agregados++;
-					listaPrioridad->lista[agregados]= listaReceptores->lista[j];
-				}
-			}
-
-			if (agregados != 0) {
-				this->match = true;
-				return listaPrioridad->lista[0];
-			}
-
-			for (ush j = 0; j < this->listaReceptores->cantActual; j++)
-			{
-				if (listaReceptores->lista[j]->getPrioridad() == media &&
-					listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] &&
-					listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre) {
-					agregados++;
-					listaPrioridad->lista[agregados] = listaReceptores->lista[j];
-				}
-			}
-
-			if (agregados != 0) {
-				this->match = true;
-				return listaPrioridad->lista[0];
-			}
-
-			for (ush j = 0; j < this->listaReceptores->cantActual; j++)
-			{
-				if (listaReceptores->lista[j]->getPrioridad() == minima &&
-					listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] &&
-					listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre) {
-					agregados++;
-					listaPrioridad->lista[agregados] = listaReceptores->lista[j];
-				}
-			}
-
-			if (agregados != 0) {
-				this->match = true;
-				return listaPrioridad->lista[0];
-			}
-
-			else if (agregados == 0) return NULL;
-
-		}
-	}
-}
+//cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
+//	//cAvion* avion = dynamic_cast<cAvion*>(listaVehiculo[0].lista[i]);
+//	cDonante* sujeto = dynamic_cast<cDonante*>(paciente);
+//	if (sujeto == NULL)
+//	{
+//		cReceptor* sujeto = dynamic_cast<cReceptor*>(paciente);
+//		//*listaReceptores + *sujeto;
+//	}
+//	else {
+//		//cLista<cReceptor>* listaPrioridad = new cLista<cReceptor>[listaReceptores->cantActual];
+//		for (ush i = 0; i < sujeto->listaOrgano->cantActual; i++)
+//		{
+//			ush agregados = 0;
+//			for (ush j = 0; j < this->listaReceptores->cantActual; j++)
+//			{
+//				if (listaReceptores->lista[j]->getPrioridad() == maxima &&
+//					listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] && 
+//					listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre) {
+//					agregados++;
+//					//listaPrioridad->lista[agregados]= listaReceptores->lista[j];
+//				}
+//			}
+//
+//			if (agregados != 0) {
+//				this->match = true;
+//				//return listaPrioridad->lista[0];
+//			}
+//
+//			for (ush j = 0; j < this->listaReceptores->cantActual; j++)
+//			{
+//				if (listaReceptores->lista[j]->getPrioridad() == media &&
+//					listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] &&
+//					listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre) {
+//					agregados++;
+//					//listaPrioridad->lista[agregados] = listaReceptores->lista[j];
+//				}
+//			}
+//
+//			if (agregados != 0) {
+//				this->match = true;
+//				//return listaPrioridad->lista[0];
+//			}
+//
+//			for (ush j = 0; j < this->listaReceptores->cantActual; j++)
+//			{
+//				if (listaReceptores->lista[j]->getPrioridad() == minima &&
+//					listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] &&
+//					listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre) {
+//					agregados++;
+//					//listaPrioridad->lista[agregados] = listaReceptores->lista[j];
+//				}
+//			}
+//
+//			if (agregados != 0) {
+//				this->match = true;
+//				//return listaPrioridad->lista[0];
+//			}
+//
+//			else if (agregados == 0) return NULL;
+//
+//		}
+//	}
+//}
 
 
 
