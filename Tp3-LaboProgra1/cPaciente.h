@@ -35,9 +35,9 @@ class cPaciente
        /// </summary>
        /// <param name="_centro"></param>
        /// <returns></returns>
-        virtual bool asociarcentro(cCentroSalud* _centro) = 0;
+        bool asociarcentro(cCentroSalud* _centro);
         
-        virtual cCentroSalud* getcentro() = 0;
+        virtual cCentroSalud* getCentro() = 0;
 
         /// <summary>
         /// Metodo abstracto: Concatena a un solo string los atributos pertinentes en las clases hijas

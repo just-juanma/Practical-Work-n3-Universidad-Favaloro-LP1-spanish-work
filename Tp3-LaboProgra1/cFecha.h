@@ -36,7 +36,7 @@ class cFecha {
         #pragma region Atributos
         
         string* fecha;
-
+ 
         #pragma endregion
 
 };

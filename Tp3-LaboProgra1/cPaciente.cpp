@@ -11,4 +11,15 @@ cPaciente::cPaciente(string _nombre, string _sexo, string _telefono, cFecha* _na
 
 }
 
+bool cPaciente::asociarcentro(cCentroSalud* _centro) {
+    if (_centro)
+    {
+        this->centroSalud = _centro;
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 cPaciente::~cPaciente() { }

@@ -49,4 +49,4 @@ class cINCUCAI {
 
 };
 
-#endif //_CINCUCAI_H
+#endif _CINCUCAI_H

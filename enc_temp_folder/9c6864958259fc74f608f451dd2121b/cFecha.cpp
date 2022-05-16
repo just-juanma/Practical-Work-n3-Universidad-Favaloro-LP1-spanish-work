@@ -4,7 +4,7 @@
 // cFecha implementacion
 
 cFecha::cFecha(string _fecha) {
-	*this->fecha = _fecha; //this->fecha = &_fecha; porque no esto?
+	this->fecha = &_fecha;
 }
 
 cFecha::~cFecha() { }

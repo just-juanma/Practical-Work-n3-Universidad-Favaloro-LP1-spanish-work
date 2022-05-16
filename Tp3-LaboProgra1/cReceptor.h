@@ -89,7 +89,7 @@ class cReceptor : public cPaciente
         /// Obtiene el centro asociado
         /// </summary>
         /// <returns>Centro del receptor</returns>
-        cCentroSalud* getCentro()const {
+        cCentroSalud* getCentro(){
             if(this->organoNecesario)
                 return this->centroSalud;
             throw exception("No se pudo obtener el centro del receptor");
