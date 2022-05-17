@@ -12,7 +12,7 @@ string cOrgano::to_string() {
 	stringstream stc;
 	switch (organo) {
 	case 0:
-		stc << "Sin Organo" << endl;
+		stc << "Desconocido" << endl;
 		break;
 	case 1:
 		stc << "Corazon" << endl;
@@ -42,7 +42,5 @@ string cOrgano::to_string() {
 		stc << "Cornea" << endl;
 		break;
 	}
-	if (ablacion)
-		stc << "Fecha de ablacion: " << ablacion->getFecha() << endl;
 	return stc.str();
 }

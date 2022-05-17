@@ -7,6 +7,7 @@ cDonante::cDonante(string _nombre, string _sexo, string _telefono, cFecha* _naci
 	this->muerte = NULL;
 	this->listaOrgano = NULL;
 	this->ablacion = NULL;
+	this->vehiculo = NULL;
 }
 
 cDonante::~cDonante() { }

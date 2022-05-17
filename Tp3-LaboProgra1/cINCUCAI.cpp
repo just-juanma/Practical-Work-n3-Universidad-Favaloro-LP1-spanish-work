@@ -102,43 +102,28 @@ cLista<cPaciente*>* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 			//	return listaPrioridad->lista[0];
 			//}
 			//else if (agregados == 0) return NULL;
+void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cDonante *_donante, cReceptor *_receptor){
+	if (!_donante || !_receptor) {
+		throw "Error en el protocolo de transporte con algun paciente";
+	}
+	int pos = this->listaReceptores->buscar(_receptor);
+	cVehiculo* _vehiculo = _receptor->getCentro()->getTipoVehiculo(_receptor->getCentro());
+	if (_vehiculo) {
+		//_donante->iniciarAblacion(_receptor->getOrganoNecesitado()); //Se le pasa el organo necesitado, puede ser el centro o 
+		_vehiculo->inciarTransporte(); //imprime en pantalla el iuiu iuiu - Taca taca - fiuuuuum
+		if (_receptor->inicarTranspoante(_vehiculo->getOrgano())==true) { //ademas se ve si el transplante fue exitoso
+			*this->listaReceptores - _receptor;
+		}
+		else {
+			_receptor->setPrioridad(maxima); //setea el 
+			_receptor->SwitchEstabilidad();//cambia el estado
 		}
 		//return listaPrioridad*;
 	}
 }
+	
 
 
 
 
 
-
-//
-//void cINCUCAI::Protocolo_de_Transporte_y_Transplante(cDonante* _donante, cReceptor* _receptor) {
-//	
-//	int pos = this->listaReceptores->buscar(_receptor);
-//	cVehiculo* vehic= _donante->getCentro()->gettipovehiculo(_receptor->getCentro());
-//	cVehiculo* _vehiculo;
-//	if (vehic == avion) {
-//		cAvion* _avion = new cAvion;
-//		_vehiculo = _avion;
-//	}
-//	else if (vehic == helicoptero) {
-//		cHelicoptero* _Helicoptero = new cHelicoptero;
-//		_vehiculo = _Helicoptero;
-//	}
-//	else {
-//		cAmbulancia* _Ambulancia = new cAmbulancia;
-//		_vehiculo = _Ambulancia;
-//	}
-//	if (_donante->asignarVehiculo(_vehiculo) == true) {
-//		_donante->iniciarAblacion(_receptor->getOrganoNecesitado()); //Se le pasa quien va ser receptor para asi saber que organo pasarle
-//		_donante->inciarTransporte(); //imprime en pantalla el iuiu iuiu - Taca taca - fiuuuuum
-//		if (_receptor->inicarTranspoante(_donante) == true) { //ademas se ve si el transplante fue exitoso
-//			this->listaReceptores->quitar(_receptor);
-//		}
-//		else {
-//			_receptor->serPrioridad("la mas alta"); //setea el 
-//			_receptor->cambiarEstado();//setea el estado a inestable
-//		}
-//	}
-//}

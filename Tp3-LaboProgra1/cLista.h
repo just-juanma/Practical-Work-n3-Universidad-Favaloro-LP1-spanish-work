@@ -13,17 +13,37 @@ class cLista
     
         #pragma region Constructor_Destructor
 
+       
         /// <summary>
         /// Constructor parametrizado por defecto
         /// </summary>
         /// <param name="size">Tamanio de la lista, macro MAX por defecto</param>
         /// <param name="_checkEliminar">: La lista se puede eliminar (true), false en caso contrario</param>
-        cLista(sh size = MAX, bool _checkEliminar = false);
+        cLista(sh size = MAX, bool _checkEliminar = false) {
+            this->cantActual = 0;
+            this->checkEliminar = _checkEliminar;
+            this->lista = new T * [size];
+            if (!this->lista)
+                throw(bad_alloc());
+            this->cantTotal = size;
+            for (ush i = 0; i < this->cantTotal; i++)
+                this->lista[i] = NULL;
+        }
 
         /// <summary>
         /// Destructor por defecto
         /// </summary>
-        ~cLista();
+        ~cLista() {
+            if (this->checkEliminar) {
+                for (ush i = 0; i < cantActual; i++)
+                    if (this->lista[i])
+                        delete this->lista[i];
+            }
+            else
+                throw exception("Error: No se puede destruir la lista si no se le da el permiso para eliminarlo");
+            delete[] this->lista;
+
+        }
 
         #pragma endregion
         
@@ -34,14 +54,40 @@ class cLista
         /// </summary>
         /// <param name="elemento">: Elemento a agregar</param>
         /// <returns>True en caso de poder agregarlo, false en caso contrario</returns>
-        bool agregar(T* elemento);
+        bool agregar(T* elemento) {
+
+	        try {
+	        	if (this->cantActual > this->cantTotal)
+	        		throw exception("La cantidad actual de la lista es mayor a la cantidad total");
+	        	else if (!elemento)
+	        		throw exception("El elemento que se intenta agregar no existe");
+	        	else if (lista[this->cantActual])
+	        		throw exception("La posicion del elemento que se intenta ocupar ya esta ocupada");
+	        	this->lista[this->cantActual++] = elemento;
+	        	return true;
+	        }
+	        catch (exception& e) {
+	        	cout << "Error: " << e.what() << endl;
+	        	return false;
+	
+            }
+        }
     
         /// <summary>
         /// Quita un elemento de la lista
         /// </summary>
         /// <param name="elemento">: Elemento a quitar</param>
         /// <returns>True en caso de poder quitarlo, false en caso contrario</returns>
-        T* quitar(T* elemento);
+        T* quitar(T* elemento) {
+            for (ush i = 0; i < this->cantActual; i++)
+                if (lista[i] && this->lista[i] == elemento) {
+                    T* aux = this->lista[i];
+                    this->lista[i] = NULL;
+                    ordenar();
+                    return aux;
+                }
+            return NULL;
+        }
         
         #pragma endregion
 
@@ -52,9 +98,8 @@ class cLista
         /// </summary>
         /// <param name="elemento">: Elemento a agregar</param>
         /// <returns>Lista nueva con el elemento agregado</returns>
-        cLista* operator+(T& elemento) {
-            if (agregar(&elemento))
-                return this;
+        void operator+(T* elemento) {
+           agregar(elemento);
         }
 
         /// <summary>
@@ -62,9 +107,9 @@ class cLista
         /// </summary>
         /// <param name="elemento">: Elemento a quitar</param>
         /// <returns>Lista nueva con el elemento quitado</returns>
-        cLista* operator-(T& elemento) {
-            if (quitar(&elemento))
-                return this;
+        T* operator-(T* elemento) {
+            return (quitar(elemento));
+
         }
         
         /// <summary>
@@ -78,20 +123,28 @@ class cLista
             throw exception("Se esta intentando acceder a un elemento imposible de acceder");
         }
 
-        int buscar(T* elemento) {
-            for (int i = 0; i < this->cantActual; i++) {
-                if (T && elemento == this->lista[i]) {
-                    i;
-                }
-            }
-
+        ush buscar(T* elemento) {
+            for (ush i = 0; i < this->cantActual; i++) 
+                if (elemento && elemento == this->lista[i]) 
+                    return i;
+            return -1;
         }
 
         /// <summary>
         /// Concatena a un solo string los atributos pertinentes
         /// </summary>
         /// <returns>String concatenado</returns>
-        string to_string();
+        string to_string() {
+            stringstream stc;
+            stc << "Checkeo de eliminar (true / si) (false / no): " << this->checkEliminar << endl;
+            stc << "Cantidad total de elementos: " << this->cantActual << endl;
+            stc << "Cantidad actual de elementos: " << this->cantTotal << endl;
+            for (ush i = 0; i < this->cantActual; i++) {
+                stc << "Elemento [" << i << "]" << endl << lista[i]->to_string() << endl;
+            }
+            return stc.str();
+        }
+
 
         #pragma endregion
 
@@ -99,7 +152,12 @@ class cLista
 
         #pragma region Funciones_Auxiliares
 
-        void ordenar();
+        void ordenar() {
+            for (ush i = 0; i < this->cantActual; i++)
+                for (ush j = i; j < this->cantActual - 1; j++)
+                    if (!this->lista[i])
+                        swap(this->lista[j], this->lista[j + 1]);
+        }
 
         #pragma endregion
 

@@ -7,7 +7,7 @@
 class cPaciente 
 {
 
-    public: 
+   public: 
 
         #pragma region Constructor_Destructor
         
@@ -19,7 +19,7 @@ class cPaciente
         /// <param name="telefono">: Telefono del paciente</param>
         /// <param name="RoD">: Receptor (true), Donante (false)</param>
         cPaciente(string _nombre = "", string _sexo = "", string _telefono = "", 
-                  cFecha* _nacimiento = NULL, eTipoSangre _tipo = sinTipo, bool _RoD = false);
+                  cFecha* _nacimiento = NULL, eTipoSangre _tipo = tipoDesconocido, bool _RoD = false);
 
         /// <summary>
         /// Destructor por defecto
@@ -31,15 +31,13 @@ class cPaciente
         #pragma region Metodos
 
        /// <summary>
-       /// Metodo abstracto: recibe un centro, y lo asigna en las clases hijas
+       /// metodo abstracto: recibe un centro, y lo asigna en las clases hijas
        /// </summary>
        /// <param name="_centro"></param>
        /// <returns></returns>
-        virtual bool asociarCentro(cCentroSalud* _centro) = 0;
-
-        virtual bool desasociarCentro() = 0;
+        virtual void asociarCentro(cCentroSalud* _centro) = 0;
         
-        virtual cCentroSalud* getCentro() const = 0;
+        virtual cCentroSalud* getCentro() = 0;
 
         /// <summary>
         /// Metodo abstracto: Concatena a un solo string los atributos pertinentes en las clases hijas

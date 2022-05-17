@@ -3,8 +3,8 @@
 // cReceptor implementacion
 
 cReceptor::cReceptor(string _nombre, string _sexo, string _telefono, string _patologia, 
-					 cFecha* _nacimiento, cFecha* _fechaListaEnEspera, eTipoSangre _tipo, bool _EoI) :
-					 cPaciente(_nombre, _sexo, _telefono, _nacimiento, _tipo, true) {
+					cFecha* _nacimiento, cFecha* _fechaListaEnEspera, eTipoSangre _tipo, bool _EoI) :
+					cPaciente(_nombre, _sexo, _telefono, _nacimiento, _tipo, false) {
 	this->patologia = _patologia;
 	this->organoNecesario = NULL;
 	this->fechaListaEnEspera = _fechaListaEnEspera;
@@ -13,6 +13,18 @@ cReceptor::cReceptor(string _nombre, string _sexo, string _telefono, string _pat
 }
 
 cReceptor::~cReceptor() { }
+
+bool cReceptor::inicarTranspoante(cOrgano* _organotransportado)
+{
+	this->organoNecesario = _organotransportado; 
+	float azar = rand()%1;
+	if (azar > (1 / 2)) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
 string cReceptor::to_string() {
 	stringstream stc;

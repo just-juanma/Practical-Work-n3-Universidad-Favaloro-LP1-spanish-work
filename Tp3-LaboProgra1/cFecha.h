@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 #ifndef _CFECHA_H
 #define _CFECHA_H
 #include "gbl.h"
@@ -26,8 +25,25 @@ class cFecha {
             *fecha = ctime(&_fecha);
         }
 
+        void setFechaAblacion(time_t fecha) {
+            ablacion = fecha;
+        }
+
         string getFecha() const {
             return *fecha;
+        }
+
+        /// <summary>
+        /// Concatena a un solo string los atributos pertinentes
+        /// </summary>
+        /// <returns>String concatenado</returns>
+        string to_string();
+
+        /// <summary>
+        /// Imprime to_string()
+        /// </summary>
+        void imprimir() {
+            cout << to_string() << endl;
         }
 
         #pragma endregion
@@ -38,6 +54,8 @@ class cFecha {
         
         string* fecha;
 
+        time_t ablacion;
+ 
         #pragma endregion
 
 };

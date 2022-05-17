@@ -19,7 +19,7 @@ class cReceptor : public cPaciente
         /// <param name="_telefono">: Telefono del receptor</param>
         /// <param name="_patologia">: Patologia del receptor</param>
         cReceptor(string _nombre = "", string _sexo = "", string _telefono = "", string _patologia = "",
-                  cFecha* _nacimiento = NULL, cFecha* _fechaListaEnEspera = NULL, eTipoSangre _tipo = sinTipo, bool _EoI = false);
+                  cFecha* _nacimiento = NULL, cFecha* _fechaListaEnEspera = NULL, eTipoSangre _tipo = tipoDesconocido, bool _EoI = false);
 
         /// <summary>
         /// Destructor por defecto
@@ -29,6 +29,8 @@ class cReceptor : public cPaciente
         #pragma endregion
 
         #pragma region Metodos
+
+        bool inicarTranspoante(cOrgano* _organotransportado);
 
         /// <summary>
         /// Setea el organo que necesita el receptor
@@ -85,10 +87,21 @@ class cReceptor : public cPaciente
         }
 
         /// <summary>
+        /// Asocia el centro al donante
+        /// </summary>
+        /// <param name="_centro">: Centro a asociar</param>
+        void asociarCentro(cCentroSalud* _centro) {
+            if (_centro && !centroSalud)
+                this->centroSalud = _centro;
+            throw exception("No se pudo asignar el centro al donante");
+        }
+
+
+        /// <summary>
         /// Obtiene el centro asociado
         /// </summary>
         /// <returns>Centro del receptor</returns>
-        cCentroSalud* getCentro()const {
+        cCentroSalud* getCentro(){
             if(this->organoNecesario)
                 return this->centroSalud;
             throw exception("No se pudo obtener el centro del receptor");
@@ -105,6 +118,18 @@ class cReceptor : public cPaciente
         /// </summary>
         void imprimir() {
             cout << to_string() << endl;
+        }
+        /// <summary>
+        /// Cambia el estado del paciente
+        /// </summary>
+        /// <param name="_estado"></param>
+        void SwitchEstabilidad() {
+            if (this->EoI == true) {
+                this->EoI = false;
+            }
+            else {
+                this->EoI = true;
+            }
         }
 
         #pragma endregion

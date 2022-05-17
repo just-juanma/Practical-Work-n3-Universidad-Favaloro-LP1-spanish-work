@@ -25,11 +25,8 @@ class cINCUCAI {
 
         cLista<cPaciente*>* ingresarPaciente(cPaciente* paciente);
 
-        //cLista buscar(void cLista);
-    
-        // void pedirVehiculo();
 
-        void Protocolo_de_Transporte_y_Transplante(cDonante* donante, cReceptor* receptor);
+        void Protocolo_de_Transporte_y_Transplantes(cDonante* donante, cReceptor* receptor);
 
     private: 
 
@@ -48,4 +45,4 @@ class cINCUCAI {
 
 };
 
-#endif //_CINCUCAI_H
+#endif _CINCUCAI_H

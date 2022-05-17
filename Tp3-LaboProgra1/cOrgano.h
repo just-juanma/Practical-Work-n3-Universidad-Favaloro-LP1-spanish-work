@@ -11,7 +11,7 @@ class cOrgano {
         /// Constructor parametrizado por defecto
         /// </summary>
         /// <param name="_organo">: Organo a donar / recibir</param>
-        cOrgano(eOrgano _organo = sinOrgano);
+        cOrgano(eOrgano _organo = organoDesconocido);
 
         ~cOrgano();
 
@@ -32,10 +32,6 @@ class cOrgano {
             cout << to_string() << endl;
         }
 
-        void setAblacion(cFecha* _ablacion) {
-            this->ablacion = _ablacion;
-        }
-
         #pragma endregion
 
     private: 
@@ -43,7 +39,6 @@ class cOrgano {
        #pragma region Atributos
         
         eOrgano organo;
-        cFecha* ablacion;
 
         #pragma endregion
 };
