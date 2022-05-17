@@ -3,7 +3,6 @@
 #include "gbl.h"
 #include "cLista.h"
 #include "cVehiculo.h"
-#include "cFecha.h"
 #include "cAmbulancia.h"
 #include "cHelicoptero.h"
 #include "cAvion.h"

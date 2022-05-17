@@ -29,6 +29,7 @@ class cReceptor : public cPaciente
         #pragma endregion
 
         #pragma region Metodos
+
         bool inicarTranspoante(cOrgano* _organotransportado);
 
         /// <summary>
@@ -84,6 +85,17 @@ class cReceptor : public cPaciente
             else
                 throw exception("No se pudo asignar la prioridad al receptor");
         }
+
+        /// <summary>
+        /// Asocia el centro al donante
+        /// </summary>
+        /// <param name="_centro">: Centro a asociar</param>
+        void asociarCentro(cCentroSalud* _centro) {
+            if (_centro && !centroSalud)
+                this->centroSalud = _centro;
+            throw exception("No se pudo asignar el centro al donante");
+        }
+
 
         /// <summary>
         /// Obtiene el centro asociado

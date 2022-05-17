@@ -35,7 +35,7 @@ class cPaciente
        /// </summary>
        /// <param name="_centro"></param>
        /// <returns></returns>
-        virtual bool asociarcentro(cCentroSalud* _centro) = 0;
+        virtual void asociarCentro(cCentroSalud* _centro) = 0;
         
         virtual cCentroSalud* getCentro() = 0;
 

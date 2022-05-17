@@ -27,5 +27,3 @@ string cDonante::to_string() {
 		stc << "Listado de organos:" << endl << this->listaOrgano->to_string() << endl;
 	return stc.str();
 }
-
-//cOrgano* cDonante::iniciarAblacion(cOrgano* _receptor) { }

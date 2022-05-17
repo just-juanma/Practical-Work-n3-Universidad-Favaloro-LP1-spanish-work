@@ -59,7 +59,7 @@ class cDonante: public cPaciente
         /// Asocia el centro al donante
         /// </summary>
         /// <param name="_centro">: Centro a asociar</param>
-        bool asosciarCentro(cCentroSalud* _centro) {
+        void asociarCentro(cCentroSalud* _centro) {
             if (_centro && !centroSalud) 
                 this->centroSalud = _centro;   
             throw exception("No se pudo asignar el centro al donante");
