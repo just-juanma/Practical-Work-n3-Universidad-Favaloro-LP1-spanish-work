@@ -11,7 +11,7 @@ cINCUCAI::cINCUCAI() {
 
 cINCUCAI::~cINCUCAI() { }
 
-cLista<cPaciente*>* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
+/*cLista<cPaciente*>* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 	//cAvion* avion = dynamic_cast<cAvion*>(listaVehiculo[0].lista[i]);
 	cDonante* sujeto = dynamic_cast<cDonante*>(paciente); //casteo al paciente para saber qué es
 	if (sujeto == NULL)
@@ -102,6 +102,9 @@ cLista<cPaciente*>* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 			//	return listaPrioridad->lista[0];
 			//}
 			//else if (agregados == 0) return NULL;
+
+			
+
 void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cDonante *_donante, cReceptor *_receptor){
 	if (!_donante || !_receptor) {
 		throw "Error en el protocolo de transporte con algun paciente";
@@ -121,6 +124,7 @@ void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cDonante *_donante, cRecep
 		//return listaPrioridad*;
 	}
 }
+*/
 	
 
 
