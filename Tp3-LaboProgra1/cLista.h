@@ -123,15 +123,11 @@ class cLista
             throw exception("Se esta intentando acceder a un elemento imposible de acceder");
         }
 
-        int buscar(T* elemento) {
-            ush i = 0;
-            for (i = 0; i < this->cantActual; i++) {
-                if (elemento && elemento == this->lista[i]) {
-                    i;
-                }
-            }
-            return i;
-
+        ush buscar(T* elemento) {
+            for (ush i = 0; i < this->cantActual; i++) 
+                if (elemento && elemento == this->lista[i]) 
+                    return i;
+            return -1;
         }
 
         /// <summary>

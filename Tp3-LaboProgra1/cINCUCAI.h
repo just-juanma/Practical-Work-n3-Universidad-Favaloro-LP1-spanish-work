@@ -28,10 +28,6 @@ class cINCUCAI {
 
         void Protocolo_de_Transporte_y_Transplantes(cDonante* donante, cReceptor* receptor);
 
-        //cLista buscar(void cLista);
-    
-        // void pedirVehiculo();
-
     private: 
 
         // void ordenarPrioridad();

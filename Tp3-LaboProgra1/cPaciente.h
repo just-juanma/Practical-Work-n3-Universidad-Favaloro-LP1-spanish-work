@@ -19,7 +19,7 @@ class cPaciente
         /// <param name="telefono">: Telefono del paciente</param>
         /// <param name="RoD">: Receptor (true), Donante (false)</param>
         cPaciente(string _nombre = "", string _sexo = "", string _telefono = "", 
-                  cFecha* _nacimiento = NULL, eTipoSangre _tipo = sinTipo, bool _RoD = false);
+                  cFecha* _nacimiento = NULL, eTipoSangre _tipo = tipoDesconocido, bool _RoD = false);
 
         /// <summary>
         /// Destructor por defecto
@@ -35,7 +35,7 @@ class cPaciente
        /// </summary>
        /// <param name="_centro"></param>
        /// <returns></returns>
-        bool asociarcentro(cCentroSalud* _centro);
+        virtual bool asociarcentro(cCentroSalud* _centro) = 0;
         
         virtual cCentroSalud* getCentro() = 0;
 

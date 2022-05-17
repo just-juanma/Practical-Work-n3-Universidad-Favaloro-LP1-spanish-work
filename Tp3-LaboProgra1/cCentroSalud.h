@@ -66,8 +66,6 @@ class cCentroSalud
             cout << to_string() << endl;
         }
 
-        //cOrgano* iniciarAblacion(cOrgano* receptor, cFecha* fecha); No puedo iniciar la ablacion si no tengo match
-
         #pragma endregion
 
     private: 

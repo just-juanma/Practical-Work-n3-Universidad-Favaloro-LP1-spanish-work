@@ -19,7 +19,7 @@ class cReceptor : public cPaciente
         /// <param name="_telefono">: Telefono del receptor</param>
         /// <param name="_patologia">: Patologia del receptor</param>
         cReceptor(string _nombre = "", string _sexo = "", string _telefono = "", string _patologia = "",
-                  cFecha* _nacimiento = NULL, cFecha* _fechaListaEnEspera = NULL, eTipoSangre _tipo = sinTipo, bool _EoI = false);
+                  cFecha* _nacimiento = NULL, cFecha* _fechaListaEnEspera = NULL, eTipoSangre _tipo = tipoDesconocido, bool _EoI = false);
 
         /// <summary>
         /// Destructor por defecto

@@ -21,7 +21,7 @@ class cDonante: public cPaciente
         /// <param name="_sexo">: Sexo del donante</param>
         /// <param name="_telefono">: Telefono del donante</param>
         cDonante(string _nombre = "", string _sexo = "", string _telefono = "",
-                 cFecha* _nacimiento = NULL, eTipoSangre _tipo = sinTipo);
+                 cFecha* _nacimiento = NULL, eTipoSangre _tipo = tipoDesconocido);
 
         /// <summary>
         /// Destructor por defecto
@@ -59,7 +59,7 @@ class cDonante: public cPaciente
         /// Asocia el centro al donante
         /// </summary>
         /// <param name="_centro">: Centro a asociar</param>
-        void asosciarCentro(cCentroSalud* _centro) {
+        bool asosciarCentro(cCentroSalud* _centro) {
             if (_centro && !centroSalud) 
                 this->centroSalud = _centro;   
             throw exception("No se pudo asignar el centro al donante");
@@ -74,11 +74,6 @@ class cDonante: public cPaciente
                 return this->centroSalud;
             throw exception("No se pudo obtener el centro del donante");
         }
-
-        // adri, si necesitas esto: descomentalo e implementalo
-        /* bool asignarVehiculo(cVehiculo* vehiculo);
-
-         cOrgano* iniciarAblacion(cOrgano* receptor, cFecha* fecha);*/
 
         /// <summary>
         /// Concatena a un solo string los atributos pertinentes
@@ -99,7 +94,11 @@ class cDonante: public cPaciente
         /// de la lista de órganos del paciente donante
         /// </summary>
         /// <param name="_receptor"></param>
-        cOrgano* iniciarAblacion(cOrgano *_receptor);
+        cOrgano* iniciarAblacion(cOrgano* _receptor) {
+            time_t temp;
+            ablacion->setFechaAblacion(time(&temp));
+            *listaOrgano - _receptor;
+        }
 
         #pragma endregion   
 
