@@ -80,9 +80,7 @@ class cCentroSalud
         const string provincia;
         const string telefono;
         cLista<cVehiculo>* listaVehiculo;
-        cFecha* ablacion;
-        ush cantActual;
-        ush cantTotal;
+
         #pragma endregion
 
 };

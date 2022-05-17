@@ -6,7 +6,6 @@ cCentroSalud::cCentroSalud(string _nombre, string _direccion, string _partido, s
                            nombre(_nombre), direccion(_direccion), partido(_partido), provincia(_provincia), telefono(_telefono)
 {
     this->listaVehiculo = NULL;
-    this->ablacion = NULL;
 }
 
 cCentroSalud::~cCentroSalud() { }
@@ -77,9 +76,7 @@ string cCentroSalud::to_string() {
     stc << "Partido: " << this->partido << endl;
     stc << "Provincia: " << this->provincia << endl;
     stc << "Telefono: " << this->telefono << endl;
-    /*if(listaVehiculo)
+    if(listaVehiculo)
         stc << "Listado de vehiculos:" << endl << this->listaVehiculo->to_string() << endl;
-    if (ablacion)
-        stc << "Fecha de ablacion: " << this->ablacion->getFecha();*/
     return stc.str();
 }

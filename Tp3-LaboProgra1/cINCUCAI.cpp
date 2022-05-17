@@ -17,7 +17,7 @@ cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 	if (sujeto == NULL)
 	{
 		cReceptor* sujeto = dynamic_cast<cReceptor*>(paciente);
-		//*listaReceptores + *sujeto;
+		*this->listaReceptores + sujeto;
 	}
 	else {
 		//cLista<cReceptor>* listaPrioridad = new cLista<cReceptor>[listaReceptores->cantActual];
@@ -53,7 +53,7 @@ void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cDonante *_donante, cRecep
 		//_donante->iniciarAblacion(_receptor->getOrganoNecesitado()); //Se le pasa el organo necesitado, puede ser el centro o 
 		_vehiculo->inciarTransporte(); //imprime en pantalla el iuiu iuiu - Taca taca - fiuuuuum
 		if (_receptor->inicarTranspoante(_vehiculo->getOrgano())==true) { //ademas se ve si el transplante fue exitoso
-			//*this->listaReceptores - *_receptor;
+			*this->listaReceptores - _receptor;
 		}
 		else {
 			_receptor->setPrioridad(maxima); //setea el 

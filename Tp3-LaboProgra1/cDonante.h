@@ -94,11 +94,6 @@ class cDonante: public cPaciente
         }
 
         /// <summary>
-        /// Se le asigna un vehiculo al donante para que el organo que sea extraido, pueda ser transoportado
-        /// </summary>
-        /// <param name="vehiculo"></param>
-        /// <returns></returns>
-        /// <summary>
         /// el centro procede a realizar la ablación del órgano que necesita el receptor. En
         /// la ablación se setea la fecha y horario de ablación del órgano y se quita el órgano removido
         /// de la lista de órganos del paciente donante
@@ -116,6 +111,7 @@ class cDonante: public cPaciente
         cFecha* muerte;
         cFecha* ablacion;
         cVehiculo* vehiculo;
+
         #pragma endregion
 
 };
