@@ -89,16 +89,21 @@ class cDonante: public cPaciente
         }
 
         /// <summary>
-        /// el centro procede a realizar la ablación del órgano que necesita el receptor. En
-        /// la ablación se setea la fecha y horario de ablación del órgano y se quita el órgano removido
-        /// de la lista de órganos del paciente donante
+        /// el centro procede a realizar la ablación de todos los órganos. En
+        /// la ablación se setea la fecha y horario de ablación del órgano y se quita la lista de órganos 
+        /// del paciente donante
         /// </summary>
         /// <param name="_receptor"></param>
-        cOrgano* iniciarAblacion(cOrgano* _receptor) {
+        cLista<cOrgano>* iniciarAblacion() {
             time_t temp;
             ablacion->setFechaAblacion(time(&temp));
-            cOrgano* organoQuitado = *listaOrgano - _receptor;
-            return organoQuitado;
+            cLista<cOrgano>* organosaux= NULL;
+            organosaux = this->listaOrgano;
+            this->listaOrgano = NULL;
+            for (ush i = 0; i < 10; i++) {
+                organosaux[0][i]->SetFechaAblacion(ablacion);
+            }
+            return organosaux;
         }
 
         #pragma endregion   

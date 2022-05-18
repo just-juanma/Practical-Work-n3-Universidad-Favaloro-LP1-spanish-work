@@ -18,7 +18,12 @@ class cOrgano {
         #pragma endregion
 
         #pragma region Metodos
-
+        void SetFechaAblacion(cFecha* _fecha) {
+            this->ablacion = _fecha;
+        }
+        cFecha* getFechaAblacion() const {
+            return this->ablacion;
+        }
         /// <summary>
         /// Concatena a un solo string los atributos pertinentes
         /// </summary>
@@ -39,7 +44,7 @@ class cOrgano {
        #pragma region Atributos
         
         eOrgano organo;
-
+        cFecha* ablacion;
         #pragma endregion
 };
 

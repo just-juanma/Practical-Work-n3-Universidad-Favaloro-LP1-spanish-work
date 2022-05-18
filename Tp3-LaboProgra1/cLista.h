@@ -117,7 +117,7 @@ class cLista
         /// </summary>
         /// <param name="i">: i-esima posicion a la que se busca acceder</param>
         /// <returns></returns>
-        cLista* operator[](sh i) {
+        T* operator[](sh i) {
             if (i >= 0 && i < cantActual)
                 return this->lista[i];
             throw exception("Se esta intentando acceder a un elemento imposible de acceder");

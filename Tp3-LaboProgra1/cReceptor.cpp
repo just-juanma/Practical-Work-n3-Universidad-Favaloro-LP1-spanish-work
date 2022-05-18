@@ -14,7 +14,7 @@ cReceptor::cReceptor(string _nombre, string _sexo, string _telefono, string _pat
 
 cReceptor::~cReceptor() { }
 
-bool cReceptor::inicarTranspoante(cOrgano* _organotransportado)
+bool cReceptor::inicarTransplante(cOrgano* _organotransportado)
 {
 	this->organoNecesario = _organotransportado; 
 	float azar = rand()%1;
