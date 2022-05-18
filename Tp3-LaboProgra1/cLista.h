@@ -124,8 +124,7 @@ class cLista
         T* operator-(T* elemento) {
             return (quitar(elemento));
         }
-        
-        cLista* operator[](sh i) {
+        T* operator[](sh i) {
             if (i >= 0 && i < cantActual)
                 return this->lista[i];
             throw exception("Se esta intentando acceder a un elemento imposible de acceder");

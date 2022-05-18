@@ -29,9 +29,18 @@ class cINCUCAI {
 
         cLista<cPaciente*>* ingresarPaciente(cPaciente* paciente);
 
-
-        void Protocolo_de_Transporte_y_Transplantes(cDonante* donante, cReceptor* receptor);
-
+        /// <summary>
+        /// Mediante este metodo se le transplanta el organo solicitado a un receptor especifico
+        /// </summary>
+        /// <param name="_organo">Organo a transpsportar y transplantar</param>
+        /// <param name="_receptor">Quien lo va a recibir</param>
+        void Protocolo_de_Transporte_y_Transplantes(cOrgano* _organo, cReceptor* _receptor);
+        /// <summary>
+        /// Devuelve la lista de organos ya removidos del donante con la hora de la ablacion seteada
+        /// </summary>
+        /// <param name="_dontante"></param>
+        /// <returns></returns>
+        cLista<cOrgano>* Ablacion(cDonante* _dontante);
     private: 
 
         // void ordenarPrioridad();

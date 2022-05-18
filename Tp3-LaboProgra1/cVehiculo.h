@@ -43,9 +43,12 @@ class cVehiculo {
         /// Obtiene el organo que transporta el vehiculo
         /// </summary>
         /// <returns>Organo que transporta el vehiculo</returns>
-        cOrgano* getOrgano() const {
-            if (this->organoEnTransporte)
-                return this->organoEnTransporte;
+        cOrgano* getOrgano(){
+            if (organoEnTransporte) {
+                cOrgano* organoaux = this->organoEnTransporte; 
+                this->organoEnTransporte = NULL;
+                return organoaux;
+            }
             throw exception("El organo que se intenta obtener no existe");
         }
 
