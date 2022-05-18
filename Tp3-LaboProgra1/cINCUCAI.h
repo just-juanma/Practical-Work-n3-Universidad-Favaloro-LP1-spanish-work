@@ -23,7 +23,7 @@ class cINCUCAI {
 
         #pragma region Metodos
 
-        cPaciente* ingresarPaciente(cPaciente* paciente);
+        cLista<cPaciente*>* ingresarPaciente(cPaciente* paciente);
 
 
         void Protocolo_de_Transporte_y_Transplantes(cDonante* donante, cReceptor* receptor);
