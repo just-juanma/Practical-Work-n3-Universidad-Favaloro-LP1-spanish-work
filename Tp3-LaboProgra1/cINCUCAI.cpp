@@ -127,6 +127,7 @@ void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cOrgano *_organo, cRecepto
 }
 
 cLista<cOrgano>* cINCUCAI::Ablacion(cDonante* _dontante) {
+	if (!_dontante) throw "Donante invalido";
 	return _dontante->iniciarAblacion();
 }
 
