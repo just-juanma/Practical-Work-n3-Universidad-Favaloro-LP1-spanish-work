@@ -56,26 +56,6 @@ class cDonante: public cPaciente
         }
 
         /// <summary>
-        /// Asocia el centro al donante
-        /// </summary>
-        /// <param name="_centro">: Centro a asociar</param>
-        void asociarCentro(cCentroSalud* _centro) {
-            if (_centro && !centroSalud) 
-                this->centroSalud = _centro;   
-            throw exception("No se pudo asignar el centro al donante");
-        }
-
-        /// <summary>
-        /// Obtiene el centro del donante
-        /// </summary>
-        /// <returns>Centro del donante</returns>
-        cCentroSalud* getCentro() { 
-            if(centroSalud)
-                return this->centroSalud;
-            throw exception("No se pudo obtener el centro del donante");
-        }
-
-        /// <summary>
         /// Concatena a un solo string los atributos pertinentes
         /// </summary>
         /// <returns>String concatenado</returns>

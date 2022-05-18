@@ -54,18 +54,7 @@ class cReceptor : public cPaciente
             throw exception("No fue asignado ningun organo previamente al receptor");
         }
 
-        /// <summary>
-        /// Verifica que el organo que transporta el vehiculo sea el mismo que 
-        /// necesita el receptor, y si es asi, arranca el vehiculo 
-        /// (a gran velocidad segun nos cuentan los diarios mas importantes)
-        /// </summary>
-        /// <param name="vehiculo">: Vehiculo asignado para el translado</param>
-        void iniciarTransplante(cVehiculo* vehiculo) {
-            if (vehiculo->getOrgano() == this->organoNecesario)
-                vehiculo->imprimir();
-            else
-                throw exception("No se pudo iniciar el transplante del receptor");
-        }
+
 
         eTipoSangre getTipoSangre()const {
                 return this->tipoSangre;
@@ -80,31 +69,7 @@ class cReceptor : public cPaciente
         /// </summary>
         /// <param name="_prioridad">: prioridad nueva del receptor</param>
         void setPrioridad(ePrioridad _prioridad) {
-            if (_prioridad)
-                this->prioridad = _prioridad;
-            else
-                throw exception("No se pudo asignar la prioridad al receptor");
-        }
-
-        /// <summary>
-        /// Asocia el centro al donante
-        /// </summary>
-        /// <param name="_centro">: Centro a asociar</param>
-        void asociarCentro(cCentroSalud* _centro) {
-            if (_centro && !centroSalud)
-                this->centroSalud = _centro;
-            throw exception("No se pudo asignar el centro al donante");
-        }
-
-
-        /// <summary>
-        /// Obtiene el centro asociado
-        /// </summary>
-        /// <returns>Centro del receptor</returns>
-        cCentroSalud* getCentro(){
-            if(this->organoNecesario)
-                return this->centroSalud;
-            throw exception("No se pudo obtener el centro del receptor");
+             this->prioridad = _prioridad;
         }
 
         /// <summary>
@@ -113,12 +78,6 @@ class cReceptor : public cPaciente
         /// <returns>String concatenado</returns>
         string to_string();
 
-        /// <summary>
-        /// Imprime to_string()
-        /// </summary>
-        void imprimir() {
-            cout << to_string() << endl;
-        }
         /// <summary>
         /// Cambia el estado del paciente
         /// </summary>
@@ -131,6 +90,31 @@ class cReceptor : public cPaciente
                 this->EoI = true;
             }
         }
+
+        bool inicarTransplante(cOrgano* _organotransportado) {
+            this->organoNecesario = _organotransportado;
+            float azar = rand() % 1;
+            if (azar > (1 / 2)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+
+        /*  /// <summary>
+          /// Verifica que el organo que transporta el vehiculo sea el mismo que 
+          /// necesita el receptor, y si es asi, arranca el vehiculo 
+          /// (a gran velocidad segun nos cuentan los diarios mas importantes)
+          /// </summary>
+          /// <param name="vehiculo">: Vehiculo asignado para el translado</param>
+          void iniciarTransplante(cVehiculo* vehiculo) {
+              if (vehiculo->getOrgano() == this->organoNecesario)
+                  vehiculo->imprimir();
+              else
+                  throw exception("No se pudo iniciar el transplante del receptor");
+          }*/
 
         #pragma endregion
 

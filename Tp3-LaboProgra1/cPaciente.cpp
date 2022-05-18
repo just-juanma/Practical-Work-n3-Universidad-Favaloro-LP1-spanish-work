@@ -12,15 +12,3 @@ cPaciente::cPaciente(string _nombre, string _sexo, string _telefono, cFecha* _na
 }
 
 cPaciente::~cPaciente() { }
-
-// LOS METODOS NO SE IMPLEMENTAN EN LAS CLASES ABSTRACTAS
-//bool cPaciente::asociarcentro(cCentroSalud* _centro) { 
-//    if (_centro)
-//    {
-//        this->centroSalud = _centro;
-//        return true;
-//    }
-//    else {
-//        return false;
-//    }
-//}

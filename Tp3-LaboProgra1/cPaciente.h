@@ -30,14 +30,27 @@ class cPaciente
          
         #pragma region Metodos
 
-       /// <summary>
-       /// metodo abstracto: recibe un centro, y lo asigna en las clases hijas
-       /// </summary>
-       /// <param name="_centro"></param>
-       /// <returns></returns>
-        virtual void asociarCentro(cCentroSalud* _centro) = 0;
+        /// <summary>
+        /// Asocia el centro al paciente hijo
+        /// </summary>
+        /// <param name="_centro">: Centro a asociar</param>
+        void asociarCentro(cCentroSalud* _centro) {
+            if (_centro && !centroSalud)
+                this->centroSalud = _centro;
+            else 
+                throw exception("No se pudo asignar el centro al donante");
+        }
         
-        virtual cCentroSalud* getCentro() = 0;
+        /// <summary>
+        /// Obtiene el centro del paciente hijo
+        /// </summary>
+        /// <returns>Centro del donante</returns>
+        cCentroSalud* getCentro() {
+            if (centroSalud)
+                return this->centroSalud;
+            else
+                throw exception("No se pudo obtener el centro del donante");
+        }
 
         /// <summary>
         /// Metodo abstracto: Concatena a un solo string los atributos pertinentes en las clases hijas
@@ -46,9 +59,11 @@ class cPaciente
         virtual string to_string() = 0;
 
         /// <summary>
-        /// Metodo abstracto: Imprime to_string() definido en las clases hijas
+        /// Imprime to_string() de la clase hija
         /// </summary>
-        virtual void imprimir() = 0;
+        void imprimir() {
+            cout << to_string() << endl;
+        }
         
         
         #pragma endregion

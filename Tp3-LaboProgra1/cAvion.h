@@ -30,13 +30,6 @@ class cAvion : public cVehiculo {
         /// <returns>String concatenado</returns>
         string to_string();
 
-        /// <summary>
-        /// Imprime to_string()
-        /// </summary>
-        void imprimir() {
-            cout << to_string() << endl;
-        }
-
         #pragma endregion
 };
 

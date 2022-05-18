@@ -23,6 +23,10 @@ class cINCUCAI {
 
         #pragma region Metodos
 
+        void setCentros(cLista<cCentroSalud>* lista) {
+            this->listaCentros = lista;
+        }
+
         cLista<cPaciente*>* ingresarPaciente(cPaciente* paciente);
 
 

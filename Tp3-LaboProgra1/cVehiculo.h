@@ -44,7 +44,7 @@ class cVehiculo {
         /// </summary>
         /// <returns>Organo que transporta el vehiculo</returns>
         cOrgano* getOrgano() const {
-            if (organoEnTransporte)
+            if (this->organoEnTransporte)
                 return this->organoEnTransporte;
             throw exception("El organo que se intenta obtener no existe");
         }
@@ -53,7 +53,7 @@ class cVehiculo {
         /// Setea el organo que transporta el vehiculo
         /// </summary>
         void setOrgano(cOrgano* _organo) {
-            if (!organoEnTransporte)
+            if (!this->organoEnTransporte)
                 this->organoEnTransporte = _organo;
             else
                 throw exception("No se pudo asignar el organo");
@@ -68,11 +68,16 @@ class cVehiculo {
         virtual string to_string() = 0;
        
         /// <summary>
-        /// Metodo abstracto: Imprime to_string() de la clase hija
+        /// Imprime to_string() de la clase hija
         /// </summary>
-        void imprimir();
+        void imprimir() {
+            cout << to_string() << endl;
+        }
 
-        void inciarTransporte();
+        void inciarTransporte() {
+            imprimir();
+        }
+
 		#pragma endregion
 
     protected:

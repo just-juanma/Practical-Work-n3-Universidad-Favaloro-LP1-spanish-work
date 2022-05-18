@@ -4,16 +4,7 @@
 
 
 cVehiculo::cVehiculo(string _nombre) : nombre(_nombre) { 
-	this->LuO = false;
+	this->LuO = true;
 }
-
 
 cVehiculo::~cVehiculo() { }
-
-void cVehiculo::imprimir() {
-	cout << to_string() << endl;
-}
-
-void cVehiculo::inciarTransporte() {
-	this->imprimir();
-}
