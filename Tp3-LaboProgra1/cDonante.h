@@ -69,7 +69,7 @@ class cDonante: public cPaciente
         /// Obtiene el centro del donante
         /// </summary>
         /// <returns>Centro del donante</returns>
-        cCentroSalud* getCentro() const  { 
+        cCentroSalud* getCentro() { 
             if(centroSalud)
                 return this->centroSalud;
             throw exception("No se pudo obtener el centro del donante");
@@ -97,7 +97,8 @@ class cDonante: public cPaciente
         cOrgano* iniciarAblacion(cOrgano* _receptor) {
             time_t temp;
             ablacion->setFechaAblacion(time(&temp));
-            *listaOrgano - _receptor;
+            cOrgano* organoQuitado = *listaOrgano - _receptor;
+            return organoQuitado;
         }
 
         #pragma endregion   
