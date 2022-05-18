@@ -52,6 +52,11 @@ class cPaciente
                 throw exception("No se pudo obtener el centro del donante");
         }
 
+        string getTelefono() {
+            return this->telefono;
+        }
+            
+
         /// <summary>
         /// Metodo abstracto: Concatena a un solo string los atributos pertinentes en las clases hijas
         /// </summary>

@@ -11,27 +11,41 @@ cINCUCAI::cINCUCAI() {
 
 cINCUCAI::~cINCUCAI() { }
 
-cLista<cPaciente*>* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
-	//cAvion* avion = dynamic_cast<cAvion*>(listaVehiculo[0].lista[i]);
+void cINCUCAI::recibirPaciente(cPaciente* paciente)
+{
+	ingresarPaciente(paciente);
+}
+
+void cINCUCAI::ingresarPaciente(cPaciente* paciente) {
+
+	agregarPaciente(paciente);
+
 	cDonante* sujeto = dynamic_cast<cDonante*>(paciente); //casteo al paciente para saber qué es
 	if (sujeto == NULL)
 	{
 		cReceptor* sujeto = dynamic_cast<cReceptor*>(paciente);
-		*listaReceptores + *sujeto; // si es un receptor lo meto al final de la lista de receptores
+		for (ush i = 0; i < this->listaDonantes->cantActual; i++)
+		{
+			for (ush j = 0; j < this->listaDonantes->lista[j]->listaOrgano->cantActual; j++)
+			{
+				if (sujeto->getOrganoNecesitado() == listaDonantes->lista[j]->listaOrgano->lista[j] &&
+					sujeto->getTipoSangre() == listaDonantes->lista[j]->tipoSangre)
+					Protocolo_de_Transporte_y_Transplantes(listaDonantes->lista[j]->listaOrgano->lista[j], sujeto);
+			}
+		}
+		
 	}
 
 	bool agregado;
-
-
 
 	for (ush i = 0; i < sujeto->listaOrgano->cantActual; i++) //este for recorre la lista de organos del donante
 	{
 		agregado=false;
 		for (ush j = 0; j < this->listaReceptores->cantActual; j++) //estos subfor recorren la lista de posibles receptores
 		{
-			if (listaReceptores->lista[j]->getPrioridad() == maxima && //recorro solo los de maxima prioridad
-				listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] &&  //filtro por organo necesitado
-				listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre) { //filtro por tipo de sangre, repito esto para media y minima
+			if (this->listaReceptores->lista[j]->getPrioridad() == maxima && //recorro solo los de maxima prioridad
+				this->listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] &&  //filtro por organo necesitado
+				this->listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre) { //filtro por tipo de sangre, repito esto para media y minima
 				Protocolo_de_Transporte_y_Transplantes(sujeto->listaOrgano->lista[i], listaReceptores->lista[j]);
 				agregado=true;
 				break;
@@ -43,9 +57,9 @@ cLista<cPaciente*>* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 		{
 			for (ush j = 0; j < this->listaReceptores->cantActual; j++) //estos subfor recorren la lista de posibles receptores
 			{
-				if (listaReceptores->lista[j]->getPrioridad() == media && //recorro solo los de maxima prioridad
-					listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] &&  //filtro por organo necesitado
-					listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre){ //filtro por tipo de sangre, repito esto para media y minima
+				if (this->listaReceptores->lista[j]->getPrioridad() == media && //recorro solo los de maxima prioridad
+					this->listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] &&  //filtro por organo necesitado
+					this->listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre){ //filtro por tipo de sangre, repito esto para media y minima
 					Protocolo_de_Transporte_y_Transplantes(sujeto->listaOrgano->lista[i], listaReceptores->lista[j]);
 					agregado = true;
 					break;
@@ -58,17 +72,15 @@ cLista<cPaciente*>* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 		{
 			for (ush j = 0; j < this->listaReceptores->cantActual; j++) //estos subfor recorren la lista de posibles receptores
 			{
-				if (listaReceptores->lista[j]->getPrioridad() == minima && //recorro solo los de maxima prioridad
-					listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] &&  //filtro por organo necesitado
-					listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre) { //filtro por tipo de sangre, repito esto para media y minima
+				if (this->listaReceptores->lista[j]->getPrioridad() == minima && //recorro solo los de maxima prioridad
+					this->listaReceptores->lista[j]->getOrganoNecesitado() == sujeto->listaOrgano->lista[i] &&  //filtro por organo necesitado
+					this->listaReceptores->lista[j]->getTipoSangre() == sujeto->tipoSangre) { //filtro por tipo de sangre, repito esto para media y minima
 					Protocolo_de_Transporte_y_Transplantes(sujeto->listaOrgano->lista[i], listaReceptores->lista[j]);
 					agregado = true;
 					break;
 				}
 			}
 		}
-
-		if (agregado == false) return NULL;
 
 	}
 }
@@ -97,7 +109,34 @@ cLista<cOrgano>* cINCUCAI::Ablacion(cDonante* _dontante) {
 	return _dontante->iniciarAblacion();
 }
 
+void cINCUCAI::agregarPaciente(cPaciente* paciente)
+{
+	ush agregados=0;
+	cDonante* sujeto = dynamic_cast<cDonante*>(paciente); //casteo al paciente para saber qué es
+	if (sujeto == NULL) { 
+		cReceptor* sujeto = dynamic_cast<cReceptor*>(paciente);
+		for (ush i = 0; i < listaReceptores->cantActual; i++)
+		{
+			if (sujeto->getTelefono() == listaReceptores->lista[i]->getTelefono()) {
+				agregados++;
+			}
+		}
+		if (agregados == 0) *listaReceptores + sujeto;
+		else throw exception("Receptor ya existente");
+	}
 
+
+
+	for (ush i = 0; i < listaDonantes->cantActual; i++)
+	{
+		if (sujeto->getTelefono() == listaDonantes->lista[i]->getTelefono()) {
+			agregados++;
+		}
+	}
+	if (agregados == 0) *listaDonantes + sujeto;
+	else throw exception("Donante ya existente");
+	
+}
 
 
 
