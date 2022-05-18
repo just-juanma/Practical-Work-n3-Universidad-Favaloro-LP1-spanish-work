@@ -30,8 +30,6 @@ class cReceptor : public cPaciente
 
         #pragma region Metodos
 
-        bool inicarTransplante(cOrgano* _organotransportado);
-
         /// <summary>
         /// Setea el organo que necesita el receptor
         /// </summary>
