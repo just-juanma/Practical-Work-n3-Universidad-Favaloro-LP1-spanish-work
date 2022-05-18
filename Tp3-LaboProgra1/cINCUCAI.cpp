@@ -10,8 +10,8 @@ cINCUCAI::cINCUCAI() {
 }
 
 cINCUCAI::~cINCUCAI() { }
-
-/*cLista<cPaciente*>* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
+/*
+cLista<cPaciente*>* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 	//cAvion* avion = dynamic_cast<cAvion*>(listaVehiculo[0].lista[i]);
 	cDonante* sujeto = dynamic_cast<cDonante*>(paciente); //casteo al paciente para saber qué es
 	if (sujeto == NULL)
@@ -103,7 +103,9 @@ cINCUCAI::~cINCUCAI() { }
 			//}
 			//else if (agregados == 0) return NULL;
 
-			
+
+		}
+	}*/
 
 void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cDonante *_donante, cReceptor *_receptor){
 	if (!_donante || !_receptor) {
@@ -112,7 +114,7 @@ void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cDonante *_donante, cRecep
 	int pos = this->listaReceptores->buscar(_receptor);
 	cVehiculo* _vehiculo = _receptor->getCentro()->getTipoVehiculo(_receptor->getCentro());
 	if (_vehiculo) {
-		//_donante->iniciarAblacion(_receptor->getOrganoNecesitado()); //Se le pasa el organo necesitado, puede ser el centro o 
+		_vehiculo->setOrgano(_donante->iniciarAblacion(_receptor->getOrganoNecesitado())); //Se le pasa el organo necesitado, puede ser el centro o 
 		_vehiculo->inciarTransporte(); //imprime en pantalla el iuiu iuiu - Taca taca - fiuuuuum
 		if (_receptor->inicarTranspoante(_vehiculo->getOrgano())==true) { //ademas se ve si el transplante fue exitoso
 			*this->listaReceptores - _receptor;
@@ -124,7 +126,7 @@ void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cDonante *_donante, cRecep
 		//return listaPrioridad*;
 	}
 }
-*/
+
 	
 
 
