@@ -92,7 +92,6 @@ int main() {
 	}
 	 
 
-
 	// lista vehiculos 
 	cLista<cVehiculo>* vehiculo1 = new cLista<cVehiculo>(3, true);
 	cLista<cVehiculo>* vehiculo2 = new cLista<cVehiculo>(2, true);
