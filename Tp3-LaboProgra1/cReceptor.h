@@ -52,8 +52,6 @@ class cReceptor : public cPaciente
             throw exception("No fue asignado ningun organo previamente al receptor");
         }
 
-
-
         eTipoSangre getTipoSangre()const {
                 return this->tipoSangre;
         }
