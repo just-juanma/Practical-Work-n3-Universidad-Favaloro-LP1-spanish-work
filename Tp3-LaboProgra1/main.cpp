@@ -160,6 +160,13 @@ int main() {
 		cout << "Error: " << e.what() << endl;
 	}
 
+	try {
+		INCUCAI->informeFinDeMes();
+	}
+	catch (exception& e) {
+		cout << "Error: " << e.what() << endl;
+	}
+
 	delete paciente;
 
 	delete dCorazon1; delete dPiel1; delete dHuesos2;

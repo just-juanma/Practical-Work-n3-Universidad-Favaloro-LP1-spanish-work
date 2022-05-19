@@ -41,6 +41,10 @@ class cPaciente
                 throw exception("No se pudo asignar el centro al donante");
         }
         
+        string getNombre() {
+            return this->nombre;
+        }
+
         /// <summary>
         /// Obtiene el centro del paciente hijo
         /// </summary>
@@ -55,7 +59,6 @@ class cPaciente
         string getTelefono() {
             return this->telefono;
         }
-            
 
         /// <summary>
         /// Metodo abstracto: Concatena a un solo string los atributos pertinentes en las clases hijas
@@ -69,8 +72,7 @@ class cPaciente
         void imprimir() {
             cout << to_string() << endl;
         }
-        
-        
+
         #pragma endregion
 
     protected: 
@@ -82,7 +84,7 @@ class cPaciente
         const string telefono;
         cFecha* nacimiento;
         cCentroSalud* centroSalud;
-        eTipoSangre tipoSangre;
+        eTipoSangre tipoSangre; 
         bool RoD;
     
         #pragma endregion       

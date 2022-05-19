@@ -40,11 +40,23 @@ class cCentroSalud
         void setListaVehiculo(cLista<cVehiculo>* _listaVehiculo) {
             if (!_listaVehiculo)
                 throw exception("No se puede pasar como parametro una lista de vehiculos vacia");
-            else if (listaVehiculo)
+            else if (this->listaVehiculo)
                 throw exception("La lista de vehiculos ya fue inicializada anteriormente");
-            listaVehiculo = _listaVehiculo;
+            this->listaVehiculo = _listaVehiculo;
         }
         
+        string getProvincia() {
+            return this->provincia;
+        }
+
+        ush getCantDonProv() {
+            return this->cantDonProv;
+        }
+
+        string getNombre() {
+            return this->nombre;
+        }
+
         /// <summary>
         /// Recibe el centro del receptor y lo compara 
         /// </summary>
@@ -71,6 +83,7 @@ class cCentroSalud
 
         #pragma region Atributos
 
+        ush cantDonProv;
         const string nombre;
         const string direccion;
         const string partido;

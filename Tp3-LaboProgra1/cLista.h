@@ -9,11 +9,11 @@ class cLista
     friend class cCentroSalud;
     friend class cVehiculo;
     friend class cINCUCAI;
+    friend class cDonante;
     public: 
     
         #pragma region Constructor_Destructor
 
-       
         /// <summary>
         /// Constructor parametrizado por defecto
         /// </summary>
@@ -124,16 +124,18 @@ class cLista
         T* operator-(T* elemento) {
             return (quitar(elemento));
         }
+
         T* operator[](sh i) {
             if (i >= 0 && i < cantActual)
                 return this->lista[i];
             throw exception("Se esta intentando acceder a un elemento imposible de acceder");
         }
 
+        friend ostream& operator << (ostream& out, T* elemento) {
+            return out << to_string() << endl;
+        }
+
         #pragma endregion
-        
-
-
 
     protected: 
 
@@ -161,15 +163,4 @@ class cLista
 
 #endif // _CLISTA_H
 
-        #pragma region Ostream
-
-        //template <typename T>
-        /// <summary>
-        /// Sobrecarga el operador << para impresion de las listas
-        /// </summary>
-        /// <param name="out">: Flujo de salida</param>
-        /// <param name="_vuelo">: Impresion del vuelo indicado</param>
-        /// <returns>Nuevo flujo de salida</returns>
-        //ostream& operator << (ostream& out, T* elemento);
-
-        #pragma endregion
+    

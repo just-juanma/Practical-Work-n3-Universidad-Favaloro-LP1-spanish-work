@@ -6,6 +6,7 @@ cCentroSalud::cCentroSalud(string _nombre, string _direccion, string _partido, s
                            nombre(_nombre), direccion(_direccion), partido(_partido), provincia(_provincia), telefono(_telefono)
 {
     this->listaVehiculo = NULL;
+    this->cantDonProv = 0;
 }
 
 cCentroSalud::~cCentroSalud() { }
@@ -13,6 +14,7 @@ cCentroSalud::~cCentroSalud() { }
 cVehiculo* cCentroSalud::getTipoVehiculo(cCentroSalud* centroReceptor) {
     // si es la misma provincia
     if (centroReceptor->provincia == this->provincia) {
+        cantDonProv++;
         // si es el mismo partido
         if (centroReceptor->partido == this->partido) {
             for (ush i = 0; i < listaVehiculo->cantActual; i++) {

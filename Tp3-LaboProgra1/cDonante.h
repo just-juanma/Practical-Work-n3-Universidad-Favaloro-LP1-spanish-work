@@ -5,6 +5,7 @@
 #include "cOrgano.h"
 #include "cPaciente.h"
 #include "cFecha.h"
+#include "cReceptor.h"
 
 class cDonante: public cPaciente
 {
@@ -42,6 +43,14 @@ class cDonante: public cPaciente
                  this->listaOrgano = lista;
             else
                 throw exception("No se pudo asignar la lista de organos al donante");
+        }
+
+        cLista<cOrgano>* getListaOrgano() const {
+            return listaOrgano;
+        }
+
+        eTipoSangre getTipoSangre()const {
+            return this->tipoSangre;
         }
 
         /// <summary>
@@ -84,6 +93,14 @@ class cDonante: public cPaciente
                 organosaux[0][i]->SetFechaAblacion(ablacion);
             }
             return organosaux;
+        }
+
+        bool operator==(cReceptor& receptor) {
+            if (tipoSangre == receptor.getTipoSangre()) 
+                for (ush i = 0; i < listaOrgano->cantActual; i++) 
+                    if (listaOrgano->lista[i] == receptor.getOrganoNecesitado())
+                        return true;
+            return false;
         }
 
         #pragma endregion   

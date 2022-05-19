@@ -46,13 +46,11 @@ class cReceptor : public cPaciente
         /// Obtiene el organo necesitado
         /// </summary>
         /// <returns>Organo necesitado</returns>
-        cOrgano* getOrganoNecesitado()const { 
+        cOrgano* getOrganoNecesitado() { 
             if(this->organoNecesario)
                 return this->organoNecesario;
             throw exception("No fue asignado ningun organo previamente al receptor");
         }
-
-
 
         eTipoSangre getTipoSangre()const {
                 return this->tipoSangre;
@@ -113,6 +111,7 @@ class cReceptor : public cPaciente
               else
                   throw exception("No se pudo iniciar el transplante del receptor");
           }*/
+
 
         #pragma endregion
 
