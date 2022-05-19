@@ -85,6 +85,35 @@ void cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 	}
 }
 
+void cINCUCAI::agregarPaciente(cPaciente* paciente)
+{
+	ush agregados = 0;
+	cDonante* sujeto = dynamic_cast<cDonante*>(paciente); //casteo al paciente para saber qué es
+	if (sujeto == NULL) {
+		cReceptor* sujeto = dynamic_cast<cReceptor*>(paciente);
+		for (ush i = 0; i < listaReceptores->cantActual; i++)
+		{
+			if (sujeto->getTelefono() == listaReceptores->lista[i]->getTelefono()) {
+				agregados++;
+			}
+		}
+		if (agregados == 0) *listaReceptores + sujeto;
+		else throw exception("Receptor ya existente");
+	}
+
+
+
+	for (ush i = 0; i < listaDonantes->cantActual; i++)
+	{
+		if (sujeto->getTelefono() == listaDonantes->lista[i]->getTelefono()) {
+			agregados++;
+		}
+	}
+	if (agregados == 0) *listaDonantes + sujeto;
+	else throw exception("Donante ya existente");
+
+}
+
 void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cOrgano* _organo, cReceptor* _receptor) {
 	if (!_organo || !_receptor) {
 		throw "Error en el protocolo de transporte con algun paciente";
@@ -109,34 +138,7 @@ cLista<cOrgano>* cINCUCAI::Ablacion(cDonante* _dontante) {
 	return _dontante->iniciarAblacion();
 }
 
-void cINCUCAI::agregarPaciente(cPaciente* paciente)
-{
-	ush agregados=0;
-	cDonante* sujeto = dynamic_cast<cDonante*>(paciente); //casteo al paciente para saber qué es
-	if (sujeto == NULL) { 
-		cReceptor* sujeto = dynamic_cast<cReceptor*>(paciente);
-		for (ush i = 0; i < listaReceptores->cantActual; i++)
-		{
-			if (sujeto->getTelefono() == listaReceptores->lista[i]->getTelefono()) {
-				agregados++;
-			}
-		}
-		if (agregados == 0) *listaReceptores + sujeto;
-		else throw exception("Receptor ya existente");
-	}
 
-
-
-	for (ush i = 0; i < listaDonantes->cantActual; i++)
-	{
-		if (sujeto->getTelefono() == listaDonantes->lista[i]->getTelefono()) {
-			agregados++;
-		}
-	}
-	if (agregados == 0) *listaDonantes + sujeto;
-	else throw exception("Donante ya existente");
-	
-}
 
 
 
