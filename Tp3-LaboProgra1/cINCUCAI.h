@@ -27,7 +27,9 @@ class cINCUCAI {
             this->listaCentros = lista;
         }
 
-        cLista<cPaciente*>* ingresarPaciente(cPaciente* paciente);
+        void agregarPaciente(cPaciente* paciente);
+        void recibirPaciente(cPaciente* paciente);
+        void ingresarPaciente(cPaciente* paciente);
 
         /// <summary>
         /// Mediante este metodo se le transplanta el organo solicitado a un receptor especifico
