@@ -14,7 +14,6 @@ class cLista
     
         #pragma region Constructor_Destructor
 
-       
         /// <summary>
         /// Constructor parametrizado por defecto
         /// </summary>
@@ -125,26 +124,18 @@ class cLista
         T* operator-(T* elemento) {
             return (quitar(elemento));
         }
+
         T* operator[](sh i) {
             if (i >= 0 && i < cantActual)
                 return this->lista[i];
             throw exception("Se esta intentando acceder a un elemento imposible de acceder");
         }
 
-        /// <summary>
-        /// Sobrecarga el operador << para impresion de las listas
-        /// </summary>
-        /// <param name="out">: Flujo de salida</param>
-        /// <param name="_vuelo">: Impresion del vuelo indicado</param>
-        /// <returns>Nuevo flujo de salida</returns>
-        inline friend ostream& operator << (ostream& out, T* elemento) {
+        friend ostream& operator << (ostream& out, T* elemento) {
             return out << to_string() << endl;
         }
 
         #pragma endregion
-        
-
-
 
     protected: 
 
