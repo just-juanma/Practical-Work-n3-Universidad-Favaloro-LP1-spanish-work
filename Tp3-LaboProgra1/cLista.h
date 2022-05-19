@@ -9,6 +9,7 @@ class cLista
     friend class cCentroSalud;
     friend class cVehiculo;
     friend class cINCUCAI;
+    friend class cDonante;
     public: 
     
         #pragma region Constructor_Destructor
@@ -130,6 +131,16 @@ class cLista
             throw exception("Se esta intentando acceder a un elemento imposible de acceder");
         }
 
+        /// <summary>
+        /// Sobrecarga el operador << para impresion de las listas
+        /// </summary>
+        /// <param name="out">: Flujo de salida</param>
+        /// <param name="_vuelo">: Impresion del vuelo indicado</param>
+        /// <returns>Nuevo flujo de salida</returns>
+        inline friend ostream& operator << (ostream& out, T* elemento) {
+            return out << to_string() << endl;
+        }
+
         #pragma endregion
         
 
@@ -161,15 +172,4 @@ class cLista
 
 #endif // _CLISTA_H
 
-        #pragma region Ostream
-
-        //template <typename T>
-        /// <summary>
-        /// Sobrecarga el operador << para impresion de las listas
-        /// </summary>
-        /// <param name="out">: Flujo de salida</param>
-        /// <param name="_vuelo">: Impresion del vuelo indicado</param>
-        /// <returns>Nuevo flujo de salida</returns>
-        //ostream& operator << (ostream& out, T* elemento);
-
-        #pragma endregion
+    

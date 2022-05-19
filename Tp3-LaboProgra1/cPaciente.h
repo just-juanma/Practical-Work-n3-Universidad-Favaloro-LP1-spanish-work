@@ -59,7 +59,6 @@ class cPaciente
         string getTelefono() {
             return this->telefono;
         }
-            
 
         /// <summary>
         /// Metodo abstracto: Concatena a un solo string los atributos pertinentes en las clases hijas
@@ -73,8 +72,7 @@ class cPaciente
         void imprimir() {
             cout << to_string() << endl;
         }
-        
-        
+
         #pragma endregion
 
     protected: 
