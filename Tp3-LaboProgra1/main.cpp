@@ -218,18 +218,20 @@ int main() {
 		cout << "Error: " << e.what() << endl;
 	}
 
+	// funciones adicionales pedidas
 	try {
 		INCUCAI->imprimirReceptor(receptor4);
 
 		cLista<cReceptor>* receptoresRinion = INCUCAI->buscarPorOrgano(rRinion4);
 
 		cLista<cReceptor>* receptoresCentro = INCUCAI->buscarPorCentro(centro1);
+		
+		INCUCAI->imprimir();
 	}
 	catch (exception& e) {
 		cout << "Error: " << e.what() << endl;
 	}
 	
-	INCUCAI->imprimir();
 
 	delete paciente;
 

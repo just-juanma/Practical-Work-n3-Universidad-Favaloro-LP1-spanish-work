@@ -36,14 +36,14 @@ class cINCUCAI {
         /// </summary>
         /// <param name="_organo">Organo a transpsportar y transplantar</param>
         /// <param name="_receptor">Quien lo va a recibir</param>
-        void protocoloDeTransporteYTransplante(cOrgano* _organo, cReceptor* _receptor, cCentroSalud* centro_salud);
+        void protocoloDeTransporteYTrasplante(cOrgano* _organo, cReceptor* _receptor, cCentroSalud* centro_salud);
 
         /// <summary>
         /// Devuelve la lista de organos ya removidos del donante con la hora de la ablacion seteada
         /// </summary>
         /// <param name="_dontante"></param>
         /// <returns></returns>
-        cOrgano* Ablacion(cDonante* _dontante, eOrgano tipoOrgano);
+        cOrgano* Ablacion(cDonante* _donante, eOrgano tipoOrgano);
 
         cLista<cReceptor>* buscarPorOrgano(cOrgano* organo) {
             cLista<cReceptor>* receptores = new cLista<cReceptor>(this->listaReceptores->cantActual, false);
