@@ -160,14 +160,21 @@ int main() {
 		cout << "Error: " << e.what() << endl;
 	}
 
-	try {
+	//Trabajo de matches
+	INCUCAI->ingresarPaciente(donante1);
+	INCUCAI->ingresarPaciente(donante2); 
+	INCUCAI->ingresarPaciente(receptor1); 
+
+	int a = 2;
+
+	/*try {
 		INCUCAI->informeFinDeMes();
 	}
 	catch (exception& e) {
 		cout << "Error: " << e.what() << endl;
-	}
+	}*/
 
-	delete paciente;
+	//delete paciente;
 
 	delete dCorazon1; delete dPiel1; delete dHuesos2;
 	delete rCorazon1; delete rHuesos1;
