@@ -162,6 +162,7 @@ void cINCUCAI::Protocolo_de_Transporte_y_Transplantes(cOrgano* _organo, cRecepto
 	if (_vehiculo) {
 		_vehiculo->setOrgano(_organo); //Se le pasa el organo necesitado, para ser transportado 
 		_vehiculo->inciarTransporte(); //imprime en pantalla el iuiu iuiu - Taca taca - fiuuuuum
+		_vehiculo->setLuO(true);
 		if (_receptor->inicarTransplante(_vehiculo->getOrgano())==true) { //ademas se ve si el transplante fue exitoso
 			*this->listaReceptores - _receptor;
 		}

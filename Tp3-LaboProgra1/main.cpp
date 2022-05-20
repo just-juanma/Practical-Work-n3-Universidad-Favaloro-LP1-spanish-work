@@ -209,7 +209,7 @@ int main() {
 	try {
 		INCUCAI->ingresarPaciente(receptor1);
 		INCUCAI->ingresarPaciente(receptor2);
-		INCUCAI->ingresarPaciente(receptor3);
+		cPaciente* pacietne =INCUCAI->ingresarPaciente(receptor3);
 		INCUCAI->ingresarPaciente(receptor4);
 		
 	}
