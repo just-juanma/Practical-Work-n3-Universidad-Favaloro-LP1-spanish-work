@@ -26,7 +26,7 @@ class cFecha {
         }
 
         void setFechaAblacion(time_t fecha) {
-            ablacion = fecha;
+            this->ablacion = fecha;
         }
 
         time_t getFechaAblacion() const {

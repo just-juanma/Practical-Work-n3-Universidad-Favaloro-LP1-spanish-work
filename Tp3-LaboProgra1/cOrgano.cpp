@@ -4,6 +4,7 @@
 
 cOrgano::cOrgano(eOrgano _organo) {
 	this->organo = _organo;
+	this->ablacion = NULL;
 }
 
 cOrgano::~cOrgano() { }

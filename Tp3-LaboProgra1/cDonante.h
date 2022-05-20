@@ -77,13 +77,13 @@ class cDonante: public cPaciente
             cout << to_string() << endl;
         }
 
-        cLista<cOrgano>* iniciarAblacion() {
+        cLista<cOrgano>* iniciarAblacion(eOrgano organo) {
             time_t temp;
-            ablacion->setFechaAblacion(time(&temp));
+            this->ablacion->setFechaAblacion(time(&temp));
             cLista<cOrgano>* organosaux= NULL;
             organosaux = this->listaOrgano;
-            this->listaOrgano = NULL;
             for (ush i = 0; i < organosaux->cantActual; i++) {
+                if (organosaux[0][i]->getTipoOrgano() == organo) 
                 organosaux[0][i]->setFechaAblacionOrgano(ablacion);
             }
             return organosaux;

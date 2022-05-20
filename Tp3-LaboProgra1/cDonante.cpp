@@ -6,11 +6,13 @@ cDonante::cDonante(string _nombre, string _sexo, string _telefono, cFecha* _naci
 			       cPaciente(_nombre, _sexo, _telefono, _nacimiento, _tipo, false) {
 	this->muerte = NULL;
 	this->listaOrgano = NULL;
-	this->ablacion = NULL;
+	this->ablacion = new cFecha;
 	this->vehiculo = NULL;
 }
 
-cDonante::~cDonante() { }
+cDonante::~cDonante() {
+	delete ablacion;
+}
 
 string cDonante::to_string() {
 	stringstream stc;
