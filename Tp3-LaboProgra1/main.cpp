@@ -162,9 +162,9 @@ int main() {
 
 	//Trabajo de matches
 	try {
+		INCUCAI->ingresarPaciente(receptor1);
 		INCUCAI->ingresarPaciente(donante1);
 		INCUCAI->ingresarPaciente(donante2);
-		INCUCAI->ingresarPaciente(receptor1);
 	}
 	catch (exception& e) {
 		cout << "Error: " << e.what() << endl;
