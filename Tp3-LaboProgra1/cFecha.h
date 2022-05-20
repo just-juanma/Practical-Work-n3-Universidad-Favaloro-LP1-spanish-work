@@ -29,6 +29,10 @@ class cFecha {
             ablacion = fecha;
         }
 
+        time_t getFechaAblacion() const {
+            return this->ablacion;
+        }
+
         string getFecha() const {
             return *fecha;
         }

@@ -77,12 +77,6 @@ class cDonante: public cPaciente
             cout << to_string() << endl;
         }
 
-        /// <summary>
-        /// el centro procede a realizar la ablación de todos los órganos. En
-        /// la ablación se setea la fecha y horario de ablación del órgano y se quita la lista de órganos 
-        /// del paciente donante
-        /// </summary>
-        /// <param name="_receptor"></param>
         cLista<cOrgano>* iniciarAblacion() {
             time_t temp;
             ablacion->setFechaAblacion(time(&temp));
@@ -90,7 +84,7 @@ class cDonante: public cPaciente
             organosaux = this->listaOrgano;
             this->listaOrgano = NULL;
             for (ush i = 0; i < 10; i++) {
-                organosaux[0][i]->SetFechaAblacion(ablacion);
+                organosaux[0][i]->setFechaAblacionOrgano(ablacion);
             }
             return organosaux;
         }

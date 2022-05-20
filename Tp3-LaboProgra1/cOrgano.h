@@ -18,9 +18,11 @@ class cOrgano {
         #pragma endregion
 
         #pragma region Metodos
-        void SetFechaAblacion(cFecha* _fecha) {
+
+        void setFechaAblacionOrgano(cFecha* _fecha) {
             this->ablacion = _fecha;
         }
+
         cFecha* getFechaAblacion() const {
             return this->ablacion;
         }

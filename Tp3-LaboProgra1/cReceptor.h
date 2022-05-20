@@ -88,14 +88,19 @@ class cReceptor : public cPaciente
         }
 
         bool inicarTransplante(cOrgano* _organotransportado) {
-            this->organoNecesario = _organotransportado;
-            float azar = rand() % 1;
-            if (azar > (1 / 2)) {
-                return true;
+            time_t local;
+            if (difftime(time(&local), _organotransportado->getFechaAblacion()->getFechaAblacion()) / 3600 <= 20) {
+                this->organoNecesario = _organotransportado;
+                float azar = rand() % 1;
+                if (azar > (1 / 2)) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
             }
-            else {
-                return false;
-            }
+            else
+                throw exception("Se excedieron las 20 horas desde la ablacion");
         }
 
 
