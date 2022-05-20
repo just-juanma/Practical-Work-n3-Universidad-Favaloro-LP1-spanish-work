@@ -43,7 +43,7 @@ class cINCUCAI {
         /// </summary>
         /// <param name="_dontante"></param>
         /// <returns></returns>
-        cLista<cOrgano>* Ablacion(cDonante* _dontante, eOrgano tipoOrgano);
+        cOrgano* Ablacion(cDonante* _dontante, eOrgano tipoOrgano);
 
         cLista<cReceptor>* buscarPorOrgano(cOrgano* organo) {
             cLista<cReceptor>* receptores = new cLista<cReceptor>(this->listaReceptores->cantActual, false);

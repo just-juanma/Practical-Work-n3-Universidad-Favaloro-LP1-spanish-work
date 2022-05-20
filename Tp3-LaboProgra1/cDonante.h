@@ -77,26 +77,31 @@ class cDonante: public cPaciente
             cout << to_string() << endl;
         }
 
-        cLista<cOrgano>* iniciarAblacion(eOrgano organo) {
+        cOrgano* iniciarAblacion(eOrgano organo) {
             time_t temp;
             this->ablacion->setFechaAblacion(time(&temp));
-            cLista<cOrgano>* organosaux= NULL;
+            cLista<cOrgano>* organosaux;//new cLista<cOrgano>(this->listaOrgano->cantActual,true);
             organosaux = this->listaOrgano;
-            for (ush i = 0; i < organosaux->cantActual; i++) {
-                if (organosaux[0][i]->getTipoOrgano() == organo) 
-                organosaux[0][i]->setFechaAblacionOrgano(ablacion);
-            }
-            return organosaux;
+            cOrgano* aux=NULL;
+            ush i=0;
+            for (i=0;this->listaOrgano->lista[i]!=NULL; i++) {
+                if (organosaux->lista[i]->getTipoOrgano() == organo) {
+                    aux = *this->listaOrgano - organosaux->lista[i];
+                    aux->setFechaAblacionOrgano(ablacion);
+                    return aux;
+                }
+            }            
         }
 
         bool operator==(cReceptor& receptor) {
             if (tipoSangre == receptor.getTipoSangre()) 
-                for (ush i = 0; i < listaOrgano->cantActual; i++) 
-                    if (listaOrgano->lista[i] == receptor.getOrganoNecesitado())
+                for (ush i = 0; i < listaOrgano->cantActual; i++) {
+                    if (listaOrgano->lista[i]->getTipoOrgano() == receptor.getOrganoNecesitado()->getTipoOrgano()) {
                         return true;
+                    }
+                }
             return false;
         }
-
         #pragma endregion   
 
     private:
