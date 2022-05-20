@@ -3,11 +3,10 @@
 // cDonante implementacion
 
 cDonante::cDonante(string _nombre, string _sexo, string _telefono, cFecha* _nacimiento, eTipoSangre _tipo) :
-			       cPaciente(_nombre, _sexo, _telefono, _nacimiento, _tipo, false) {
+			       cPaciente(_nombre, _sexo, _telefono, _nacimiento, _tipo) {
 	this->muerte = NULL;
 	this->listaOrgano = NULL;
 	this->ablacion = NULL;
-	this->vehiculo = NULL;
 }
 
 cDonante::~cDonante() { }

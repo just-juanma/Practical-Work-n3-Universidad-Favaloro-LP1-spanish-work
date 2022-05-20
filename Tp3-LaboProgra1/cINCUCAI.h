@@ -36,7 +36,7 @@ class cINCUCAI {
         /// </summary>
         /// <param name="_organo">Organo a transpsportar y transplantar</param>
         /// <param name="_receptor">Quien lo va a recibir</param>
-        void Protocolo_de_Transporte_y_Transplantes(cOrgano* _organo, cReceptor* _receptor);
+        void protocoloDeTransporteYTransplante(cOrgano* _organo, cReceptor* _receptor);
 
         /// <summary>
         /// Devuelve la lista de organos ya removidos del donante con la hora de la ablacion seteada
@@ -63,8 +63,11 @@ class cINCUCAI {
         
         void imprimirReceptor(cReceptor* receptor) {
             for (ush i = 0; i < this->listaReceptores->cantActual; i++) 
-                if (receptor == this->listaReceptores->lista[i]) 
+                if (receptor == this->listaReceptores->lista[i]) {
                     cout << "Prioridad de " << receptor->getNombre() << ": " << receptor->getPrioridad();
+                    return;
+                }
+            throw exception("No se encontro al receptor");
         }
         
         /// <summary>
@@ -101,7 +104,6 @@ class cINCUCAI {
 
         #pragma region Atributos
 
-        bool match;
         cLista<cDonante>* listaDonantes;
         cLista<cReceptor>* listaReceptores;
         cLista<cCentroSalud>* listaCentros;

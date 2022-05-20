@@ -78,7 +78,7 @@ class cReceptor : public cPaciente
         /// Cambia el estado del paciente
         /// </summary>
         /// <param name="_estado"></param>
-        void SwitchEstabilidad() {
+        void switchEstabilidad() {
             if (this->EoI == true) {
                 this->EoI = false;
             }
@@ -102,21 +102,6 @@ class cReceptor : public cPaciente
             else
                 throw exception("Se excedieron las 20 horas desde la ablacion");
         }
-
-
-        /*  /// <summary>
-          /// Verifica que el organo que transporta el vehiculo sea el mismo que 
-          /// necesita el receptor, y si es asi, arranca el vehiculo 
-          /// (a gran velocidad segun nos cuentan los diarios mas importantes)
-          /// </summary>
-          /// <param name="vehiculo">: Vehiculo asignado para el translado</param>
-          void iniciarTransplante(cVehiculo* vehiculo) {
-              if (vehiculo->getOrgano() == this->organoNecesario)
-                  vehiculo->imprimir();
-              else
-                  throw exception("No se pudo iniciar el transplante del receptor");
-          }*/
-
 
         #pragma endregion
 

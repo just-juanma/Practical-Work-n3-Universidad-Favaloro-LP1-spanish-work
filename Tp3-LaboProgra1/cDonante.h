@@ -106,8 +106,6 @@ class cDonante: public cPaciente
         cLista<cOrgano>* listaOrgano;
         cFecha* muerte;
         cFecha* ablacion;
-        cVehiculo* vehiculo;
-
         #pragma endregion
 
 };

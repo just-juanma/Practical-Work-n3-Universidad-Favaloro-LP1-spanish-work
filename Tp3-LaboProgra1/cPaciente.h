@@ -19,7 +19,7 @@ class cPaciente
         /// <param name="telefono">: Telefono del paciente</param>
         /// <param name="RoD">: Receptor (true), Donante (false)</param>
         cPaciente(string _nombre = "", string _sexo = "", string _telefono = "", 
-                  cFecha* _nacimiento = NULL, eTipoSangre _tipo = tipoDesconocido, bool _RoD = false);
+                  cFecha* _nacimiento = NULL, eTipoSangre _tipo = tipoDesconocido);
 
         /// <summary>
         /// Destructor por defecto
@@ -85,7 +85,6 @@ class cPaciente
         cFecha* nacimiento;
         cCentroSalud* centroSalud;
         eTipoSangre tipoSangre; 
-        bool RoD;
     
         #pragma endregion       
 };

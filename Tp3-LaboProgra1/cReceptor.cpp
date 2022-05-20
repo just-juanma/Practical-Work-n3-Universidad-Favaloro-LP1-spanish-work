@@ -4,7 +4,7 @@
 
 cReceptor::cReceptor(string _nombre, string _sexo, string _telefono, string _patologia, 
 					cFecha* _nacimiento, cFecha* _fechaListaEnEspera, eTipoSangre _tipo, bool _EoI) :
-					cPaciente(_nombre, _sexo, _telefono, _nacimiento, _tipo, false) {
+					cPaciente(_nombre, _sexo, _telefono, _nacimiento, _tipo) {
 	this->patologia = _patologia;
 	this->organoNecesario = NULL;
 	this->fechaListaEnEspera = _fechaListaEnEspera;
