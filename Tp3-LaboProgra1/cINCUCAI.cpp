@@ -19,7 +19,7 @@ void cINCUCAI::recibirPaciente(cPaciente* paciente)
 	ingresarPaciente(paciente);
 }
 
-void cINCUCAI::ingresarPaciente(cPaciente* paciente) {
+cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 
 	agregarPaciente(paciente);
 
@@ -42,6 +42,7 @@ void cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 					cCentroSalud* centro_salud = listaDonantes->lista[i]->getCentro();
 					Protocolo_de_Transporte_y_Transplantes(lista_organos, sujeto, centro_salud);
 					agregados = true;
+					return *listaReceptores - sujeto;
 					}
 			}
 			if (agregados == true) {
@@ -64,7 +65,10 @@ void cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 					cOrgano* lista_organos = Ablacion(sujeto, sujeto->listaOrgano->lista[j]->getTipoOrgano());
 					cCentroSalud* centro_salud = sujeto->getCentro();
 					Protocolo_de_Transporte_y_Transplantes(lista_organos, listaReceptores->lista[j], centro_salud);
+					this->listaReceptores->cantActual--;
 					agregados = true;
+					cPaciente* aux = *listaReceptores - listaReceptores->lista[j];
+					return aux;
 					break;
 				}
 
@@ -86,6 +90,7 @@ void cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 							cCentroSalud* centro_salud = sujeto->getCentro();
 							Protocolo_de_Transporte_y_Transplantes(lista_organos, listaReceptores->lista[j], centro_salud);
 							agregados = true;
+							return *listaReceptores - listaReceptores->lista[j];
 							break;
 						}
 					}
@@ -106,6 +111,7 @@ void cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 								cCentroSalud* centro_salud = sujeto->getCentro();
 								Protocolo_de_Transporte_y_Transplantes(lista_organos, listaReceptores->lista[j], centro_salud);
 								agregados = true;
+								return *listaReceptores - listaReceptores->lista[j];
 								break;
 							}
 						}

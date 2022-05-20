@@ -29,7 +29,7 @@ class cINCUCAI {
 
         void agregarPaciente(cPaciente* paciente);
         void recibirPaciente(cPaciente* paciente);
-        void ingresarPaciente(cPaciente* paciente);
+        cPaciente* ingresarPaciente(cPaciente* paciente);
 
         /// <summary>
         /// Mediante este metodo se le transplanta el organo solicitado a un receptor especifico
@@ -91,6 +91,11 @@ class cINCUCAI {
             }
             else
                 throw exception("Aun no es fin de mes");
+        }
+
+        void setListas(cLista<cDonante>* lista1, cLista<cReceptor>* lista2) {
+            listaDonantes = lista1;
+            listaReceptores = lista2;
         }
 
     private: 
