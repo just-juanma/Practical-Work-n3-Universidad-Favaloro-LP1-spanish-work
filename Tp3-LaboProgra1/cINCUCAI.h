@@ -29,21 +29,21 @@ class cINCUCAI {
 
         void agregarPaciente(cPaciente* paciente);
         void recibirPaciente(cPaciente* paciente);
-        void ingresarPaciente(cPaciente* paciente);
+        cPaciente* ingresarPaciente(cPaciente* paciente);
 
         /// <summary>
         /// Mediante este metodo se le transplanta el organo solicitado a un receptor especifico
         /// </summary>
         /// <param name="_organo">Organo a transpsportar y transplantar</param>
         /// <param name="_receptor">Quien lo va a recibir</param>
-        void protocoloDeTransporteYTransplante(cOrgano* _organo, cReceptor* _receptor);
+        void protocoloDeTransporteYTransplante(cOrgano* _organo, cReceptor* _receptor, cCentroSalud* centro_salud);
 
         /// <summary>
         /// Devuelve la lista de organos ya removidos del donante con la hora de la ablacion seteada
         /// </summary>
         /// <param name="_dontante"></param>
         /// <returns></returns>
-        cLista<cOrgano>* Ablacion(cDonante* _dontante);
+        cOrgano* Ablacion(cDonante* _dontante, eOrgano tipoOrgano);
 
         cLista<cReceptor>* buscarPorOrgano(cOrgano* organo) {
             cLista<cReceptor>* receptores = new cLista<cReceptor>(this->listaReceptores->cantActual, false);
@@ -94,6 +94,11 @@ class cINCUCAI {
             }
             else
                 throw exception("Aun no es fin de mes");
+        }
+
+        void setListas(cLista<cDonante>* lista1, cLista<cReceptor>* lista2) {
+            listaDonantes = lista1;
+            listaReceptores = lista2;
         }
 
     private: 

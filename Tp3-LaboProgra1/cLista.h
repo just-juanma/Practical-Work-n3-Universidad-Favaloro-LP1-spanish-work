@@ -122,7 +122,9 @@ class cLista
         }
 
         T* operator-(T* elemento) {
-            return (quitar(elemento));
+            T* aa = quitar(elemento);
+            this->cantActual--;
+            return (aa);
         }
 
         T* operator[](sh i) {

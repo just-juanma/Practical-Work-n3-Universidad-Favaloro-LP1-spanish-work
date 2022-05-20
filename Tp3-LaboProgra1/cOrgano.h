@@ -26,6 +26,9 @@ class cOrgano {
         cFecha* getFechaAblacion() const {
             return this->ablacion;
         }
+        eOrgano getTipoOrgano() {
+            return this->organo;
+        }
         /// <summary>
         /// Concatena a un solo string los atributos pertinentes
         /// </summary>

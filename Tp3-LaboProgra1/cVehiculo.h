@@ -79,6 +79,7 @@ class cVehiculo {
 
         void inciarTransporte() {
             imprimir();
+            this->LuO = false;
         }
 
 		#pragma endregion
