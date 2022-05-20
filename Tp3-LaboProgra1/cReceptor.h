@@ -91,7 +91,7 @@ class cReceptor : public cPaciente
             time_t local;
             if (difftime(time(&local), _organotransportado->getFechaAblacion()->getFechaAblacion()) / 3600 <= 20) {
                 this->organoNecesario = _organotransportado;
-                float azar = rand() % 1;
+                float azar = rand() % 2;
                 if (azar > (1 / 2)) {
                     return true;
                 }

@@ -101,9 +101,13 @@ class cINCUCAI {
             listaReceptores = lista2;
         }
 
-    private: 
+        void imprimir() {
+            cout << listaDonantes->to_string() << endl;
+            cout << listaReceptores->to_string() << endl;
+            cout << listaCentros->to_string() << endl;
+        }
 
-        // void ordenarPrioridad();
+    private: 
 
         #pragma endregion
 

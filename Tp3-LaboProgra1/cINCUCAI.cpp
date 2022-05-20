@@ -36,7 +36,7 @@ cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 				if (( *listaDonantes->lista[i] == *sujeto)==true) {
 					cOrgano* lista_organos = Ablacion(listaDonantes->lista[i], sujeto->getOrganoNecesitado()->getTipoOrgano());
 					cCentroSalud* centro_salud = listaDonantes->lista[i]->getCentro();
-					Protocolo_de_Transporte_y_Transplantes(lista_organos, sujeto, centro_salud);
+					protocoloDeTransporteYTransplante(lista_organos, sujeto, centro_salud);
 					agregados = true;
 					return *listaReceptores - sujeto;
 					}
@@ -60,7 +60,7 @@ cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 					(*sujeto == *listaReceptores->lista[j]) == true) { //filtro por tipo de sangre, repito esto para media y minima
 					cOrgano* lista_organos = Ablacion(sujeto, sujeto->listaOrgano->lista[j]->getTipoOrgano());
 					cCentroSalud* centro_salud = sujeto->getCentro();
-					Protocolo_de_Transporte_y_Transplantes(lista_organos, listaReceptores->lista[j], centro_salud);
+					protocoloDeTransporteYTransplante(lista_organos, listaReceptores->lista[j], centro_salud);
 					this->listaReceptores->cantActual--;
 					agregados = true;
 					cPaciente* aux = *listaReceptores - listaReceptores->lista[j];
@@ -84,7 +84,7 @@ cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 							(*sujeto == *listaReceptores->lista[j]) == true) { //filtro por tipo de sangre, repito esto para media y minima
 							cOrgano* lista_organos = Ablacion(sujeto, sujeto->listaOrgano->lista[j]->getTipoOrgano());
 							cCentroSalud* centro_salud = sujeto->getCentro();
-							Protocolo_de_Transporte_y_Transplantes(lista_organos, listaReceptores->lista[j], centro_salud);
+							protocoloDeTransporteYTransplante(lista_organos, listaReceptores->lista[j], centro_salud);
 							agregados = true;
 							return *listaReceptores - listaReceptores->lista[j];
 							break;
@@ -105,7 +105,7 @@ cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 								(*sujeto == *listaReceptores->lista[j]) == true) { //filtro por tipo de sangre, repito esto para media y minima
 								cOrgano* lista_organos = Ablacion(sujeto, sujeto->listaOrgano->lista[j]->getTipoOrgano());
 								cCentroSalud* centro_salud = sujeto->getCentro();
-								Protocolo_de_Transporte_y_Transplantes(lista_organos, listaReceptores->lista[j], centro_salud);
+								protocoloDeTransporteYTransplante(lista_organos, listaReceptores->lista[j], centro_salud);
 								agregados = true;
 								return *listaReceptores - listaReceptores->lista[j];
 								break;

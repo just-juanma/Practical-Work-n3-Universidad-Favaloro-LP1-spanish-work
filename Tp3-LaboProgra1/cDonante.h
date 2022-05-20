@@ -83,8 +83,8 @@ class cDonante: public cPaciente
             cLista<cOrgano>* organosaux;//new cLista<cOrgano>(this->listaOrgano->cantActual,true);
             organosaux = this->listaOrgano;
             cOrgano* aux=NULL;
-            ush i=0;
-            for (i=0;this->listaOrgano->lista[i]!=NULL; i++) {
+            ush i = 0;
+            for (i = 0;this->listaOrgano->lista[i]!=NULL; i++) {
                 if (organosaux->lista[i]->getTipoOrgano() == organo) {
                     aux = *this->listaOrgano - organosaux->lista[i];
                     aux->setFechaAblacionOrgano(ablacion);

@@ -14,6 +14,8 @@
 
 int main() {
 
+	srand(time(NULL));
+
 	// fechas receptores
 	cFecha* rNacimiento1 = new cFecha("19/09/2001");
 	cFecha* fechaEnEspera1 = new cFecha("16/05/2022");
@@ -207,33 +209,27 @@ int main() {
 
 	//Trabajo de matches
 	try {
-		INCUCAI->ingresarPaciente(receptor1);
-		INCUCAI->ingresarPaciente(receptor2);
-		cPaciente* pacietne =INCUCAI->ingresarPaciente(receptor3);
-		INCUCAI->ingresarPaciente(receptor4);
-		
+		cPaciente* primerPacienteQuitado = INCUCAI->ingresarPaciente(receptor1);
+		cPaciente* segundoPacienteQuitado = INCUCAI->ingresarPaciente(receptor2);
+		cPaciente* tercerPacienteQuitado = INCUCAI->ingresarPaciente(receptor3);
+		cPaciente* cuartoPacienteQuitado = INCUCAI->ingresarPaciente(receptor4);
 	}
 	catch (exception& e) {
 		cout << "Error: " << e.what() << endl;
 	}
-
-	
-	int a = 2;
-
-	/*try {
-		INCUCAI->informeFinDeMes();
-	}
-	catch (exception& e) {
-		cout << "Error: " << e.what() << endl;
-	}*/
 
 	try {
-		INCUCAI->imprimirReceptor(receptor1);
+		INCUCAI->imprimirReceptor(receptor4);
+
+		cLista<cReceptor>* receptoresRinion = INCUCAI->buscarPorOrgano(rRinion4);
+
+		cLista<cReceptor>* receptoresCentro = INCUCAI->buscarPorCentro(centro1);
 	}
 	catch (exception& e) {
 		cout << "Error: " << e.what() << endl;
 	}
-
+	
+	INCUCAI->imprimir();
 
 	delete paciente;
 

@@ -25,7 +25,7 @@ class cLista
             try {
                 this->lista = new T * [size];
                 if (!this->lista)
-                    throw(bad_alloc());
+                    throw bad_alloc();
             }
             catch (exception& e) {
                 cout << e.what() << endl;
@@ -73,8 +73,8 @@ class cLista
         inline string to_string() {
             stringstream stc;
             stc << "Checkeo de eliminar (true / si) (false / no): " << this->checkEliminar << endl;
-            stc << "Cantidad total de elementos: " << this->cantActual << endl;
-            stc << "Cantidad actual de elementos: " << this->cantTotal << endl;
+            stc << "Cantidad total de elementos: " << this->cantTotal << endl;
+            stc << "Cantidad actual de elementos: " << this->cantActual << endl;
             for (ush i = 0; i < this->cantActual; i++) {
                 stc << "Elemento [" << i << "]" << endl << lista[i]->to_string() << endl;
             }
@@ -108,6 +108,7 @@ class cLista
                     T* aux = this->lista[i];
                     this->lista[i] = NULL;
                     ordenar();
+                    this->cantActual--;
                     return aux;
                 }
             throw exception("No se pudo quitar el elemento ingresado");
@@ -121,10 +122,9 @@ class cLista
            agregar(elemento);
         }
 
-        T* operator-(T* elemento) {
-            T* aa = quitar(elemento);
-            this->cantActual--;
-            return (aa);
+        inline T* operator-(T* elemento) {
+            T* quitado = quitar(elemento);
+            return quitado;
         }
 
         T* operator[](sh i) {
@@ -133,7 +133,7 @@ class cLista
             throw exception("Se esta intentando acceder a un elemento imposible de acceder");
         }
 
-        friend ostream& operator << (ostream& out, T* elemento) {
+        friend ostream& operator << (ostream& out, const T* elemento) {
             return out << to_string() << endl;
         }
 

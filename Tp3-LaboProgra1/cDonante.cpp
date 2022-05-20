@@ -7,7 +7,6 @@ cDonante::cDonante(string _nombre, string _sexo, string _telefono, cFecha* _naci
 	this->muerte = NULL;
 	this->listaOrgano = NULL;
 	this->ablacion = new cFecha;
-	this->vehiculo = NULL;
 }
 
 cDonante::~cDonante() {
@@ -23,8 +22,6 @@ string cDonante::to_string() {
 	stc << "Fecha de nacimiento: " << this->nacimiento->getFecha();
 	if (muerte)
 		stc << "Fecha de muerte: " << this->muerte->getFecha();
-	if (ablacion)
-		stc << "Fecha de ablacion: " << this->ablacion->getFecha();
 	if(listaOrgano)
 		stc << "Listado de organos:" << endl << this->listaOrgano->to_string() << endl;
 	return stc.str();
