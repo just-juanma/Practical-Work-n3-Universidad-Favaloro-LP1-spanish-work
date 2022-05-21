@@ -65,21 +65,27 @@ class cINCUCAI {
         /// </summary>
         /// <param name="_donante">: Recibe el donante al que se le llamara la ablacion  </param>
         /// <param name="tipoOrgano">: Organo a quitar</param>
-        /// <returns></returns>
+        /// <returns>Organo obtenido en la ablacion</returns>
         cOrgano* Ablacion(cDonante* _donante, eOrgano tipoOrgano);
 
         /// <summary>
         /// Busca en la lista de receptores segun el organo 
         /// </summary>
         /// <param name="organo">: Organo a filtrar</param>
+        /// <returns>Listado de receptores que necesitan el organo</returns>
         cLista<cReceptor>* buscarPorOrgano(cOrgano* organo) {
             cLista<cReceptor>* receptores = new cLista<cReceptor>(this->listaReceptores->cantActual, false);
             for (ush i = 0; i < this->listaReceptores->cantActual; i++) 
-                if (organo == this->listaReceptores->lista[i]->getOrganoNecesitado())
+                if (organo->getTipoOrgano() == this->listaReceptores->lista[i]->getOrganoNecesitado()->getTipoOrgano())
                     *receptores + this->listaReceptores->lista[i];
             return receptores;
         }
 
+        /// <summary>
+        /// Busca en la lista de receptores segun el centro
+        /// </summary>
+        /// <param name="organo">: Centro a filtrar</param>
+        /// <returns>Listado de receptores que se encuentran en el mismo centro</returns>
         cLista<cReceptor>* buscarPorCentro(cCentroSalud* centro) {
             cLista<cReceptor>* receptores = new cLista<cReceptor>(this->listaReceptores->cantActual, false);
             for (ush i = 0; i < this->listaReceptores->cantActual; i++) 
@@ -88,6 +94,10 @@ class cINCUCAI {
             return receptores;
         }
         
+        /// <summary>
+        /// Busca el receptor en la lista de receptores
+        /// </summary>
+        /// <param name="receptor">: Receptor a buscar</param>
         void imprimirReceptor(cReceptor* receptor) {
             for (ush i = 0; i < this->listaReceptores->cantActual; i++) 
                 if (receptor == this->listaReceptores->lista[i]) {
@@ -123,11 +133,19 @@ class cINCUCAI {
                 throw exception("Aun no es fin de mes");
         }
 
+        /// <summary>
+        /// Setea las listas de donantes y receptores
+        /// </summary>
+        /// <param name="lista1">: Lista a setear de donantes</param>
+        /// <param name="lista2">: Lista a setear de receptores</param>
         void setListas(cLista<cDonante>* lista1, cLista<cReceptor>* lista2) {
             listaDonantes = lista1;
             listaReceptores = lista2;
         }
 
+        /// <summary>
+        /// Imprime las listas pedidas
+        /// </summary>
         void imprimir() {
             cout << listaDonantes->to_string() << endl;
             cout << listaReceptores->to_string() << endl;

@@ -229,10 +229,7 @@ int main() {
 
 	//Trabajo de matches
 	try {
-		cLista<cPaciente>* listaReceptores = INCUCAI->ingresarPaciente(receptor1);
-		cLista<cPaciente>* listaReceptores2 = INCUCAI->ingresarPaciente(receptor2);
-		cLista<cPaciente>* listaReceptores3 = INCUCAI->ingresarPaciente(receptor3);
-		cLista<cPaciente>* listaReceptores4 = INCUCAI->ingresarPaciente(receptor4);
+		cLista<cPaciente>* listaReceptores = INCUCAI->ingresarPaciente(donante5);
 	}
 	catch (exception& e) {
 		cout << "Error: " << e.what() << endl;

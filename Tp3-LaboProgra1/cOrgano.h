@@ -19,10 +19,18 @@ class cOrgano {
 
         #pragma region Metodos
 
+        /// <summary>
+        /// Setea la fecha de ablacion
+        /// </summary>
+        /// <param name="_fecha">: Fecha a setear</param>
         void setFechaAblacionOrgano(cFecha* _fecha) {
             this->ablacion = _fecha;
         }
 
+        /// <summary>
+        /// Obtiene la fecha de Ablacion
+        /// </summary>
+        /// <returns>Fecha obtenida</returns>
         cFecha* getFechaAblacion() const {
             return this->ablacion;
         }
