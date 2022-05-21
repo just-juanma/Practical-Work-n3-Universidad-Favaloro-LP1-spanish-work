@@ -59,6 +59,11 @@ class cLista
 
         #pragma region Metodos
         
+        /// <summary>
+        /// Recibe un elemento y busca en toda la lista si lo encuentra
+        /// </summary>
+        /// <param name="elemento">: Elemento a buscar</param>
+        /// <returns>La i-esima posicion encontrada en caso de encontrar, -1 en caso contrario</returns>
         inline ush buscar(T* elemento) {
             for (ush i = 0; i < this->cantActual; i++) 
                 if (elemento && elemento == this->lista[i]) 
@@ -143,6 +148,9 @@ class cLista
 
         #pragma region Funciones_Auxiliares
 
+        /// <summary>
+        /// Ordena las posiciones de la lista, luego de quitar un elemento
+        /// </summary>
         inline void ordenar() {
             for (ush i = 0; i < this->cantActual; i++)
                 for (ush j = i; j < this->cantActual - 1; j++)
