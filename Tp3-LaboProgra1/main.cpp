@@ -36,10 +36,10 @@ int main() {
 	cOrgano* rRinion4 = new cOrgano(rinion);
 
 	// receptores
-	cReceptor* receptor1 = new cReceptor("Tomas", "Indefinido", "1147853254", "Arritmia", rNacimiento1, fechaEnEspera1, AB, true);
+	cReceptor* receptor1 = new cReceptor("Tomas", "Indefinido", "1147853254", "Arritmia", rNacimiento1, fechaEnEspera1, O, true);
 	cReceptor* receptor2 = new cReceptor("Jorge", "Masculino", "1102047823", "Cancer de hueso", rNacimiento2, fechaEnEspera2, O, true);
-	cReceptor* receptor3 = new cReceptor("Juan", "Indefinido", "1138295648", "Quemadura", rNacimiento3, fechaEnEspera3, A, true);
-	cReceptor* receptor4 = new cReceptor("Tomas", "Indefinido", "1147853254", "Insuficiencia Renal", rNacimiento4, fechaEnEspera4, B, true);
+	cReceptor* receptor3 = new cReceptor("Juan", "Indefinido", "1138295648", "Quemadura", rNacimiento3, fechaEnEspera3, O, true);
+	cReceptor* receptor4 = new cReceptor("Dios", "Indefinido", "9786853254", "Insuficiencia Renal", rNacimiento4, fechaEnEspera4, O, true);
 	try {
 		// organos necesitados
 		receptor1->setOrganoNecesitado(rCorazon1);
@@ -64,6 +64,10 @@ int main() {
 	cOrgano* dPiel3 = new cOrgano(piel);
 	cOrgano* dRinion3 = new cOrgano(rinion);
 	cOrgano* dCornea4 = new cOrgano(cornea);
+	cOrgano* dHuesos5 = new cOrgano(huesos);
+	cOrgano* dPiel5 = new cOrgano(piel);
+	cOrgano* dCorazon5 = new cOrgano(rinion);
+	cOrgano* dCornea5 = new cOrgano(cornea);
 
 	// fechas donantes
 	cFecha* dNacimiento1 = new cFecha("09/01/1981");
@@ -80,12 +84,14 @@ int main() {
 	cDonante* donante2 = new cDonante("Pepe", "Masculino", "1144556677", dNacimiento2, O);
 	cDonante* donante3 = new cDonante("Jose", "Masculino", "1147520124", dNacimiento3, A);
 	cDonante* donante4 = new cDonante("Gladys", "Femenino", "1155446622", dNacimiento4, O);
+	cDonante* donante5 = new cDonante("Silvia", "Femenino", "1155446633", dNacimiento3, O);
 
 	// lista de organos
 	cLista<cOrgano>* organo1 = new cLista<cOrgano>(2, true);
 	cLista<cOrgano>* organo2 = new cLista<cOrgano>(1, true);
 	cLista<cOrgano>* organo3 = new cLista<cOrgano>(2, true);
 	cLista<cOrgano>* organo4 = new cLista<cOrgano>(1, true);
+	cLista<cOrgano>* organo5 = new cLista<cOrgano>(4, true);
 
 	try {
 		// fechas de muerte
@@ -93,6 +99,7 @@ int main() {
 		donante2->setFechaMuerte(muerte2);
 		donante3->setFechaMuerte(muerte3);
 		donante4->setFechaMuerte(muerte4);
+		donante5->setFechaMuerte(muerte4);
 
 		// inicializacion listas
 		*organo1 + dCorazon1;
@@ -101,26 +108,38 @@ int main() {
 		*organo3 + dRinion3;
 		*organo3 + dPiel3;
 		*organo4 + dCornea4;
+		*organo5 + dCornea5;
+		*organo5 + dPiel5;
+		*organo5 + dCorazon5;
+		*organo5 + dHuesos5;
 
 		// implementacion listas
 		donante1->setLista(organo1);
 		donante2->setLista(organo2);
 		donante3->setLista(organo3);
 		donante4->setLista(organo4);
+		donante5->setLista(organo5);
+
 	}
 	catch (exception& e) {
 		cout << "Error: " << e.what() << endl;
 	}
 
 	// lista paciente
-	cLista<cPaciente>* paciente = new cLista<cPaciente>(4, true);
+	cLista<cPaciente>* paciente = new cLista<cPaciente>(10, true);
 
 	try {
 		// inicializacion listas
 		*paciente + receptor1;
 		*paciente + receptor2;
+		*paciente + receptor3;
+		*paciente + receptor4;
+		
 		*paciente + donante1;
 		*paciente + donante2;
+		*paciente + donante3;
+		*paciente + donante4;
+		*paciente + donante5;
 	}
 	catch (exception& e) {
 		cout << "Error: " << e.what() << endl;
@@ -139,11 +158,12 @@ int main() {
 		donante2->asociarCentro(centro2);
 		donante3->asociarCentro(centro1);
 		donante4->asociarCentro(centro2);
+		donante5->asociarCentro(centro2);
 
-		receptor1->asociarCentro(centro2);
-		receptor2->asociarCentro(centro1);
-		receptor3->asociarCentro(centro2);
-		receptor4->asociarCentro(centro1);
+		receptor1->asociarCentro(centro1);
+		receptor2->asociarCentro(centro2);
+		receptor3->asociarCentro(centro1);
+		receptor4->asociarCentro(centro2);
 
 	}
 	catch (exception& e) {
@@ -187,10 +207,10 @@ int main() {
 	cINCUCAI* INCUCAI = new cINCUCAI();
 	cLista<cReceptor>* listaDefaultR = new cLista<cReceptor>(MAX, true);
 	cLista<cDonante>* listaDefaultD = new cLista<cDonante>(MAX, true);
-	*listaDefaultD + donante1;
-	*listaDefaultD + donante2;
-	*listaDefaultD + donante3;
-	*listaDefaultD + donante4;
+	*listaDefaultR + receptor1;
+	*listaDefaultR + receptor2;
+	*listaDefaultR + receptor3;
+	*listaDefaultR + receptor4;
 	INCUCAI->setListas(listaDefaultD, listaDefaultR);
 
 	// lista centro
@@ -209,14 +229,15 @@ int main() {
 
 	//Trabajo de matches
 	try {
-		cPaciente* primerPacienteQuitado = INCUCAI->ingresarPaciente(receptor1);
-		cPaciente* segundoPacienteQuitado = INCUCAI->ingresarPaciente(receptor2);
-		cPaciente* tercerPacienteQuitado = INCUCAI->ingresarPaciente(receptor3);
-		cPaciente* cuartoPacienteQuitado = INCUCAI->ingresarPaciente(receptor4);
+		cLista<cPaciente>* listaReceptores = INCUCAI->ingresarPaciente(receptor1);
+		cLista<cPaciente>* listaReceptores2 = INCUCAI->ingresarPaciente(receptor2);
+		cLista<cPaciente>* listaReceptores3 = INCUCAI->ingresarPaciente(receptor3);
+		cLista<cPaciente>* listaReceptores4 = INCUCAI->ingresarPaciente(receptor4);
 	}
 	catch (exception& e) {
 		cout << "Error: " << e.what() << endl;
 	}
+
 
 	// funciones adicionales pedidas
 	// FUNCIONAN SEGUN QUE RECEPTOR FUE QUITADO DE LA LISTA, LUEGO DEL MATCH (RECORDAR QUE ES RANDOM)

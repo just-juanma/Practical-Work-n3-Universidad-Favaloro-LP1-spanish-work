@@ -15,7 +15,7 @@ void cINCUCAI::recibirPaciente(cPaciente* paciente)
 	ingresarPaciente(paciente);
 }
 
-cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
+cLista<cPaciente>* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 
 	agregarPaciente(paciente);
 
@@ -23,8 +23,9 @@ cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 	bool agregados = false;
 	if (sujeto == NULL)
 	{
+
 		cReceptor* sujeto = dynamic_cast<cReceptor*>(paciente);
-		
+		cLista<cPaciente>* listaReceptoresAux = new cLista<cPaciente>(1, true);
 		for (ush i = 0; i < this->listaDonantes->cantActual; i++)
 		{
 			agregados = false;
@@ -38,7 +39,8 @@ cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 					cCentroSalud* centro_salud = listaDonantes->lista[i]->getCentro();
 					protocoloDeTransporteYTrasplante(lista_organos, sujeto, centro_salud);
 					agregados = true;
-					return *listaReceptores - sujeto;
+					listaReceptoresAux->lista[0] = *listaReceptores - sujeto;
+					return listaReceptoresAux;
 					}
 			}
 			if (agregados == true) {
@@ -50,7 +52,9 @@ cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 	if (sujeto != NULL) {
 		for (ush i = 0; i < sujeto->listaOrgano->cantActual; i++) //este for recorre la lista de organos del donante
 		{
+			cLista<cPaciente>* listaReceptoresAux = new cLista<cPaciente>(sujeto->listaOrgano->cantActual, true);
 			agregados = false;
+			ush cantAgregados = 0;
 			for (ush j = 0; j < this->listaReceptores->cantActual; j++) //estos subfor recorren la lista de posibles receptores
 			{
 				if (agregados == true) {
@@ -58,13 +62,14 @@ cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 				}
 				if (this->listaReceptores->lista[j]->getPrioridad() == maxima && //recorro solo los de maxima prioridad
 					(*sujeto == *listaReceptores->lista[j]) == true) { //filtro por tipo de sangre, repito esto para media y minima
+					cantAgregados++;
 					cOrgano* lista_organos = Ablacion(sujeto, sujeto->listaOrgano->lista[j]->getTipoOrgano());
 					cCentroSalud* centro_salud = sujeto->getCentro();
 					protocoloDeTransporteYTrasplante(lista_organos, listaReceptores->lista[j], centro_salud);
 					this->listaReceptores->cantActual--;
 					agregados = true;
-					cPaciente* aux = *listaReceptores - listaReceptores->lista[j];
-					return aux;
+					listaReceptoresAux->lista[cantAgregados] = *listaReceptores - listaReceptores->lista[j];
+					return listaReceptoresAux;
 					break;
 				}
 
@@ -82,11 +87,13 @@ cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 					}
 						if (this->listaReceptores->lista[j]->getPrioridad() == media && //recorro solo los de maxima prioridad
 							(*sujeto == *listaReceptores->lista[j]) == true) { //filtro por tipo de sangre, repito esto para media y minima
+							cantAgregados++;
 							cOrgano* lista_organos = Ablacion(sujeto, sujeto->listaOrgano->lista[j]->getTipoOrgano());
 							cCentroSalud* centro_salud = sujeto->getCentro();
 							protocoloDeTransporteYTrasplante(lista_organos, listaReceptores->lista[j], centro_salud);
 							agregados = true;
-							return *listaReceptores - listaReceptores->lista[j];
+							listaReceptoresAux->lista[cantAgregados] = *listaReceptores - listaReceptores->lista[j];
+							return listaReceptoresAux;
 							break;
 						}
 					}
@@ -103,11 +110,13 @@ cPaciente* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 							}
 							if (this->listaReceptores->lista[j]->getPrioridad() == minima && //recorro solo los de maxima prioridad
 								(*sujeto == *listaReceptores->lista[j]) == true) { //filtro por tipo de sangre, repito esto para media y minima
+								cantAgregados++;
 								cOrgano* lista_organos = Ablacion(sujeto, sujeto->listaOrgano->lista[j]->getTipoOrgano());
 								cCentroSalud* centro_salud = sujeto->getCentro();
 								protocoloDeTransporteYTrasplante(lista_organos, listaReceptores->lista[j], centro_salud);
 								agregados = true;
-								return *listaReceptores - listaReceptores->lista[j];
+								listaReceptoresAux->lista[cantAgregados] = *listaReceptores - listaReceptores->lista[j];
+								return listaReceptoresAux;
 								break;
 							}
 						}

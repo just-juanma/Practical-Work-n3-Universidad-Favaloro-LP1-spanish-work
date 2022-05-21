@@ -29,7 +29,7 @@ class cINCUCAI {
         /// <param name="lista">: Lista a setear</param>
         void setCentros(cLista<cCentroSalud>* lista) {
             if(lista && !listaCentros)
-                this->listaCentros = lista;
+                this->listaCentros = lista; return;
             throw exception("No se pudo iniciar la lista de centros");
         }
 
@@ -51,7 +51,7 @@ class cINCUCAI {
         /// <summary>
         /// Proceso del match pedido por el tp se encuentra en esta funcion
         /// </summary>
-        cPaciente* ingresarPaciente(cPaciente* paciente);
+        cLista<cPaciente>* ingresarPaciente(cPaciente* paciente);
 
         /// <summary>
         /// Mediante este metodo se le transplanta el organo solicitado a un receptor especifico
