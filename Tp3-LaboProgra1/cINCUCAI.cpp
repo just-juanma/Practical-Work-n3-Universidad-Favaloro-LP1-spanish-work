@@ -34,7 +34,7 @@ cLista<cPaciente>* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 				if (agregados == true) {
 					break;
 				}
-				if (( *listaDonantes->lista[i] == *sujeto)==true) {
+				if (( *listaDonantes->lista[i] == *sujeto) == true) {
 					cOrgano* lista_organos = Ablacion(listaDonantes->lista[i], sujeto->getOrganoNecesitado()->getTipoOrgano());
 					cCentroSalud* centro_salud = listaDonantes->lista[i]->getCentro();
 					protocoloDeTransporteYTrasplante(lista_organos, sujeto, centro_salud);
@@ -50,11 +50,12 @@ cLista<cPaciente>* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 		
 	}
 	if (sujeto != NULL) {
-		for (ush i = 0; i < sujeto->listaOrgano->cantActual; i++) //este for recorre la lista de organos del donante
+		cLista<cPaciente>* listaReceptoresAux = new cLista<cPaciente>(sujeto->listaOrgano->cantActual, true);
+		ush n = sujeto->listaOrgano->cantActual;
+		ush cantAgregados = 0;
+		for (ush i = 0; i < n; i++) //este for recorre la lista de organos del donante
 		{
-			cLista<cPaciente>* listaReceptoresAux = new cLista<cPaciente>(sujeto->listaOrgano->cantActual, true);
 			agregados = false;
-			ush cantAgregados = 0;
 			for (ush j = 0; j < this->listaReceptores->cantActual; j++) //estos subfor recorren la lista de posibles receptores
 			{
 				if (agregados == true) {
@@ -66,16 +67,11 @@ cLista<cPaciente>* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 					cOrgano* lista_organos = Ablacion(sujeto, sujeto->listaOrgano->lista[j]->getTipoOrgano());
 					cCentroSalud* centro_salud = sujeto->getCentro();
 					protocoloDeTransporteYTrasplante(lista_organos, listaReceptores->lista[j], centro_salud);
-					this->listaReceptores->cantActual--;
 					agregados = true;
-					listaReceptoresAux->lista[cantAgregados] = *listaReceptores - listaReceptores->lista[j];
-					return listaReceptoresAux;
+					listaReceptoresAux->lista[cantAgregados - 1] = *listaReceptores - listaReceptores->lista[j];
 					break;
 				}
 
-			}
-			if (agregados == true) {
-				break;
 			}
 
 			if (agregados != true)
@@ -92,15 +88,11 @@ cLista<cPaciente>* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 							cCentroSalud* centro_salud = sujeto->getCentro();
 							protocoloDeTransporteYTrasplante(lista_organos, listaReceptores->lista[j], centro_salud);
 							agregados = true;
-							listaReceptoresAux->lista[cantAgregados] = *listaReceptores - listaReceptores->lista[j];
-							return listaReceptoresAux;
+							if (listaReceptores->lista[j])
+								listaReceptoresAux->lista[cantAgregados - 1] = *listaReceptores - listaReceptores->lista[j];
 							break;
 						}
 					}
-					if (agregados == true) {
-						break;
-					}
-
 					if (agregados != true)
 					{
 						for (ush j = 0; j < this->listaReceptores->cantActual; j++) //estos subfor recorren la lista de posibles receptores
@@ -115,18 +107,15 @@ cLista<cPaciente>* cINCUCAI::ingresarPaciente(cPaciente* paciente) {
 								cCentroSalud* centro_salud = sujeto->getCentro();
 								protocoloDeTransporteYTrasplante(lista_organos, listaReceptores->lista[j], centro_salud);
 								agregados = true;
-								listaReceptoresAux->lista[cantAgregados] = *listaReceptores - listaReceptores->lista[j];
-								return listaReceptoresAux;
+								if(listaReceptores->lista[j])
+									listaReceptoresAux->lista[cantAgregados - 1] = *listaReceptores - listaReceptores->lista[j];
 								break;
 							}
 						}
-						if (agregados == true) {
-							break;
-						}
 					}
-
 				}
 			}
+			return listaReceptoresAux;
 		}
 	}
 
@@ -168,10 +157,7 @@ void cINCUCAI::protocoloDeTransporteYTrasplante(cOrgano* _organo, cReceptor* _re
 		_vehiculo->setOrgano(_organo); //Se le pasa el organo necesitado, para ser transportado 
 		_vehiculo->inciarTransporte(); //imprime en pantalla el iuiu iuiu - Taca taca - fiuuuuum
 		_vehiculo->setLuO(true);
-		if (_receptor->inicarTransplante(_vehiculo->getOrgano())==true) { //ademas se ve si el transplante fue exitoso
-			*this->listaReceptores - _receptor;
-		}
-		else {
+		if (_receptor->inicarTransplante(_vehiculo->getOrgano())==false) { //ademas se ve si el transplante fue exitoso
 			_receptor->setPrioridad(maxima); //setea el 
 			_receptor->switchEstabilidad();//cambia el estado
 		}
