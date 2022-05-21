@@ -259,11 +259,7 @@ int main() {
 
 	delete dCorazon1; delete dPiel1; delete dHuesos2;
 	delete rCorazon1; delete rHuesos2;
-	delete dRinion3; delete dPiel3; delete dHuesos5;
-	delete dCorazon5; delete dCornea4; delete dCornea5; delete dPiel5;
 	
-
-
 	delete rNacimiento1; delete fechaEnEspera1;
 	delete rNacimiento2; delete fechaEnEspera2;
 	delete dNacimiento1; delete dNacimiento2;
