@@ -15,6 +15,9 @@ class cAmbulancia : public cVehiculo {
         /// <param name="_nombre">: Nombre de la ambulancia</param>
         cAmbulancia(string _nombre);
 
+        /// <summary>
+        /// Destructor por defecto
+        /// </summary>
         ~cAmbulancia();
 
         #pragma endregion

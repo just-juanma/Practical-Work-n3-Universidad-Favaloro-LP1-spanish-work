@@ -15,6 +15,9 @@ class cHelicoptero : public cVehiculo {
         /// <param name="_nombre">: Nombre del helicoptero</param>
         cHelicoptero(string _nombre);
 
+        /// <summary>
+        /// Destructor por defecto
+        /// </summary>
         ~cHelicoptero();
 
         #pragma endregion

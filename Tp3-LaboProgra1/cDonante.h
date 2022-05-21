@@ -45,10 +45,20 @@ class cDonante: public cPaciente
                 throw exception("No se pudo asignar la lista de organos al donante");
         }
 
+        /// <summary>
+        /// Obtiene la lista de organos
+        /// </summary>
+        /// <returns>Lista de organos</returns>
         cLista<cOrgano>* getListaOrgano() const {
-            return listaOrgano;
+            if(listaOrgano)
+                return listaOrgano;
+            throw exception("La clase aun no fue creada");
         }
 
+        /// <summary>
+        /// Obtiene el tipo de sangre
+        /// </summary>
+        /// <returns>Tipo de sangre</returns>
         eTipoSangre getTipoSangre()const {
             return this->tipoSangre;
         }
@@ -77,6 +87,11 @@ class cDonante: public cPaciente
             cout << to_string() << endl;
         }
 
+        /// <summary>
+        /// Comienza la ablacion del organo del donante
+        /// </summary>
+        /// <param name="organo">: organo del paciente</param>
+        /// <returns>Organo quitado durante la ablacion</returns>
         cOrgano* iniciarAblacion(eOrgano organo) {
             time_t temp;
             this->ablacion->setFechaAblacion(time(&temp));
@@ -102,6 +117,7 @@ class cDonante: public cPaciente
                 }
             return false;
         }
+
         #pragma endregion   
 
     private:
@@ -111,6 +127,7 @@ class cDonante: public cPaciente
         cLista<cOrgano>* listaOrgano;
         cFecha* muerte;
         cFecha* ablacion;
+        
         #pragma endregion
 
 };

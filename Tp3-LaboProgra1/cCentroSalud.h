@@ -45,15 +45,27 @@ class cCentroSalud
             this->listaVehiculo = _listaVehiculo;
         }
         
-        string getProvincia() {
+        /// <summary>
+        /// Obtiene la provincia del centro
+        /// </summary>
+        /// <returns>Provincia del centro</returns>
+        string getProvincia() const {
             return this->provincia;
         }
 
-        ush getCantDonProv() {
+        /// <summary>
+        /// Obtiene la cantidad de donaciones en la provincia del centro
+        /// </summary>
+        /// <returns>Cantidad de donaciones en la provincia</returns>
+        ush getCantDonProv() const {
             return this->cantDonProv;
         }
 
-        string getNombre() {
+        /// <summary>
+        /// Obtiene el nombre del centro
+        /// </summary>
+        /// <returns>Nombre del centro</returns>
+        string getNombre() const {
             return this->nombre;
         }
 

@@ -133,9 +133,9 @@ class cLista
             throw exception("Se esta intentando acceder a un elemento imposible de acceder");
         }
 
-        friend ostream& operator << (ostream& out, const T* elemento) {
-            return out << to_string() << endl;
-        }
+        //friend ostream& operator << <>(ostream& out, const T* elemento) {
+        //    return out << to_string() << endl;
+        //}
 
         #pragma endregion
 

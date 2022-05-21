@@ -16,19 +16,41 @@ class cINCUCAI {
         /// Constructor por defecto
         /// </summary>
         cINCUCAI();
-
+     
         ~cINCUCAI();
 
         #pragma endregion
 
         #pragma region Metodos
 
+        /// <summary>
+        /// Setea la lista de centros
+        /// </summary>
+        /// <param name="lista">: Lista a setear</param>
         void setCentros(cLista<cCentroSalud>* lista) {
-            this->listaCentros = lista;
+            if(lista && !listaCentros)
+                this->listaCentros = lista;
+            throw exception("No se pudo iniciar la lista de centros");
         }
 
+        /// <summary>
+        /// La funcion propone 
+        ///     1. Castear segun sea el tipo de paciente y agregar a la lista pertinente
+        ///     2. Verificar que no se repita mediante el unico ID a considerar: el numero de telefono
+        /// </summary>
+        /// <param name="paciente">: Paciente a analizar</param>
         void agregarPaciente(cPaciente* paciente);
+
+
+        /// <summary>
+        /// Llama a la funcion "ingresarPaciente"
+        /// </summary>
+        /// <param name="paciente">: Paciente a recibir, bienvenido!</param>
         void recibirPaciente(cPaciente* paciente);
+
+        /// <summary>
+        /// Proceso del match pedido por el tp se encuentra en esta funcion
+        /// </summary>
         cPaciente* ingresarPaciente(cPaciente* paciente);
 
         /// <summary>
@@ -41,10 +63,15 @@ class cINCUCAI {
         /// <summary>
         /// Devuelve la lista de organos ya removidos del donante con la hora de la ablacion seteada
         /// </summary>
-        /// <param name="_dontante"></param>
+        /// <param name="_donante">: Recibe el donante al que se le llamara la ablacion  </param>
+        /// <param name="tipoOrgano">: Organo a quitar</param>
         /// <returns></returns>
         cOrgano* Ablacion(cDonante* _donante, eOrgano tipoOrgano);
 
+        /// <summary>
+        /// Busca en la lista de receptores segun el organo 
+        /// </summary>
+        /// <param name="organo">: Organo a filtrar</param>
         cLista<cReceptor>* buscarPorOrgano(cOrgano* organo) {
             cLista<cReceptor>* receptores = new cLista<cReceptor>(this->listaReceptores->cantActual, false);
             for (ush i = 0; i < this->listaReceptores->cantActual; i++) 
@@ -67,7 +94,7 @@ class cINCUCAI {
                     cout << "Prioridad de " << receptor->getNombre() << ": " << receptor->getPrioridad();
                     return;
                 }
-            throw exception("No se encontro al receptor");
+             throw exception("No se encontro al receptor");
         }
         
         /// <summary>

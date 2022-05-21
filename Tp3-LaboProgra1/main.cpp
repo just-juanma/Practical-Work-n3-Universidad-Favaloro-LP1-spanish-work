@@ -219,6 +219,7 @@ int main() {
 	}
 
 	// funciones adicionales pedidas
+	// FUNCIONAN SEGUN QUE RECEPTOR FUE QUITADO DE LA LISTA, LUEGO DEL MATCH (RECORDAR QUE ES RANDOM)
 	try {
 		INCUCAI->imprimirReceptor(receptor4);
 
